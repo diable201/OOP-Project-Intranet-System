@@ -18,7 +18,7 @@ public class Employee extends User {
     /**
     * @generated
     */
-    private EmployeeTypes setDepartment(EmployeeTypes department) {
+    private void setDepartment(EmployeeTypes department) {
         this.department = department;
     }
     

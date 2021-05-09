@@ -30,7 +30,7 @@ public class CourseFiles {
     /**
     * @generated
     */
-    private String setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
     
@@ -44,7 +44,7 @@ public class CourseFiles {
     /**
     * @generated
     */
-    private String setContent(String content) {
+    private void setContent(String content) {
         this.content = content;
     }
     
@@ -59,7 +59,7 @@ public class CourseFiles {
     /**
     * @generated
     */
-    public Course setCourse(Course course) {
+    public void setCourse(Course course) {
         this.course = course;
     }
     

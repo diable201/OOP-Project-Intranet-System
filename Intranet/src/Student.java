@@ -63,7 +63,7 @@ public class Student extends User {
     /**
      * @generated
      */
-    private Integer setYearOfStudy(Integer yearOfStudy) {
+    private void setYearOfStudy(Integer yearOfStudy) {
         this.yearOfStudy = yearOfStudy;
     }
 
@@ -77,7 +77,7 @@ public class Student extends User {
     /**
      * @generated
      */
-    private ArrayList <Course> setCourses(ArrayList <Course> courses) {
+    private void setCourses(ArrayList <Course> courses) {
         this.courses = courses;
     }
 
@@ -91,7 +91,7 @@ public class Student extends User {
     /**
      * @generated
      */
-    private Faculty setFaculty(Faculty faculty) {
+    private void setFaculty(Faculty faculty) {
         this.faculty = faculty;
     }
 
@@ -105,7 +105,7 @@ public class Student extends User {
     /**
      * @generated
      */
-    private Degree setDegree(Degree degree) {
+    private void setDegree(Degree degree) {
         this.degree = degree;
     }
 
@@ -119,7 +119,7 @@ public class Student extends User {
     /**
      * @generated
      */
-    private Integer setCreditLimit(Integer creditLimit) {
+    private void setCreditLimit(Integer creditLimit) {
         this.creditLimit = creditLimit;
     }
 
@@ -133,7 +133,7 @@ public class Student extends User {
     /**
      * @generated
      */
-    private Integer setTotalCredits(Integer totalCredits) {
+    private void setTotalCredits(Integer totalCredits) {
         this.totalCredits = totalCredits;
     }
 
@@ -147,7 +147,7 @@ public class Student extends User {
     /**
      * @generated
      */
-    private HashMap <Course, Mark> setMarks(HashMap <Course, Mark> marks) {
+    private void setMarks(HashMap <Course, Mark> marks) {
         this.marks = marks;
     }
 
@@ -176,7 +176,7 @@ public class Student extends User {
     /**
      * @generated
      */
-    public Mark setMark(Mark mark) {
+    public void setMark(Mark mark) {
         this.mark = mark;
     }
 

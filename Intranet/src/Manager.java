@@ -37,7 +37,7 @@ public class Manager extends Employee {
     /**
     * @generated
     */
-    private ArrayList <Course> setCourses(ArrayList <Course> courses) {
+    private void setCourses(ArrayList <Course> courses) {
         this.courses = courses;
     }
     
@@ -51,7 +51,7 @@ public class Manager extends Employee {
     /**
     * @generated
     */
-    private ArrayList <Teacher> setTeachers(ArrayList <Teacher> teachers) {
+    private void setTeachers(ArrayList <Teacher> teachers) {
         this.teachers = teachers;
     }
     
@@ -65,7 +65,7 @@ public class Manager extends Employee {
     /**
     * @generated
     */
-    private ArrayList <Student> setStudents(ArrayList <Student> students) {
+    private void setStudents(ArrayList <Student> students) {
         this.students = students;
     }
     
@@ -80,7 +80,7 @@ public class Manager extends Employee {
     /**
     * @generated
     */
-    public News setNews(News news) {
+    public void setNews(News news) {
         this.news = news;
     }
     
