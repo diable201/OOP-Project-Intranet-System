@@ -52,6 +52,8 @@ public class Student extends User {
      * @generated
      */
     
+    private Integer currentYearOfStudy = 1;
+    
     public Student() {
     	super();
     }
@@ -183,6 +185,10 @@ public class Student extends User {
 		result = 31 * result + degree.hashCode();
 		return result;
 		}
+    
+    public void increaseYearOfStudy() {
+    	this.currentYearOfStudy++;
+    }
 
 //
 //    //                          Operations
