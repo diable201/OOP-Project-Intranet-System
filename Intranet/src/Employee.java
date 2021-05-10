@@ -21,8 +21,16 @@ public class Employee extends User {
     private void setDepartment(EmployeeTypes department) {
         this.department = department;
     }
-    
-    
+
+    public Employee() {
+        super();
+    }
+
+    public Employee(Integer id, String name, String surname, EmployeeTypes department) {
+        super(id, name, surname);
+        this.department = department;
+    }
+
 
     //                          Operations                                  
     
@@ -44,5 +52,9 @@ public class Employee extends User {
     public viewSentMessage() {
         //TODO
     }
-    
+
+    @Override
+    public int compareTo(User o) {
+        return 0;
+    }
 }

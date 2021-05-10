@@ -100,45 +100,5 @@ public class Message {
     public void setDatabase(Database database) {
         this.database = database;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public getBody() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setBody() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getSender() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setSender() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getReceiver() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setReceiver() {
-        //TODO
-    }
-    
 }

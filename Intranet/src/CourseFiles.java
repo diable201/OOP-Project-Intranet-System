@@ -17,25 +17,49 @@ public class CourseFiles {
     	
     }
     /**
+
      * @generated
      */
     
-	public String getName() {
-		return name;
-	}
+	  public String getName() {
+		    return name;
+	  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
+    /**
+    * @generated
+    */
+    private void setName(String name) {
+        this.name = name;
+    }
+    
+    /**
+    * @generated
+    */
+    private String getContent() {
+        return this.content;
+    }
+    
+    /**
+    * @generated
+    */
+    private void setContent(String content) {
+        this.content = content;
+    }
     
     
+    /**
+    * @generated
+    */
+    public Course getCourse() {
+        return this.course;
+    }
     
+    /**
+    * @generated
+    */
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+    //                          Operations                                  
+
 }

@@ -13,23 +13,7 @@ public class Order {
     * @generated
     */
     private Librarian librarian;
-    
-    
-    /**
-    * @generated
-    */
-    private Boolean getStatus() {
-        return this.status;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setStatus(Boolean status) {
-        this.status = status;
-    }
-    
-    
+  
     /**
     * @generated
     */
@@ -46,18 +30,19 @@ public class Order {
     
 
     //                          Operations                                  
-    
+
     /**
-    * @generated
-    */
-    public getStatus() {
-        //TODO
+     * @generated
+     */
+    private Boolean getStatus() {
+        return this.status;
     }
+
     /**
-    * @generated
-    */
-    public setStatus() {
-        //TODO
+     * @generated
+     */
+    private void setStatus(Boolean status) {
+        this.status = status;
     }
     
 }

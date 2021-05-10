@@ -83,45 +83,5 @@ public class News {
     public void setManager(Manager manager) {
         this.manager = manager;
     }
-    
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public getDate() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setDate() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getDescription() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setDescription() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getTitle() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setTitle() {
-        //TODO
-    }
-    
+    //                          Operations
 }
