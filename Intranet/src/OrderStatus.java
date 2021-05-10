@@ -4,5 +4,4 @@ public enum OrderStatus {
 	ACCEPTED,
 	REJECTED,
 	DONE
-
 }
