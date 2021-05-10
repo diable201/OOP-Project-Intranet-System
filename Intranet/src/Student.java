@@ -191,6 +191,11 @@ public class Student extends User {
     public String toString() {
         return super.toString() + "\nYearOfStudy [" + yearOfStudy + "]" + "\nFaculty [" + faculty + "]" + "\nDegree [" + degree + "]";
     }
+
+    @Override
+    public int compareTo(User o) {
+        return 0;
+    }
 //
 //    //                          Operations
 //

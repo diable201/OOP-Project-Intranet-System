@@ -18,11 +18,10 @@ public class Employee extends User {
     /**
     * @generated
     */
-    private EmployeeTypes setDepartment(EmployeeTypes department) {
+    private void setDepartment(EmployeeTypes department) {
         this.department = department;
     }
-    
-    
+
 
     //                          Operations                                  
     
@@ -44,5 +43,9 @@ public class Employee extends User {
     public viewSentMessage() {
         //TODO
     }
-    
+
+    @Override
+    public int compareTo(User o) {
+        return 0;
+    }
 }

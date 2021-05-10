@@ -1,10 +1,10 @@
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * @generated
  */
-public class User implements Serializable, Comparable {
-
+public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
@@ -33,14 +33,67 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private Boolean isLogged;
+    private String fullName;
 
+    /**
+     * @generated
+     */
+    private Boolean isLogged;
 
     /**
      * @generated
      */
     private Database database;
 
+    public User() {}
+
+    public User(Integer id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.password = "KBTU2021";
+        this.username = this.name.substring(0, 1).toLowerCase() + '_' + this.surname.toLowerCase();
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", isLogged=" + isLogged +
+                ", database=" + database +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        if (!Objects.equals(id, user.id)) return false;
+        if (!Objects.equals(username, user.username)) return false;
+        if (!Objects.equals(password, user.password)) return false;
+        if (!Objects.equals(name, user.name)) return false;
+        if (!Objects.equals(surname, user.surname)) return false;
+        if (!Objects.equals(isLogged, user.isLogged)) return false;
+        return Objects.equals(database, user.database);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, username, password, id);
+    }
+
+    @Override
+    public int compareTo(User user) {
+        return username.compareTo(user.username);
+    }
 
     /**
      * @generated
@@ -52,7 +105,7 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private Integer setId(Integer id) {
+    private void setId(Integer id) {
         this.id = id;
     }
 
@@ -66,7 +119,7 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private String setUsername(String username) {
+    private void setUsername(String username) {
         this.username = username;
     }
 
@@ -80,7 +133,7 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private String setPassword(String password) {
+    private void setPassword(String password) {
         this.password = password;
     }
 
@@ -94,7 +147,7 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private String setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -108,7 +161,21 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private String setSurname(String surname) {
+    private void setFullName(String name, String surname) {
+        this.fullName = name + " " + surname;
+    }
+
+    /**
+     * @generated
+     */
+    private String getFullName() {
+        return this.fullName;
+    }
+
+    /**
+     * @generated
+     */
+    private void setSurname(String surname) {
         this.surname = surname;
     }
 
@@ -122,115 +189,33 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private Boolean setIsLogged(Boolean isLogged) {
+    private void setIsLogged(Boolean isLogged) {
         this.isLogged = isLogged;
-    }
-
-
-    /**
-     * @generated
-     */
-    public Database getDatabase() {
-        return this.database;
-    }
-
-    /**
-     * @generated
-     */
-    public Database setDatabase(Database database) {
-        this.database = database;
     }
 
 
     //                          Operations
 
-    /**
-     * @generated
-     */
-    public getUsername() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public setUsername() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public getPassword() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public setPassword() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public getName() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public setName() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public getSurname() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public setSurname() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public login() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public getId() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public setId() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public int hashCode() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public equals() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public String toString() {
-        //TODO
+    public boolean changePassword(String oldPassword, String newPassword) {
+        if (oldPassword.equals(this.password)) {
+            this.password = newPassword;
+            return true;
+        }
+        return false;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
+    /**
+     * @generated
+     */
+    public boolean login(String password) {
+        this.isLogged = this.password.equals(password);
+        return this.isLogged;
+    }
+
+    /**
+     * @generated
+     */
+    public boolean logout() {
+        return this.isLogged = false;
     }
 }
