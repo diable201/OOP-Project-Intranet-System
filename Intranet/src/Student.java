@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 
 /**
@@ -177,13 +178,9 @@ public class Student extends User {
 	return super.equals(s) && s.yearOfStudy == yearOfStudy && s.faculty.equals(faculty) && s.degree.equals(degree);
 	
 	}
-    
+    @Override
     public int hashCode() {
-		int result = 17;
-		result = 31 * result + yearOfStudy;
-		result = 31 * result + faculty.hashCode();
-		result = 31 * result + degree.hashCode();
-		return result;
+		return Objects.hash(super.hashCode(), yearOfStudy,faculty,degree);
 		}
     
     public void increaseYearOfStudy() {
