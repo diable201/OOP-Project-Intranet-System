@@ -22,6 +22,15 @@ public class Employee extends User {
         this.department = department;
     }
 
+    public Employee() {
+        super();
+    }
+
+    public Employee(Integer id, String name, String surname, EmployeeTypes department) {
+        super(id, name, surname);
+        this.department = department;
+    }
+
 
     //                          Operations                                  
     
