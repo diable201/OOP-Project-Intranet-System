@@ -11,309 +11,84 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    private String code;
-    
+	public Course() {
+	}
+	private String code;
+	/**
+	    * @generated
+	    */
+	private String title;
+	/**
+	    * @generated
+	    */
+	private int credits;
+	/**
+	    * @generated
+	    */
+	private int limitOfStudents;
+	/**
+	    * @generated
+	    */
+	private HashSet<CourseFiles>courseFiles = new HashSet<CourseFiles>();
+	
+	private HashSet<Course>prerequisites = new HashSet<Course>();
+	private ArrayList<Student>students = new ArrayList<Student>();
+	private HashMap<Student, Mark>marks = new HashMap<Student, Mark>();
+	private ArrayList<Lesson>lessons = new ArrayList<Lesson>();
     /**
     * @generated
     */
-    private String title;
-    
-    /**
-    * @generated
-    */
-    private Integer credits;
-    
-    /**
-    * @generated
-    */
-    private HashSet <CourseFiles> courseFiles;
-    
-    /**
-    * @generated
-    */
-    private Integer limitOfStudents;
-    
-    /**
-    * @generated
-    */
-    private ArrayList<Lesson> lessons;
-    
-    /**
-    * @generated
-    */
-    private HashSet<Course> prerequisites;
-    
-    /**
-    * @generated
-    */
-    private ArrayList <Student> students;
-    
-    /**
-    * @generated
-    */
-    private HashMap<Student, Mark> marks;
-    
-    
-    /**
-    * @generated
-    */
-    private CourseFiles courseFiles2;
-    
-    /**
-    * @generated
-    */
-    private Teacher teacher;
-    
-    /**
-    * @generated
-    */
-    private Lesson lesson;
-    
-    /**
-    * @generated
-    */
-    private Student student;
-    
-    
-    /**
-    * @generated
-    */
-    private String getCode() {
-        return this.code;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setCode(String code) {
-        this.code = code;
-    }
-    
-    /**
-    * @generated
-    */
-    private String getTitle() {
-        return this.title;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setTitle(String title) {
-        this.title = title;
-    }
-    
-    /**
-    * @generated
-    */
-    private Integer getCredits() {
-        return this.credits;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setCredits(Integer credits) {
-        this.credits = credits;
-    }
-    
-    /**
-    * @generated
-    */
-    private HashSet <CourseFiles> getCourseFiles() {
-        return this.courseFiles;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setCourseFiles(HashSet <CourseFiles> courseFiles) {
-        this.courseFiles = courseFiles;
-    }
-    
-    /**
-    * @generated
-    */
-    private Integer getLimitOfStudents() {
-        return this.limitOfStudents;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setLimitOfStudents(Integer limitOfStudents) {
-        this.limitOfStudents = limitOfStudents;
-    }
-    
-    /**
-    * @generated
-    */
-    private ArrayList <Lesson> getLessons() {
-        return this.lessons;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setLessons(ArrayList <Lesson> lessons) {
-        this.lessons = lessons;
-    }
-    
-    /**
-    * @generated
-    */
-    private HashSet <Course> getPrerequisites() {
-        return this.prerequisites;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setPrerequisites(HashSet <Course> prerequisites) {
-        this.prerequisites = prerequisites;
-    }
-    
-    /**
-    * @generated
-    */
-    private ArrayList <Student> getStudents() {
-        return this.students;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setStudents(ArrayList <Student> students) {
-        this.students = students;
-    }
-    
-    /**
-    * @generated
-    */
-    private HashMap <Student, Mark> getMarks() {
-        return this.marks;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setMarks(HashMap <Student, Mark> marks) {
-        this.marks = marks;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public CourseFiles getCourseFiles2() {
-        return this.courseFiles2;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setCourseFiles2(CourseFiles courseFiles2) {
-        this.courseFiles2 = courseFiles2;
-    }
-    
-    /**
-    * @generated
-    */
-    public Lesson getLesson() {
-        return this.lesson;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setLesson(Lesson lesson) {
-        this.lesson = lesson;
-    }
-    
-    /**
-    * @generated
-    */
-    public Teacher getTeacher() {
-        return this.teacher;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
-    
-    /**
-    * @generated
-    */
-    public Student getStudent() {
-        return this.student;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-    
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public getCode() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setCode() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getTitle() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setTitle() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getCredits() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setCredits() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getCourseFile() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getLessons() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setLessons() {
-        //TODO
-    }
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public int getCredits() {
+		return credits;
+	}
+	public void setCredits(int credits) {
+		this.credits = credits;
+	}
+	public int getLimitOfStudents() {
+		return limitOfStudents;
+	}
+	public void setLimitOfStudents(int limitOfStudents) {
+		this.limitOfStudents = limitOfStudents;
+	}
+	public void setCourseFiles(CourseFiles courseF) {
+		courseFiles.add(courseF);
+	}
+	public void deleteCourseFiles(CourseFiles courseF) {
+		courseFiles.remove(courseF);
+	}
+	public HashSet<CourseFiles> getCourseFiles(){
+		return courseFiles;
+	}
+	public void setPrerequisites(Course c) {
+		prerequisites.add(c);
+	}
+	public HashSet<Course> getPrerequisites(){
+		return prerequisites;
+	}
+	public void setStudents(Student s) {
+		students.add(s);
+	}
+	public ArrayList<Student> getStudents(){
+		return students;
+	}
+	public void setLessons(Lesson l) {
+		lessons.add(l);
+	}
+	public ArrayList<Lesson> getLessons(){
+		return lessons;
+	}
+	
     
 }

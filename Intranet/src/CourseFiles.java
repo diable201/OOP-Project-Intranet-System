@@ -13,82 +13,29 @@ public class CourseFiles {
     */
     private String content;
     
-    
-    /**
-    * @generated
-    */
-    private Course course;
-    
-    
-    /**
-    * @generated
-    */
-    private String getName() {
-        return this.name;
+    public CourseFiles() {
+    	
     }
-    
     /**
-    * @generated
-    */
-    private void setName(String name) {
-        this.name = name;
-    }
+     * @generated
+     */
     
-    /**
-    * @generated
-    */
-    private String getContent() {
-        return this.content;
-    }
-    
-    /**
-    * @generated
-    */
-    private void setContent(String content) {
-        this.content = content;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Course getCourse() {
-        return this.course;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-    
+	public String getName() {
+		return name;
+	}
 
-    //                          Operations                                  
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
     
-    /**
-    * @generated
-    */
-    public getName() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setName() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getContent() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setContent() {
-        //TODO
-    }
+    
     
 }
