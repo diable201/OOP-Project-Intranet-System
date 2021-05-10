@@ -2,7 +2,16 @@
 * @generated
 */
 public class Book {
-    
+
+    public Book() {}
+
+    public Book(String name, Integer id, String author, String link) {
+        this.name = name;
+        this.id = id;
+        this.author = author;
+        this.link = link;
+    }
+
     /**
     * @generated
     */
@@ -102,55 +111,5 @@ public class Book {
     }
     
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public getName() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setName() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getId() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setId() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getAuthor() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setAuthor() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getLink() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setLink() {
-        //TODO
-    }
-    
+    //                          Operations
 }

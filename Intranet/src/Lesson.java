@@ -6,7 +6,14 @@ public class Lesson {
 	public Lesson() {
 		
 	}
-    /**
+
+	public Lesson(LessonType type, Integer time, Day day) {
+		this.type = type;
+		this.time = time;
+		this.day = day;
+	}
+
+	/**
     * @generated
     */
     private LessonType type;

@@ -2,7 +2,13 @@
 * @generated
 */
 public class Order {
-    
+
+    public Order() {}
+
+    public Order(Boolean status) {
+        this.status = status;
+    }
+
     /**
     * @generated
     */

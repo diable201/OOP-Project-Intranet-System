@@ -4,7 +4,15 @@ import java.util.Date;
 * @generated
 */
 public class News {
-    
+
+    public News() {}
+
+    public News(Date date, String description, String title) {
+        this.date = date;
+        this.description = description;
+        this.title = title;
+    }
+
     /**
     * @generated
     */

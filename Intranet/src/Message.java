@@ -2,7 +2,16 @@
 * @generated
 */
 public class Message {
-    
+
+    public Message() {}
+
+    public Message(String body, User sender, User receiver, Boolean isRead) {
+        this.body = body;
+        this.sender = sender;
+        this.receiver = receiver;
+        this.isRead = isRead;
+    }
+
     /**
     * @generated
     */

@@ -13,6 +13,14 @@ public class Course implements Serializable {
     */
 	public Course() {
 	}
+
+	public Course(String code, String title, int credits, HashSet<Course> prerequisites) {
+		this.code = code;
+		this.title = title;
+		this.credits = credits;
+		this.prerequisites = prerequisites;
+	}
+
 	private String code;
 	/**
 	    * @generated

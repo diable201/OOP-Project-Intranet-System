@@ -12,16 +12,20 @@ public class CourseFiles {
     * @generated
     */
     private String content;
-    
-    public CourseFiles() {
-    	
-    }
-    /**
+    private Course course;
 
+    public CourseFiles() {}
+
+    public CourseFiles(String name, String content) {
+        this.name = name;
+        this.content = content;
+    }
+
+    /**
      * @generated
      */
     
-	  public String getName() {
+    public String getName() {
 		    return name;
 	  }
 

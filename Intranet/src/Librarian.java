@@ -9,8 +9,15 @@ public class Librarian extends Employee {
     * @generated
     */
     private ArrayList<Book> books;
-    
-    
+
+    public Librarian() {
+        super();
+    }
+
+    public Librarian(Integer id, String name, String surname, EmployeeTypes department) {
+        super(id, name, surname, department);
+    }
+
     /**
     * @generated
     */
