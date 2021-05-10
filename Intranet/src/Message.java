@@ -40,7 +40,7 @@ public class Message {
     /**
     * @generated
     */
-    private String setBody(String body) {
+    private void setBody(String body) {
         this.body = body;
     }
     
@@ -54,7 +54,7 @@ public class Message {
     /**
     * @generated
     */
-    private User setSender(User sender) {
+    private void setSender(User sender) {
         this.sender = sender;
     }
     
@@ -68,7 +68,7 @@ public class Message {
     /**
     * @generated
     */
-    private User setReceiver(User receiver) {
+    private void setReceiver(User receiver) {
         this.receiver = receiver;
     }
     
@@ -82,7 +82,7 @@ public class Message {
     /**
     * @generated
     */
-    private Boolean setIsRead(Boolean isRead) {
+    private void setIsRead(Boolean isRead) {
         this.isRead = isRead;
     }
     
@@ -97,48 +97,8 @@ public class Message {
     /**
     * @generated
     */
-    public Database setDatabase(Database database) {
+    public void setDatabase(Database database) {
         this.database = database;
     }
-    
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public getBody() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setBody() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getSender() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setSender() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getReceiver() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setReceiver() {
-        //TODO
-    }
-    
 }
