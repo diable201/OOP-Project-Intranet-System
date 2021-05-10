@@ -9,11 +9,11 @@ import java.util.Objects;
 public class Student extends User {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 2500835407927764942L;
+     * 
+     */
+    private static final long serialVersionUID = 2500835407927764942L;
 
-	/**
+    /**
      * @generated
      */
     private Integer yearOfStudy;
@@ -56,23 +56,23 @@ public class Student extends User {
     private Integer currentYearOfStudy = 1;
     
     public Student() {
-    	super();
+        super();
     }
     
     public Student(Integer yearOfStudy, Faculty faculty, Degree degree) {
-    	super();
-    	this.yearOfStudy = yearOfStudy;
-    	this.faculty = faculty;
-    	this.degree = degree;
+        super();
+        this.yearOfStudy = yearOfStudy;
+        this.faculty = faculty;
+        this.degree = degree;
     }
     public Student(Integer yearOfStudy,ArrayList<Course> courses,Degree degree,Integer creditLimit,Integer totalCredits,HashMap<Course, Mark> marks) {
-    	super();
-    	this.yearOfStudy = yearOfStudy;
-    	this.courses = courses;
-    	this.degree = degree;
-    	this.creditLimit = creditLimit;
-    	this.totalCredits = totalCredits;
-    	this.marks = marks;
+        super();
+        this.yearOfStudy = yearOfStudy;
+        this.courses = courses;
+        this.degree = degree;
+        this.creditLimit = creditLimit;
+        this.totalCredits = totalCredits;
+        this.marks = marks;
     }
     
     private Integer getYearOfStudy() {
@@ -171,25 +171,26 @@ public class Student extends User {
     }
     
     @Override
-	public boolean equals(Object o) {
-		if (o == this) return true;
-		if(!(o instanceof Student)) return false;
-	Student s = (Student) o;
-	return super.equals(s) && s.yearOfStudy == yearOfStudy && s.faculty.equals(faculty) && s.degree.equals(degree);
-	
-	}
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof Student)) return false;
+        Student s = (Student) o;
+        return super.equals(s) && s.yearOfStudy == yearOfStudy && s.faculty.equals(faculty) && s.degree.equals(degree);
+    }
+    
     @Override
     public int hashCode() {
-		return Objects.hash(super.hashCode(), yearOfStudy,faculty,degree);
-		}
+        return Objects.hash(super.hashCode(), yearOfStudy,faculty,degree);
+    }
     
     public void increaseYearOfStudy() {
-    	this.currentYearOfStudy++;
+        this.currentYearOfStudy++;
     }
+    
     @Override
     public String toString() {
-    	return super.toString() + "\nYearOfStudy [" + yearOfStudy + "]" + "\nFaculty [" + faculty + "]" + "\nDegree [" + degree + "]";
-	}
+        return super.toString() + "\nYearOfStudy [" + yearOfStudy + "]" + "\nFaculty [" + faculty + "]" + "\nDegree [" + degree + "]";
+    }
 //
 //    //                          Operations
 //
