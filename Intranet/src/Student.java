@@ -54,10 +54,8 @@ public class Student extends User {
     
     public Student() {
     	super();
-    	this.yearOfStudy = 2021;
-    	this.faculty = Faculty.FIT;
-    	this.degree = Degree.BACHELOR;
     }
+    
     public Student(Integer yearOfStudy, Faculty faculty, Degree degree) {
     	super();
     	this.yearOfStudy = yearOfStudy;
