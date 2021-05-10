@@ -71,25 +71,25 @@ public class Librarian extends Employee {
     /**
     * @generated
     */
-    public addBooks() {
+    public void addBooks() {
         //TODO
     }
     /**
     * @generated
     */
-    public deleteBooks() {
+    public void deleteBooks() {
         //TODO
     }
     /**
     * @generated
     */
-    public acceptRequest() {
+    public void acceptRequest() {
         //TODO
     }
     /**
     * @generated
     */
-    public rejectRequest() {
+    public void rejectRequest() {
         //TODO
     }
     

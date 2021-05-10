@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
 * @generated
 */
@@ -7,11 +9,11 @@ public class Employee extends User {
     * @generated
     */
     private EmployeeTypes department;
-
+    private ArrayList<Message> messages;
     public Employee() {
         super();
     }
-    
+
     public Employee(Integer id, String name, String surname, EmployeeTypes department) {
         super(id, name, surname);
         this.department = department;
@@ -36,20 +38,20 @@ public class Employee extends User {
     /**
     * @generated
     */
-    public sendMessage() {
+    public void sendMessage(Message message) {
+        this.messages.add(message);
+    }
+    /**
+    * @generated
+    */
+    public void viewIncomingMessage() {
         //TODO
     }
     /**
     * @generated
     */
-    public viewIncomingMessage() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public viewSentMessage() {
-        //TODO
+    public ArrayList<Message> viewSentMessage() {
+        return this.messages;
     }
 
     @Override

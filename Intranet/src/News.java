@@ -19,14 +19,7 @@ public class News {
     * @generated
     */
     private String title;
-    
-    
-    /**
-    * @generated
-    */
-    private Manager manager;
-    
-    
+
     /**
     * @generated
     */
@@ -68,20 +61,6 @@ public class News {
     private void setTitle(String title) {
         this.title = title;
     }
-    
-    
-    /**
-    * @generated
-    */
-    public Manager getManager() {
-        return this.manager;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setManager(Manager manager) {
-        this.manager = manager;
-    }
+
     //                          Operations
 }

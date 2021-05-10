@@ -44,11 +44,5 @@ public class Lesson {
 	public void setDay(Day day) {
 		this.day = day;
 	}
-    
-   
-    /**
-    * @generated
-    */
-    
-    
+
 }
