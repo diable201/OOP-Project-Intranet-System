@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 /**
  * @generated
  */
@@ -167,11 +168,23 @@ public class Student extends User {
     private void setMarks(HashMap <Course, Mark> marks) {
         this.marks = marks;
     }
-
-
-    /**
-     * @generated
-     */
+    
+    @Override
+	public boolean equals(Object o) {
+		if (o == this) return true;
+		if(!(o instanceof Student)) return false;
+	Student s = (Student) o;
+	return super.equals(s) && s.yearOfStudy == yearOfStudy && s.faculty.equals(faculty) && s.degree.equals(degree);
+	
+	}
+    
+    public int hashCode() {
+		int result = 17;
+		result = 31 * result + yearOfStudy;
+		result = 31 * result + faculty.hashCode();
+		result = 31 * result + degree.hashCode();
+		return result;
+		}
 
 //
 //    //                          Operations
