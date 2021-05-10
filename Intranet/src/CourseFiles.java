@@ -13,20 +13,18 @@ public class CourseFiles {
     */
     private String content;
     
-    
-    /**
-    * @generated
-    */
-    private Course course;
-    
-    
-    /**
-    * @generated
-    */
-    private String getName() {
-        return this.name;
+    public CourseFiles() {
+    	
     }
+    /**
+
+     * @generated
+     */
     
+	  public String getName() {
+		    return name;
+	  }
+
     /**
     * @generated
     */

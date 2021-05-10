@@ -96,7 +96,8 @@ public class Student extends User {
     /**
      * @generated
      */
-    private void setCourses(ArrayList <Course> courses,Faculty faculty) {
+
+    private void setCourses(ArrayList <Course> courses) {
         this.courses = courses;
     }
 
@@ -169,7 +170,7 @@ public class Student extends User {
     private void setMarks(HashMap <Course, Mark> marks) {
         this.marks = marks;
     }
-    
+
     @Override
     public boolean equals(Object o) {
         if (o == this) return true;

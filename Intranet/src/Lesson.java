@@ -3,6 +3,9 @@
 */
 public class Lesson {
     
+	public Lesson() {
+		
+	}
     /**
     * @generated
     */
@@ -17,97 +20,35 @@ public class Lesson {
     * @generated
     */
     private Day day;
-    
-    
-    /**
-    * @generated
-    */
-    private Course course;
-    
-    
-    /**
-    * @generated
-    */
-    private LessonType getType() {
-        return this.type;
-    }
-    
-    /**
-    * @generated
-    */
-    private LessonType setType(LessonType type) {
-        this.type = type;
-    }
-    
-    /**
-    * @generated
-    */
-    private Integer getTime() {
-        return this.time;
-    }
-    
-    /**
-    * @generated
-    */
-    private Integer setTime(Integer time) {
-        this.time = time;
-    }
-    
-    /**
-    * @generated
-    */
-    private Day getDay() {
-        return this.day;
-    }
-    
-    /**
-    * @generated
-    */
-    private Day setDay(Day day) {
-        this.day = day;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Course getCourse() {
-        return this.course;
-    }
-    
-    /**
-    * @generated
-    */
-    public Course setCourse(Course course) {
-        this.course = course;
-    }
-    
 
-    //                          Operations                                  
+	public LessonType getType() {
+		return type;
+	}
+
+	public void setType(LessonType type) {
+		this.type = type;
+	}
+
+	public Integer getTime() {
+		return time;
+	}
+
+	public void setTime(Integer time) {
+		this.time = time;
+	}
+
+	public Day getDay() {
+		return day;
+	}
+
+	public void setDay(Day day) {
+		this.day = day;
+	}
     
+   
     /**
     * @generated
     */
-    public getType() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getTime() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setTime() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getDay() {
-        //TODO
-    }
+    
     
 }

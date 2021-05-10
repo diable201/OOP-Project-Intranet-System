@@ -161,6 +161,7 @@ public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
+
     private void setFullName(String name, String surname) {
         this.fullName = name + " " + surname;
     }
@@ -175,6 +176,7 @@ public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
+
     private void setSurname(String surname) {
         this.surname = surname;
     }
@@ -189,13 +191,13 @@ public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
+
     private void setIsLogged(Boolean isLogged) {
         this.isLogged = isLogged;
     }
 
 
     //                          Operations
-
     public boolean changePassword(String oldPassword, String newPassword) {
         if (oldPassword.equals(this.password)) {
             this.password = newPassword;

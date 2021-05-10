@@ -1,132 +1,47 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
 * @generated
 */
-public class Teacher extends Employee {
+public class Teacher extends Employee{
     
     /**
     * @generated
     */
-    private Degree academicDegree;
     
-    /**
-    * @generated
-    */
-    private ArrayList<Course> courses;
+    public Teacher() {
+		super();
+	}
+	private Degree academicDegree;
+	private ArrayList<Course>courses = new ArrayList<Course>();
+	public Degree getAcademicDegree() {
+		return academicDegree;
+	}
+	public void setAcademicDegree(Degree academicDegree) {
+		this.academicDegree = academicDegree;
+	}
+	public ArrayList<Course> getCourses(){
+		return courses;
+	}
+	public void setCourses(Course course) {
+		courses.add(course);
+	}
+	public ArrayList<Student>viewStudentsInfo(Course course){
+		return course.getStudents();
+	}
+	public void putMark(Course course, TypeOfMark typeOfMark, double points, Student student) {
+		//сюда короче вызываем метод типа course.setMarkToStudent - надо такой метод создать еще в классе Курс
+	}
+	public void addFiles(Course course, CourseFiles courseFiles) {
+		course.setCourseFiles(courseFiles);
+	}
+	public void deleteFiles(Course course, CourseFiles courseFiles) {
+		course.deleteCourseFiles(courseFiles);
+	}
+	public HashSet<CourseFiles>viewCourseFiles(Course course){
+		return course.getCourseFiles();
+	}
     
-    
-    /**
-    * @generated
-    */
-    private Course course;
-    
-    
-    /**
-    * @generated
-    */
-    private Degree getAcademicDegree() {
-        return this.academicDegree;
-    }
-    
-    /**
-    * @generated
-    */
-    private Degree setAcademicDegree(Degree academicDegree) {
-        this.academicDegree = academicDegree;
-    }
-    
-    /**
-    * @generated
-    */
-    private ArrayList <Course> getCourses() {
-        return this.courses;
-    }
-    
-    /**
-    * @generated
-    */
-    private ArrayList <Course> setCourses(ArrayList <Course> courses) {
-        this.courses = courses;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Course getCourse() {
-        return this.course;
-    }
-    
-    /**
-    * @generated
-    */
-    public Course setCourse(Course course) {
-        this.course = course;
-    }
-    
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public getDegree() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setDegree() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getCourses() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getFaculty() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setFaculty() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public viewStudentsInfo() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public putMark() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public addFiles() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public deleteFiles() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public viewCoursesFiles() {
-        //TODO
-    }
     
 }

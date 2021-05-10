@@ -38,7 +38,7 @@ public class Database implements Serializable {
     /**
     * @generated
     */
-    private ArrayList <User> setUsers(ArrayList <User> users) {
+    private void setUsers(ArrayList <User> users) {
         this.users = users;
     }
     
@@ -52,7 +52,7 @@ public class Database implements Serializable {
     /**
     * @generated
     */
-    private ArrayList <Message> setMessages(ArrayList <Message> messages) {
+    private void setMessages(ArrayList <Message> messages) {
         this.messages = messages;
     }
     
@@ -67,7 +67,7 @@ public class Database implements Serializable {
     /**
     * @generated
     */
-    public Message setMessage(Message message) {
+    public void setMessage(Message message) {
         this.message = message;
     }
     
@@ -81,7 +81,7 @@ public class Database implements Serializable {
     /**
     * @generated
     */
-    public User setUser(User user) {
+    public void setUser(User user) {
         this.user = user;
     }
     

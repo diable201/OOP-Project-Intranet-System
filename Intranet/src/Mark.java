@@ -32,7 +32,7 @@ public class Mark implements Serializable {
     /**
     * @generated
     */
-    private double setPoints(double points) {
+    private void setPoints(double points) {
         this.points = points;
     }
     
@@ -46,7 +46,7 @@ public class Mark implements Serializable {
     /**
     * @generated
     */
-    private LiteralMark setLiteralMark(LiteralMark literalMark) {
+    private void setLiteralMark(LiteralMark literalMark) {
         this.literalMark = literalMark;
     }
     
@@ -61,7 +61,7 @@ public class Mark implements Serializable {
     /**
     * @generated
     */
-    public Student setStudent(Student student) {
+    public void setStudent(Student student) {
         this.student = student;
     }
     
