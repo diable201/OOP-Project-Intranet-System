@@ -186,7 +186,10 @@ public class Student extends User {
     public void increaseYearOfStudy() {
     	this.currentYearOfStudy++;
     }
-
+    @Override
+    public String toString() {
+    	return super.toString() + "\nYearOfStudy [" + yearOfStudy + "]" + "\nFaculty [" + faculty + "]" + "\nDegree [" + degree + "]";
+	}
 //
 //    //                          Operations
 //
