@@ -1,4 +1,3 @@
-
 public enum LiteralMark {
 	A,
 	MINUS_A,
