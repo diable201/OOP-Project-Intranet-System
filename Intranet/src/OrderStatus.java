@@ -1,4 +1,3 @@
-
 public enum OrderStatus {
 	NEW,
 	ACCEPTED,

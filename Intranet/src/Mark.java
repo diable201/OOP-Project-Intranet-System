@@ -92,7 +92,6 @@ public class Mark implements Serializable {
     */
     public void setFirstAttestation(double first_attestation) {
         this.first_attestation = first_attestation;
-        total += first_attestation;
     }
     /**
     * @generated
@@ -105,7 +104,6 @@ public class Mark implements Serializable {
     */
     public void setSecondAttestation(double second_attestation) {
         this.second_attestation = second_attestation;
-        total += second_attestation;
     }
     /**
     * @generated
@@ -118,12 +116,12 @@ public class Mark implements Serializable {
     */
     public void setFinal(double final_exam) {
         this.final_exam = final_exam;
-        total += final_exam;
     }
     /**
     * @generated
     */
     public double getTotal() {
+        this.total = getFirstAttestation() + getSecondAttestation() + getFinal();
         return this.total;
     }
     /**

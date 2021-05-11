@@ -65,8 +65,10 @@ public class Student extends User {
         this.faculty = faculty;
         this.degree = degree;
     }
-    public Student(Integer yearOfStudy,ArrayList<Course> courses,Degree degree,Integer creditLimit,Integer totalCredits,HashMap<Course, Mark> marks) {
-        super();
+    public Student(Integer id, String name, String surname,
+                   Integer yearOfStudy,ArrayList<Course> courses,Degree degree,
+                   Integer creditLimit,Integer totalCredits,HashMap<Course, Mark> marks) {
+        super(id, name, surname);
         this.yearOfStudy = yearOfStudy;
         this.courses = courses;
         this.degree = degree;
@@ -176,7 +178,8 @@ public class Student extends User {
         if (o == this) return true;
         if (!(o instanceof Student)) return false;
         Student s = (Student) o;
-        return super.equals(s) && s.yearOfStudy == yearOfStudy && s.faculty.equals(faculty) && s.degree.equals(degree);
+        return super.equals(s) && s.yearOfStudy.equals(yearOfStudy) &&
+                s.faculty.equals(faculty) && s.degree.equals(degree);
     }
     
     @Override

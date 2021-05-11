@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
 * @generated
 */
@@ -110,4 +112,38 @@ public class Message {
         this.database = database;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Message message = (Message) o;
+
+        if (!Objects.equals(body, message.body)) return false;
+        if (!Objects.equals(sender, message.sender)) return false;
+        if (!Objects.equals(receiver, message.receiver)) return false;
+        if (!Objects.equals(isRead, message.isRead)) return false;
+        return Objects.equals(database, message.database);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = body != null ? body.hashCode() : 0;
+        result = 31 * result + (sender != null ? sender.hashCode() : 0);
+        result = 31 * result + (receiver != null ? receiver.hashCode() : 0);
+        result = 31 * result + (isRead != null ? isRead.hashCode() : 0);
+        result = 31 * result + (database != null ? database.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "body='" + body + '\'' +
+                ", sender=" + sender +
+                ", receiver=" + receiver +
+                ", isRead=" + isRead +
+                ", database=" + database +
+                '}';
+    }
 }

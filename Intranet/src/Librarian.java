@@ -9,6 +9,7 @@ public class Librarian extends Employee {
     * @generated
     */
     private ArrayList<Book> books;
+    private ArrayList<Order> orders;
 
     public Librarian() {
         super();
@@ -90,14 +91,16 @@ public class Librarian extends Employee {
     /**
     * @generated
     */
-    public void acceptRequest() {
-        //TODO
+    public void acceptRequest(Order order) {
+        orders.add(order);
+        order.setStatus(OrderStatus.NEW);
     }
     /**
     * @generated
     */
-    public void rejectRequest() {
-        //TODO
+    public void rejectRequest(Order order) {
+        orders.add(order);
+        order.setStatus(OrderStatus.REJECTED);
     }
     
 }
