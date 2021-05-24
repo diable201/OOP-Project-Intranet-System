@@ -40,11 +40,6 @@ public abstract class User implements Serializable, Comparable<User> {
      */
     private Boolean isLogged;
 
-    /**
-     * @generated
-     */
-    private Database database;
-
     public User() {}
 
     public User(Integer id, String name, String surname) {
@@ -67,9 +62,9 @@ public abstract class User implements Serializable, Comparable<User> {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", isLogged=" + isLogged +
-                ", database=" + database +
                 '}';
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -81,8 +76,8 @@ public abstract class User implements Serializable, Comparable<User> {
         if (!Objects.equals(password, user.password)) return false;
         if (!Objects.equals(name, user.name)) return false;
         if (!Objects.equals(surname, user.surname)) return false;
-        if (!Objects.equals(isLogged, user.isLogged)) return false;
-        return Objects.equals(database, user.database);
+        if (!Objects.equals(fullName, user.fullName)) return false;
+        return Objects.equals(isLogged, user.isLogged);
     }
 
     @Override
@@ -198,8 +193,9 @@ public abstract class User implements Serializable, Comparable<User> {
 
 
     //                          Operations
-    public boolean changePassword(String oldPassword, String newPassword) {
-        if (oldPassword.equals(this.password)) {
+    public boolean changePassword(String currentPassword, String newPassword) {
+        // TODO add hash
+        if (currentPassword.equals(this.password)) {
             this.password = newPassword;
             return true;
         }
