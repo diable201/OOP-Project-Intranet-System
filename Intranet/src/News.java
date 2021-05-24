@@ -37,7 +37,7 @@ public class News {
     /**
     * @generated
     */
-    private Date setDate(Date date) {
+    private void setDate(Date date) {
         this.date = date;
     }
     
@@ -51,7 +51,7 @@ public class News {
     /**
     * @generated
     */
-    private String setDescription(String description) {
+    private void setDescription(String description) {
         this.description = description;
     }
     
@@ -65,7 +65,7 @@ public class News {
     /**
     * @generated
     */
-    private String setTitle(String title) {
+    private void setTitle(String title) {
         this.title = title;
     }
     
@@ -80,48 +80,48 @@ public class News {
     /**
     * @generated
     */
-    public Manager setManager(Manager manager) {
+    public void setManager(Manager manager) {
         this.manager = manager;
     }
     
 
     //                          Operations                                  
     
-    /**
-    * @generated
-    */
-    public getDate() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setDate() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getDescription() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setDescription() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getTitle() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setTitle() {
-        //TODO
-    }
+//    /**
+//    * @generated
+//    */
+//    public getDate() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setDate() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getDescription() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setDescription() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getTitle() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setTitle() {
+//        //TODO
+//    }
     
 }

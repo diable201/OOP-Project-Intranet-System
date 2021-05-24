@@ -52,7 +52,7 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private Integer setId(Integer id) {
+    private void setId(Integer id) {
         this.id = id;
     }
 
@@ -66,7 +66,7 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private String setUsername(String username) {
+    private void setUsername(String username) {
         this.username = username;
     }
 
@@ -80,7 +80,7 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private String setPassword(String password) {
+    private void setPassword(String password) {
         this.password = password;
     }
 
@@ -94,7 +94,7 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private String setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -108,7 +108,7 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private String setSurname(String surname) {
+    private void setSurname(String surname) {
         this.surname = surname;
     }
 
@@ -122,7 +122,7 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    private Boolean setIsLogged(Boolean isLogged) {
+    private void setIsLogged(Boolean isLogged) {
         this.isLogged = isLogged;
     }
 
@@ -137,100 +137,106 @@ public class User implements Serializable, Comparable {
     /**
      * @generated
      */
-    public Database setDatabase(Database database) {
+    public void setDatabase(Database database) {
         this.database = database;
     }
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 
     //                          Operations
 
-    /**
-     * @generated
-     */
-    public getUsername() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public setUsername() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public getPassword() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public setPassword() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public getName() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public setName() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public getSurname() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public setSurname() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public login() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public getId() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public setId() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public int hashCode() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public equals() {
-        //TODO
-    }
-    /**
-     * @generated
-     */
-    public String toString() {
-        //TODO
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
+//    /**
+//     * @generated
+//     */
+//    public getUsername() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public setUsername() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public getPassword() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public setPassword() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public getName() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public setName() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public getSurname() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public setSurname() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public login() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public getId() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public setId() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public int hashCode() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public equals() {
+//        //TODO
+//    }
+//    /**
+//     * @generated
+//     */
+//    public void toString() {
+//        //TODO
+//    }
+//
+//    @Override
+//    public int compareTo(Object o) {
+//        return 0;
+//    }
 }

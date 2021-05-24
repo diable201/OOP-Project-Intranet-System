@@ -35,7 +35,7 @@ public class Lesson {
     /**
     * @generated
     */
-    private LessonType setType(LessonType type) {
+    private void setType(LessonType type) {
         this.type = type;
     }
     
@@ -49,7 +49,7 @@ public class Lesson {
     /**
     * @generated
     */
-    private Integer setTime(Integer time) {
+    private void setTime(Integer time) {
         this.time = time;
     }
     
@@ -63,7 +63,7 @@ public class Lesson {
     /**
     * @generated
     */
-    private Day setDay(Day day) {
+    private void setDay(Day day) {
         this.day = day;
     }
     
@@ -78,7 +78,7 @@ public class Lesson {
     /**
     * @generated
     */
-    public Course setCourse(Course course) {
+    public void setCourse(Course course) {
         this.course = course;
     }
     
@@ -88,26 +88,26 @@ public class Lesson {
     /**
     * @generated
     */
-    public getType() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getTime() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setTime() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getDay() {
-        //TODO
-    }
-    
+//    public getType() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getTime() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setTime() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getDay() {
+//        //TODO
+//    }
+//    
 }

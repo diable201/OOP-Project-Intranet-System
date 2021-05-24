@@ -25,7 +25,7 @@ public class Order {
     /**
     * @generated
     */
-    private Boolean setStatus(Boolean status) {
+    private void setStatus(Boolean status) {
         this.status = status;
     }
     
@@ -40,24 +40,24 @@ public class Order {
     /**
     * @generated
     */
-    public Librarian setLibrarian(Librarian librarian) {
+    public void setLibrarian(Librarian librarian) {
         this.librarian = librarian;
     }
     
 
     //                          Operations                                  
     
-    /**
-    * @generated
-    */
-    public getStatus() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setStatus() {
-        //TODO
-    }
+//    /**
+//    * @generated
+//    */
+//    public getStatus() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setStatus() {
+//        //TODO
+//    }
     
 }

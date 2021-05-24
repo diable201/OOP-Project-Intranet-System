@@ -32,7 +32,7 @@ public class Mark implements Serializable {
     /**
     * @generated
     */
-    private double setPoints(double points) {
+    private void setPoints(double points) {
         this.points = points;
     }
     
@@ -46,7 +46,7 @@ public class Mark implements Serializable {
     /**
     * @generated
     */
-    private LiteralMark setLiteralMark(LiteralMark literalMark) {
+    private void setLiteralMark(LiteralMark literalMark) {
         this.literalMark = literalMark;
     }
     
@@ -61,66 +61,66 @@ public class Mark implements Serializable {
     /**
     * @generated
     */
-    public Student setStudent(Student student) {
+    public void setStudent(Student student) {
         this.student = student;
     }
     
 
     //                          Operations                                  
     
-    /**
-    * @generated
-    */
-    public getFirstAttestation() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setFirstAttestation() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getSecondAttestation() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setSecondAttestation() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getFinal() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setFinal() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getTotal() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setTotal() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getLiteralMark() {
-        //TODO
-    }
+//    /**
+//    * @generated
+//    */
+//    public getFirstAttestation() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setFirstAttestation() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getSecondAttestation() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setSecondAttestation() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getFinal() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setFinal() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getTotal() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setTotal() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getLiteralMark() {
+//        //TODO
+//    }
     
 }

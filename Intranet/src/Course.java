@@ -85,7 +85,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    private String setCode(String code) {
+    private void setCode(String code) {
         this.code = code;
     }
     
@@ -99,7 +99,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    private String setTitle(String title) {
+    private void setTitle(String title) {
         this.title = title;
     }
     
@@ -113,7 +113,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    private Integer setCredits(Integer credits) {
+    private void setCredits(Integer credits) {
         this.credits = credits;
     }
     
@@ -127,7 +127,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    private HashSet <CourseFiles> setCourseFiles(HashSet <CourseFiles> courseFiles) {
+    private void setCourseFiles(HashSet <CourseFiles> courseFiles) {
         this.courseFiles = courseFiles;
     }
     
@@ -141,7 +141,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    private Integer setLimitOfStudents(Integer limitOfStudents) {
+    private void setLimitOfStudents(Integer limitOfStudents) {
         this.limitOfStudents = limitOfStudents;
     }
     
@@ -155,7 +155,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    private ArrayList <Lesson> setLessons(ArrayList <Lesson> lessons) {
+    private void setLessons(ArrayList <Lesson> lessons) {
         this.lessons = lessons;
     }
     
@@ -169,7 +169,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    private HashSet <Course> setPrerequisites(HashSet <Course> prerequisites) {
+    private void setPrerequisites(HashSet <Course> prerequisites) {
         this.prerequisites = prerequisites;
     }
     
@@ -183,7 +183,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    private ArrayList <Student> setStudents(ArrayList <Student> students) {
+    private void setStudents(ArrayList <Student> students) {
         this.students = students;
     }
     
@@ -197,23 +197,8 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    private HashMap <Student, Mark> setMarks(HashMap <Student, Mark> marks) {
+    private void setMarks(HashMap <Student, Mark> marks) {
         this.marks = marks;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public CourseFiles getCourseFiles2() {
-        return this.courseFiles2;
-    }
-    
-    /**
-    * @generated
-    */
-    public CourseFiles setCourseFiles2(CourseFiles courseFiles2) {
-        this.courseFiles2 = courseFiles2;
     }
     
     /**
@@ -226,7 +211,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    public Lesson setLesson(Lesson lesson) {
+    public void setLesson(Lesson lesson) {
         this.lesson = lesson;
     }
     
@@ -240,7 +225,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    public Teacher setTeacher(Teacher teacher) {
+    public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
     
@@ -254,7 +239,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    public Student setStudent(Student student) {
+    public void setStudent(Student student) {
         this.student = student;
     }
     
@@ -264,56 +249,56 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    public getCode() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setCode() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getTitle() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setTitle() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getCredits() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setCredits() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getCourseFile() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getLessons() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setLessons() {
-        //TODO
-    }
+//    public getCode() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setCode() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getTitle() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setTitle() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getCredits() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setCredits() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getCourseFile() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getLessons() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setLessons() {
+//        //TODO
+//    }
     
 }

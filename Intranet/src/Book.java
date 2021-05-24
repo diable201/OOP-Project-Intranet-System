@@ -40,7 +40,7 @@ public class Book {
     /**
     * @generated
     */
-    private String setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
     
@@ -54,7 +54,7 @@ public class Book {
     /**
     * @generated
     */
-    private Integer setId(Integer id) {
+    private void setId(Integer id) {
         this.id = id;
     }
     
@@ -82,7 +82,7 @@ public class Book {
     /**
     * @generated
     */
-    private String setLink(String link) {
+    private void setLink(String link) {
         this.link = link;
     }
     
@@ -97,7 +97,7 @@ public class Book {
     /**
     * @generated
     */
-    public Librarian setLibrarian(Librarian librarian) {
+    public void setLibrarian(Librarian librarian) {
         this.librarian = librarian;
     }
     
@@ -107,50 +107,50 @@ public class Book {
     /**
     * @generated
     */
-    public getName() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setName() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getId() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setId() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getAuthor() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setAuthor() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getLink() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setLink() {
-        //TODO
-    }
+//    public getName() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setName() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getId() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setId() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getAuthor() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setAuthor() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getLink() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setLink() {
+//        //TODO
+//    }
     
 }

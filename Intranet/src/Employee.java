@@ -18,7 +18,7 @@ public class Employee extends User {
     /**
     * @generated
     */
-    private EmployeeTypes setDepartment(EmployeeTypes department) {
+    private void setDepartment(EmployeeTypes department) {
         this.department = department;
     }
     
@@ -26,23 +26,23 @@ public class Employee extends User {
 
     //                          Operations                                  
     
-    /**
-    * @generated
-    */
-    public sendMessage() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public viewIncomingMessage() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public viewSentMessage() {
-        //TODO
-    }
+//    /**
+//    * @generated
+//    */
+//    public sendMessage() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public viewIncomingMessage() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public viewSentMessage() {
+//        //TODO
+//    }
     
 }

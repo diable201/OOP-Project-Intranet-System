@@ -32,7 +32,7 @@ public class Teacher extends Employee {
     /**
     * @generated
     */
-    private Degree setAcademicDegree(Degree academicDegree) {
+    private void setAcademicDegree(Degree academicDegree) {
         this.academicDegree = academicDegree;
     }
     
@@ -46,7 +46,7 @@ public class Teacher extends Employee {
     /**
     * @generated
     */
-    private ArrayList <Course> setCourses(ArrayList <Course> courses) {
+    private void setCourses(ArrayList <Course> courses) {
         this.courses = courses;
     }
     
@@ -61,72 +61,72 @@ public class Teacher extends Employee {
     /**
     * @generated
     */
-    public Course setCourse(Course course) {
+    public void setCourse(Course course) {
         this.course = course;
     }
     
 
     //                          Operations                                  
     
-    /**
-    * @generated
-    */
-    public getDegree() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setDegree() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getCourses() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getFaculty() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setFaculty() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public viewStudentsInfo() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public putMark() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public addFiles() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public deleteFiles() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public viewCoursesFiles() {
-        //TODO
-    }
-    
+//    /**
+//    * @generated
+//    */
+//    public getDegree() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setDegree() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getCourses() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public getFaculty() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public setFaculty() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public viewStudentsInfo() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public putMark() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public addFiles() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public deleteFiles() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public viewCoursesFiles() {
+//        //TODO
+//    }
+//    
 }

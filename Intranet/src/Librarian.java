@@ -32,7 +32,7 @@ public class Librarian extends Employee {
     /**
     * @generated
     */
-    private ArrayList <Book> setBooks(ArrayList <Book> books) {
+    private void setBooks(ArrayList <Book> books) {
         this.books = books;
     }
     
@@ -47,7 +47,7 @@ public class Librarian extends Employee {
     /**
     * @generated
     */
-    public Order setOrder(Order order) {
+    public void setOrder(Order order) {
         this.order = order;
     }
     
@@ -61,7 +61,7 @@ public class Librarian extends Employee {
     /**
     * @generated
     */
-    public Book setBook(Book book) {
+    public void setBook(Book book) {
         this.book = book;
     }
     
@@ -71,26 +71,26 @@ public class Librarian extends Employee {
     /**
     * @generated
     */
-    public addBooks() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public deleteBooks() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public acceptRequest() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public rejectRequest() {
-        //TODO
-    }
+//    public addBooks() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public deleteBooks() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public acceptRequest() {
+//        //TODO
+//    }
+//    /**
+//    * @generated
+//    */
+//    public rejectRequest() {
+//        //TODO
+//    }
     
 }
