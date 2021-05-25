@@ -19,7 +19,7 @@ public class Librarian extends Employee {
         super();
     }
 
-    public Librarian(Integer id, String name, String surname, EmployeeTypes department) {
+    public Librarian(String id, String name, String surname, EmployeeTypes department) {
         super(id, name, surname, department);
     }
 

@@ -16,7 +16,7 @@ public class Teacher extends Employee {
 		super();
 	}
 
-	public Teacher(Integer id, String name, String surname,
+	public Teacher(String id, String name, String surname,
 				   EmployeeTypes department, Degree academicDegree) {
 		super(id, name, surname, department);
 		this.academicDegree = academicDegree;

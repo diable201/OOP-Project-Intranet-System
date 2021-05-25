@@ -9,12 +9,11 @@ public class Employee extends User {
     * @generated
     */
     private EmployeeTypes department;
-    private ArrayList<Message> messages;
     public Employee() {
         super();
     }
 
-    public Employee(Integer id, String name, String surname, EmployeeTypes department) {
+    public Employee(String id, String name, String surname, EmployeeTypes department) {
         super(id, name, surname);
         this.department = department;
     }
@@ -39,23 +38,26 @@ public class Employee extends User {
     * @generated
     */
     public void sendMessage(Message message) {
-        this.messages.add(message);
+        Database.messages.add(message);
     }
     /**
     * @generated
     */
-    public void viewIncomingMessage() {
-        //TODO
+    public ArrayList<Message> viewIncomingMessage() {
+        return Database.getMessagesFromUser(this);
     }
     /**
     * @generated
     */
     public ArrayList<Message> viewSentMessage() {
-        return this.messages;
+        return Database.getMessagesToUser(this);
     }
 
     @Override
-    public int compareTo(User o) {
-        return 0;
+    public int compareTo(User user) {
+        Employee employee = (Employee) user;
+        if (super.compareTo(user) == 0)
+            return department.compareTo(employee.department);
+        return super.compareTo(user);
     }
 }

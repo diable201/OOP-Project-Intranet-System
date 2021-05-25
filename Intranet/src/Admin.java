@@ -9,7 +9,7 @@ public class Admin extends Employee {
         super();
     }
 
-    public Admin(Integer id, String name, String surname, EmployeeTypes department) {
+    public Admin(String id, String name, String surname, EmployeeTypes department) {
         super(id, name, surname, department);
     }
 

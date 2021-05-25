@@ -8,7 +8,7 @@ public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
-    private Integer id;
+    private String id;
 
     /**
      * @generated
@@ -42,7 +42,7 @@ public abstract class User implements Serializable, Comparable<User> {
 
     public User() {}
 
-    public User(Integer id, String name, String surname) {
+    public User(String id, String name, String surname) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -93,14 +93,14 @@ public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
-    public Integer getId() {
+    public String getId() {
         return this.id;
     }
 
     /**
      * @generated
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -156,7 +156,6 @@ public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
-
     public void setFullName(String name, String surname) {
         this.fullName = name + " " + surname;
     }
@@ -171,7 +170,6 @@ public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
-
     public void setSurname(String surname) {
         this.surname = surname;
     }
@@ -186,7 +184,6 @@ public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
-
     public void setIsLogged(Boolean isLogged) {
         this.isLogged = isLogged;
     }
