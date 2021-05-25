@@ -91,20 +91,20 @@ public class Database implements Serializable {
     /**
     * @generated
     */
-//    public sendMessagesToUser() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public getMessagesFromUser() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public getUnreadMessages() {
-//        //TODO
-//    }
+    public void sendMessagesToUser() {
+        //TODO
+    }
+    /**
+    * @generated
+    */
+    public void getMessagesFromUser() {
+        //TODO
+    }
+    /**
+    * @generated
+    */
+    public void getUnreadMessages() {
+        //TODO
+    }
     
 }

@@ -4,7 +4,15 @@ import java.util.Date;
 * @generated
 */
 public class News {
-    
+
+    public News() {}
+
+    public News(Date date, String description, String title) {
+        this.date = date;
+        this.description = description;
+        this.title = title;
+    }
+
     /**
     * @generated
     */
@@ -19,14 +27,7 @@ public class News {
     * @generated
     */
     private String title;
-    
-    
-    /**
-    * @generated
-    */
-    private Manager manager;
-    
-    
+
     /**
     * @generated
     */
@@ -68,60 +69,6 @@ public class News {
     private void setTitle(String title) {
         this.title = title;
     }
-    
-    
-    /**
-    * @generated
-    */
-    public Manager getManager() {
-        return this.manager;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setManager(Manager manager) {
-        this.manager = manager;
-    }
-    
 
-    //                          Operations                                  
-    
-//    /**
-//    * @generated
-//    */
-//    public getDate() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public setDate() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public getDescription() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public setDescription() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public getTitle() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public setTitle() {
-//        //TODO
-//    }
-    
+    //                          Operations
 }

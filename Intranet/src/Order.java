@@ -2,62 +2,47 @@
 * @generated
 */
 public class Order {
-    
+
+    public Order() {}
+
+    public Order(OrderStatus status) {
+        this.status = status;
+    }
+
     /**
     * @generated
     */
-    private Boolean status;
-    
-    
+    private OrderStatus status;
+    private Book book;
+
+    //                          Operations                                  
+
     /**
-    * @generated
-    */
-    private Librarian librarian;
-    
-    
-    /**
-    * @generated
-    */
-    private Boolean getStatus() {
+     * @generated
+     */
+    public OrderStatus getStatus() {
         return this.status;
     }
-    
+
     /**
-    * @generated
-    */
-    private void setStatus(Boolean status) {
+     * @generated
+     */
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
     
-    
-    /**
-    * @generated
-    */
-    public Librarian getLibrarian() {
-        return this.librarian;
+    public void setBook(Book book) {
+    	this.book = book;
     }
     
-    /**
-    * @generated
-    */
-    public void setLibrarian(Librarian librarian) {
-        this.librarian = librarian;
+    public Book getBook() {
+    	return this.book;
     }
     
-
-    //                          Operations                                  
-    
-//    /**
-//    * @generated
-//    */
-//    public getStatus() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public setStatus() {
-//        //TODO
-//    }
-    
+    @Override
+    public String toString() {
+        return "Order{" +
+                "status=" + status +
+                '}';
+    }
 }

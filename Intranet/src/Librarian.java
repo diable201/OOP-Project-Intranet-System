@@ -6,91 +6,58 @@ import java.util.ArrayList;
 public class Librarian extends Employee {
     
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
     * @generated
     */
     private ArrayList<Book> books;
-    
-    
-    /**
-    * @generated
-    */
-    private Order order;
-    
-    /**
-    * @generated
-    */
-    private Book book;
-    
-    
-    /**
-    * @generated
-    */
-    private ArrayList <Book> getBooks() {
+    private static ArrayList<Order> orders;
+
+    public Librarian() {
+        super();
+    }
+
+    public Librarian(Integer id, String name, String surname, EmployeeTypes department) {
+        super(id, name, surname, department);
+    }
+
+    public ArrayList <Book> getBooks() {
         return this.books;
     }
-    
-    /**
-    * @generated
-    */
-    private void setBooks(ArrayList <Book> books) {
+
+    public void setBooks(ArrayList <Book> books) {
         this.books = books;
     }
     
-    
-    /**
-    * @generated
-    */
-    public Order getOrder() {
-        return this.order;
+    public static ArrayList <Order> getOrders() {
+        return Librarian.orders;
+    }
+
+    public static void setOrders(ArrayList <Order> orders) {
+        Librarian.orders = orders;
     }
     
-    /**
-    * @generated
-    */
-    public void setOrder(Order order) {
-        this.order = order;
+    public static void addOrder(Order order) {
+        Librarian.orders.add(order);
     }
-    
-    /**
-    * @generated
-    */
-    public Book getBook() {
-        return this.book;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setBook(Book book) {
-        this.book = book;
-    }
-    
 
     //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-//    public addBooks() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public deleteBooks() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public acceptRequest() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public rejectRequest() {
-//        //TODO
-//    }
-    
+
+    public void addBooks(Book book) {
+        books.add(book);
+    }
+
+    public void deleteBooks(Book book) {
+        books.remove(book);
+    }
+  
+    public void checkRequest(Order order) {
+    	if(books.contains(order.getBook())) {
+        order.setStatus(OrderStatus.ACCEPTED);
+        orders.add(order); }
+    	else {order.setStatus(OrderStatus.REJECTED);
+        	orders.add(order); }
+}
 }

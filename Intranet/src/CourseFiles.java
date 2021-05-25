@@ -12,21 +12,23 @@ public class CourseFiles {
     * @generated
     */
     private String content;
-    
-    
-    /**
-    * @generated
-    */
     private Course course;
-    
-    
-    /**
-    * @generated
-    */
-    private String getName() {
-        return this.name;
+
+    public CourseFiles() {}
+
+    public CourseFiles(String name, String content) {
+        this.name = name;
+        this.content = content;
     }
+
+    /**
+     * @generated
+     */
     
+    public String getName() {
+		    return name;
+	  }
+
     /**
     * @generated
     */
@@ -63,32 +65,9 @@ public class CourseFiles {
         this.course = course;
     }
     
-
+    public String toString() {
+    	return "Name: " + name + "\n" + "Content: " + content;
+    }
     //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-//    public getName() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public setName() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public getContent() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public setContent() {
-//        //TODO
-//    }
-    
+
 }

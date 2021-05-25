@@ -1,8 +1,19 @@
+import java.util.Objects;
+
 /**
 * @generated
 */
 public class Message {
-    
+
+    public Message() {}
+
+    public Message(String body, User sender, User receiver, Boolean isRead) {
+        this.body = body;
+        this.sender = sender;
+        this.receiver = receiver;
+        this.isRead = isRead;
+    }
+
     /**
     * @generated
     */
@@ -100,45 +111,39 @@ public class Message {
     public void setDatabase(Database database) {
         this.database = database;
     }
-    
 
-    //                          Operations                                  
-    
-//    /**
-//    * @generated
-//    */
-//    public getBody() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public setBody() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public getSender() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public setSender() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public getReceiver() {
-//        //TODO
-//    }
-//    /**
-//    * @generated
-//    */
-//    public setReceiver() {
-//        //TODO
-//    }
-    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Message message = (Message) o;
+
+        if (!Objects.equals(body, message.body)) return false;
+        if (!Objects.equals(sender, message.sender)) return false;
+        if (!Objects.equals(receiver, message.receiver)) return false;
+        if (!Objects.equals(isRead, message.isRead)) return false;
+        return Objects.equals(database, message.database);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = body != null ? body.hashCode() : 0;
+        result = 31 * result + (sender != null ? sender.hashCode() : 0);
+        result = 31 * result + (receiver != null ? receiver.hashCode() : 0);
+        result = 31 * result + (isRead != null ? isRead.hashCode() : 0);
+        result = 31 * result + (database != null ? database.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "body='" + body + '\'' +
+                ", sender=" + sender +
+                ", receiver=" + receiver +
+                ", isRead=" + isRead +
+                ", database=" + database +
+                '}';
+    }
 }
