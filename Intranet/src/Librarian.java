@@ -54,10 +54,12 @@ public class Librarian extends Employee {
     }
   
     public void checkRequest(Order order) {
-    	if(books.contains(order.getBook())) {
-        order.setStatus(OrderStatus.ACCEPTED);
-        orders.add(order); }
-    	else {order.setStatus(OrderStatus.REJECTED);
-        	orders.add(order); }
-}
+    	if (books.contains(order.getBook())) {
+            order.setStatus(OrderStatus.ACCEPTED);
+        }
+    	else {
+    	    order.setStatus(OrderStatus.REJECTED);
+        }
+        orders.add(order);
+    }
 }
