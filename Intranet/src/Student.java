@@ -233,7 +233,8 @@ public class Student extends User {
 
     @Override
     public int compareTo(User o) {
-        return 0;
+    	Student s = (Student) o;
+    	return getUsername().compareTo(s.getUsername());
     }
 //
 //    //                          Operations
