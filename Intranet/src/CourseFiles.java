@@ -64,6 +64,10 @@ public class CourseFiles {
     public void setCourse(Course course) {
         this.course = course;
     }
+    
+    public String toString() {
+    	return "Name: " + name + "\n" + "Content: " + content;
+    }
     //                          Operations                                  
 
 }

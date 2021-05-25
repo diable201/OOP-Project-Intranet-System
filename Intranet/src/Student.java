@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -189,6 +190,40 @@ public class Student extends User {
     
     public void increaseYearOfStudy() {
         this.currentYearOfStudy++;
+    }
+    
+    public void viewTranscript() {
+    	String result = "";
+    	for (Map.Entry <Course,Mark> marks: marks.entrySet()) {
+    		result += "Course Name: " + marks.getKey().getTitle() + "Mark: " + marks.getValue().getTotal() +"\n";	
+    	}
+    	System.out.print(result);
+    }
+    public void registerCourses(Course course) {
+    	courses.add(course);
+    }
+    
+    public void withdrawCourses(Course course) {
+    	courses.remove(course);
+    }
+    
+    public double viewMark(Course course) {
+    	double points;
+    	points = marks.get(course).getTotal();
+    	return points;
+    }
+    
+    public void sendRequestToLibrary(Order order, Book book) {
+    	order.setBook(book);
+    	Librarian.addOrder(order);	
+    }
+    
+    public void viewCourseFiles(Course course) {
+    	if(courses.contains(course)) {
+    		for(CourseFiles coursefiles : course.getCourseFiles()) {
+    			System.out.println(coursefiles.toString());
+    		}
+    	}
     }
     
     @Override
