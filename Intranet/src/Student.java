@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -59,13 +60,13 @@ public class Student extends User {
         super();
     }
     
-    public Student(Integer yearOfStudy, Faculty faculty, Degree degree) {
-        super();
+    public Student(String id, String name, String surname, Integer yearOfStudy, Faculty faculty, Degree degree) {
+        super(id, name, surname);
         this.yearOfStudy = yearOfStudy;
         this.faculty = faculty;
         this.degree = degree;
     }
-    public Student(Integer id, String name, String surname,
+    public Student(String id, String name, String surname,
                    Integer yearOfStudy,ArrayList<Course> courses,Degree degree,
                    Integer creditLimit,Integer totalCredits,HashMap<Course, Mark> marks) {
         super(id, name, surname);
@@ -191,6 +192,40 @@ public class Student extends User {
         this.currentYearOfStudy++;
     }
     
+    public void viewTranscript() {
+    	String result = "";
+    	for (Map.Entry <Course,Mark> marks: marks.entrySet()) {
+    		result += "Course Name: " + marks.getKey().getTitle() + "Mark: " + marks.getValue().getTotal() +"\n";	
+    	}
+    	System.out.print(result);
+    }
+    public void registerCourses(Course course) {
+    	courses.add(course);
+    }
+    
+    public void withdrawCourses(Course course) {
+    	courses.remove(course);
+    }
+    
+    public double viewMark(Course course) {
+    	double points;
+    	points = marks.get(course).getTotal();
+    	return points;
+    }
+    
+    public void sendRequestToLibrary(Order order, Book book) {
+    	order.setBook(book);
+    	Librarian.addOrder(order);	
+    }
+    
+    public void viewCourseFiles(Course course) {
+    	if(courses.contains(course)) {
+    		for(CourseFiles coursefiles : course.getCourseFiles()) {
+    			System.out.println(coursefiles.toString());
+    		}
+    	}
+    }
+    
     @Override
     public String toString() {
         return super.toString() + "\nYearOfStudy [" + yearOfStudy + "]" + "\nFaculty [" + faculty + "]" + "\nDegree [" + degree + "]";
@@ -198,7 +233,8 @@ public class Student extends User {
 
     @Override
     public int compareTo(User o) {
-        return 0;
+    	Student s = (Student) o;
+    	return getUsername().compareTo(s.getUsername());
     }
 //
 //    //                          Operations

@@ -4,16 +4,6 @@ import java.util.Objects;
 * @generated
 */
 public class Message {
-
-    public Message() {}
-
-    public Message(String body, User sender, User receiver, Boolean isRead) {
-        this.body = body;
-        this.sender = sender;
-        this.receiver = receiver;
-        this.isRead = isRead;
-    }
-
     /**
     * @generated
     */
@@ -33,97 +23,82 @@ public class Message {
     * @generated
     */
     private Boolean isRead;
-    
+
+    public Message() {}
+
+    public Message(String body, User sender, User receiver, Boolean isRead) {
+        this.body = body;
+        this.sender = sender;
+        this.receiver = receiver;
+        this.isRead = isRead;
+    }
     
     /**
     * @generated
     */
-    private Database database;
-    
-    
-    /**
-    * @generated
-    */
-    private String getBody() {
+    public String getBody() {
         return this.body;
     }
     
     /**
     * @generated
     */
-    private void setBody(String body) {
+    public void setBody(String body) {
         this.body = body;
     }
     
     /**
     * @generated
     */
-    private User getSender() {
+    public User getSender() {
         return this.sender;
     }
     
     /**
     * @generated
     */
-    private void setSender(User sender) {
+    public void setSender(User sender) {
         this.sender = sender;
     }
     
     /**
     * @generated
     */
-    private User getReceiver() {
+    public User getReceiver() {
         return this.receiver;
     }
     
     /**
     * @generated
     */
-    private void setReceiver(User receiver) {
+    public void setReceiver(User receiver) {
         this.receiver = receiver;
     }
     
     /**
     * @generated
     */
-    private Boolean getIsRead() {
+    public Boolean getIsRead() {
         return this.isRead;
     }
     
     /**
     * @generated
     */
-    private void setIsRead(Boolean isRead) {
+    public void setIsRead(Boolean isRead) {
         this.isRead = isRead;
     }
     
-    
-    /**
-    * @generated
-    */
-    public Database getDatabase() {
-        return this.database;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setDatabase(Database database) {
-        this.database = database;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Message message = (Message) o;
-
         if (!Objects.equals(body, message.body)) return false;
         if (!Objects.equals(sender, message.sender)) return false;
         if (!Objects.equals(receiver, message.receiver)) return false;
-        if (!Objects.equals(isRead, message.isRead)) return false;
-        return Objects.equals(database, message.database);
+        return Objects.equals(isRead, message.isRead);
     }
 
     @Override
@@ -132,7 +107,6 @@ public class Message {
         result = 31 * result + (sender != null ? sender.hashCode() : 0);
         result = 31 * result + (receiver != null ? receiver.hashCode() : 0);
         result = 31 * result + (isRead != null ? isRead.hashCode() : 0);
-        result = 31 * result + (database != null ? database.hashCode() : 0);
         return result;
     }
 
@@ -143,7 +117,6 @@ public class Message {
                 ", sender=" + sender +
                 ", receiver=" + receiver +
                 ", isRead=" + isRead +
-                ", database=" + database +
                 '}';
     }
 }

@@ -8,7 +8,7 @@ public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
-    private Integer id;
+    private String id;
 
     /**
      * @generated
@@ -42,7 +42,7 @@ public abstract class User implements Serializable, Comparable<User> {
 
     public User() {}
 
-    public User(Integer id, String name, String surname) {
+    public User(String id, String name, String surname) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -93,101 +93,98 @@ public abstract class User implements Serializable, Comparable<User> {
     /**
      * @generated
      */
-    private Integer getId() {
+    public String getId() {
         return this.id;
     }
 
     /**
      * @generated
      */
-    private void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     /**
      * @generated
      */
-    private String getUsername() {
+    public String getUsername() {
         return this.username;
     }
 
     /**
      * @generated
      */
-    private void setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
     /**
      * @generated
      */
-    private String getPassword() {
+    public String getPassword() {
         return this.password;
     }
 
     /**
      * @generated
      */
-    private void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
     /**
      * @generated
      */
-    private String getName() {
+    public String getName() {
         return this.name;
     }
 
     /**
      * @generated
      */
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
     /**
      * @generated
      */
-    private String getSurname() {
+    public String getSurname() {
         return this.surname;
     }
 
     /**
      * @generated
      */
-
-    private void setFullName(String name, String surname) {
+    public void setFullName(String name, String surname) {
         this.fullName = name + " " + surname;
     }
 
     /**
      * @generated
      */
-    private String getFullName() {
+    public String getFullName() {
         return this.fullName;
     }
 
     /**
      * @generated
      */
-
-    private void setSurname(String surname) {
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
     /**
      * @generated
      */
-    private Boolean getIsLogged() {
+    public Boolean getIsLogged() {
         return this.isLogged;
     }
 
     /**
      * @generated
      */
-
-    private void setIsLogged(Boolean isLogged) {
+    public void setIsLogged(Boolean isLogged) {
         this.isLogged = isLogged;
     }
 

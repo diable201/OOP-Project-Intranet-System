@@ -9,7 +9,7 @@ public class Admin extends Employee {
         super();
     }
 
-    public Admin(Integer id, String name, String surname, EmployeeTypes department) {
+    public Admin(String id, String name, String surname, EmployeeTypes department) {
         super(id, name, surname, department);
     }
 
@@ -56,14 +56,19 @@ public class Admin extends Employee {
         else if (user instanceof Student) {
             users.remove(user);
         }
+        
 
     }
     /**
     * @generated
     */
-    public void updateUser() {
-        //TODO
+    public void updateUser(User user, String newName, String newSurname) {
+    	if (users.contains(user)) {
+        user.setName(newName);
+        user.setSurname(newSurname);
+    	}
     }
+ 
 
     private void checkStatus(User user) {
         if (user instanceof Teacher) {
