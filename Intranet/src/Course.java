@@ -97,6 +97,17 @@ public class Course implements Serializable {
 	public ArrayList<Lesson> getLessons(){
 		return lessons;
 	}
-	
+	public void putMark(Student student, double points, TypeOfMark typeOfMark) {
+		try {
+			Mark mark = marks.get(student);
+			mark.putMark(typeOfMark, points);
+		} catch(Exception e) {
+			System.out.println("This student is not registered in this course.");
+		}
+		
+	}
+	public Mark getMarkOfStudent(Student student){
+		return marks.get(student);
+	}
     
 }

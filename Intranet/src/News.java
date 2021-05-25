@@ -3,7 +3,7 @@ import java.util.Date;
 /**
 * @generated
 */
-public class News {
+public class News implements Cloneable{
 
     public News() {}
 
@@ -31,28 +31,32 @@ public class News {
     /**
     * @generated
     */
-    private Date getDate() {
+  
+	private Date getDate() {
         return this.date;
     }
     
     /**
     * @generated
     */
-    private void setDate(Date date) {
+    
+	private void setDate(Date date) {
         this.date = date;
     }
     
     /**
     * @generated
     */
-    private String getDescription() {
+  
+	private String getDescription() {
         return this.description;
     }
     
     /**
     * @generated
     */
-    private void setDescription(String description) {
+    
+	private void setDescription(String description) {
         this.description = description;
     }
     
@@ -71,4 +75,11 @@ public class News {
     }
 
     //                          Operations
+    public Object clone() throws CloneNotSupportedException{
+    	return super.clone();
+    }
+    public String toString() {
+    	return "News: " + title + ", description: " + description;
+    } 
+    
 }

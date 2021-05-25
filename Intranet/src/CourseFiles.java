@@ -1,7 +1,7 @@
 /**
 * @generated
 */
-public class CourseFiles {
+public class CourseFiles implements Cloneable{
     
     /**
     * @generated
@@ -64,10 +64,12 @@ public class CourseFiles {
     public void setCourse(Course course) {
         this.course = course;
     }
-    
-    public String toString() {
-    	return "Name: " + name + "\n" + "Content: " + content;
-    }
-    //                          Operations                                  
 
+    //                          Operations   
+    public String toString() {
+    	return course.getTitle() + " file { name: " + name + ", content: " + content +"}"; 
+    }
+    public Object clone() throws CloneNotSupportedException{
+    	return super.clone();
+    }
 }
