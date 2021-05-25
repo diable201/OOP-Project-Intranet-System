@@ -17,7 +17,7 @@ public class Mark implements Serializable {
     /**
     * @generated
     */
-    private LiteralMark literalMark;
+    private String literalMark;
 
     /**
     * @generated
@@ -52,14 +52,14 @@ public class Mark implements Serializable {
     /**
     * @generated
     */
-    private LiteralMark getLiteralMark() {
+    private String getLiteralMark() {
         return this.literalMark;
     }
     
     /**
     * @generated
     */
-    private void setLiteralMark(LiteralMark literalMark) {
+    private void setLiteralMark(String literalMark) {
         this.literalMark = literalMark;
     }
     
@@ -161,5 +161,47 @@ public class Mark implements Serializable {
                 ", literalMark=" + literalMark +
                 ", student=" + student +
                 '}';
+    }
+    public void transformMark(double total) {
+    	if(total>=94.5 && total<=100) {
+    		literalMark = "A";
+    	}
+    	else if(total>=89.5 && total<94.5) {
+    		literalMark = "A-";
+    	}
+    	else if(total>=84.5 && total<89.5) {
+    		literalMark = "B+";
+    	}
+    	else if(total>=79.5 && total<84.5) {
+    		literalMark = "B";
+    	}
+    	else if(total>=74.5 && total<79.5) {
+    		literalMark = "B-";
+    	}
+    	else if(total>=69.5 && total<74.5) {
+    		literalMark = "C+";
+    	}
+    	else if(total>=64.5 && total<69.5) {
+    		literalMark = "C";
+    	}
+    	else if(total>=59.5 && total<64.5) {
+    		literalMark = "C-";
+    	}
+    	else if(total>=54.5 && total<59.5) {
+    		literalMark = "D";
+    	}
+    	else if(total>=50 && total<54.5) {
+    		literalMark = "D-";
+    	}
+    	else {
+    		literalMark = "F";
+    	}
+    }
+    public void putMark(TypeOfMark typeOfMark, double points) {
+    	switch (typeOfMark) {
+        case FIRST_ATTESTATION -> this.setFirstAttestation(points);
+        case SECOND_ATTESTATION -> this.setSecondAttestation(points);
+        case FINAL -> this.setFinal(points);
+    	}
     }
 }
