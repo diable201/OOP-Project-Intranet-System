@@ -6,10 +6,14 @@ import java.util.ArrayList;
 public class Librarian extends Employee {
     
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
     * @generated
     */
     private ArrayList<Book> books;
-    private ArrayList<Order> orders;
+    private static ArrayList<Order> orders;
 
     public Librarian() {
         super();
@@ -19,88 +23,41 @@ public class Librarian extends Employee {
         super(id, name, surname, department);
     }
 
-    /**
-    * @generated
-    */
-    private Order order;
-    
-    /**
-    * @generated
-    */
-    private Book book;
-    
-    
-    /**
-    * @generated
-    */
-    private ArrayList <Book> getBooks() {
+    public ArrayList <Book> getBooks() {
         return this.books;
     }
-    
-    /**
-    * @generated
-    */
-    private void setBooks(ArrayList <Book> books) {
+
+    public void setBooks(ArrayList <Book> books) {
         this.books = books;
     }
     
-    
-    /**
-    * @generated
-    */
-    public Order getOrder() {
-        return this.order;
+    public static ArrayList <Order> getOrders() {
+        return Librarian.orders;
+    }
+
+    public static void setOrders(ArrayList <Order> orders) {
+        Librarian.orders = orders;
     }
     
-    /**
-    * @generated
-    */
-    public void setOrder(Order order) {
-        this.order = order;
+    public static void addOrder(Order order) {
+        Librarian.orders.add(order);
     }
-    
-    /**
-    * @generated
-    */
-    public Book getBook() {
-        return this.book;
-    }
-    
-    /**
-    * @generated
-    */
-    public void setBook(Book book) {
-        this.book = book;
-    }
-    
 
     //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void addBooks() {
-        //TODO
+
+    public void addBooks(Book book) {
+        books.add(book);
     }
-    /**
-    * @generated
-    */
-    public void deleteBooks() {
-        //TODO
+
+    public void deleteBooks(Book book) {
+        books.remove(book);
     }
-    /**
-    * @generated
-    */
-    public void acceptRequest(Order order) {
-        orders.add(order);
-        order.setStatus(OrderStatus.NEW);
-    }
-    /**
-    * @generated
-    */
-    public void rejectRequest(Order order) {
-        orders.add(order);
-        order.setStatus(OrderStatus.REJECTED);
-    }
-    
+  
+    public void checkRequest(Order order) {
+    	if(books.contains(order.getBook())) {
+        order.setStatus(OrderStatus.ACCEPTED);
+        orders.add(order); }
+    	else {order.setStatus(OrderStatus.REJECTED);
+        	orders.add(order); }
+}
 }
