@@ -14,10 +14,11 @@ public class Course implements Serializable {
 	public Course() {
 	}
 	
-	public Course(String code, String title, int credits) {
+	public Course(String code, String title, int credits, Faculty faculty) {
 		this.code = code;
 		this.title = title;
 		this.credits = credits;
+		this.faculty = faculty;
 	}
 	
 	private String code;
@@ -37,7 +38,7 @@ public class Course implements Serializable {
 	    * @generated
 	    */
 	private HashSet<CourseFiles>courseFiles = new HashSet<CourseFiles>();
-	
+	private Faculty faculty;
 	private HashSet<Course>prerequisites = new HashSet<Course>();
 	private ArrayList<Student>students = new ArrayList<Student>();
 	private HashMap<Student, Mark>marks = new HashMap<Student, Mark>();
@@ -110,7 +111,21 @@ public class Course implements Serializable {
 		}
 		
 	}
-	
+
+	public Faculty getFaculty() {
+		return faculty;
+	}
+
+	public void setFaculty(Faculty faculty) {
+		this.faculty = faculty;
+	}
+
+	public void addStudent(Student student) {
+		if (!students.contains(student)) {
+			students.add(student);
+		}
+	}
+
 	public Mark getMarkOfStudent(Student student){
 		return marks.get(student);
 	}

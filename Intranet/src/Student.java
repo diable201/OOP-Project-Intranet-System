@@ -22,11 +22,6 @@ public class Student extends User {
     /**
      * @generated
      */
-    private ArrayList<Course> courses;
-
-    /**
-     * @generated
-     */
     private Faculty faculty;
 
     /**
@@ -43,14 +38,8 @@ public class Student extends User {
      * @generated
      */
     private Integer totalCredits;
-
-    /**
-     * @generated
-     */
-    private HashMap<Course, Mark> marks;
-
-    private HashMap<Course, Mark> marks2 = new HashMap<Course, Mark>();
-    private ArrayList<Course> courses2 = new ArrayList<Course>();
+    private HashMap<Course, Mark> marks = new HashMap<Course, Mark>();
+    private ArrayList<Course> courses = new ArrayList<Course>();
     /**
      * @generated
      */
@@ -224,6 +213,14 @@ public class Student extends User {
     		}
     	}
     }
+
+    public boolean registerForCourse(Course course) {
+        if (!isHavingCourse(course) && getCoursesForRegistration().contains(course)) {
+            this.setCourses(course);
+            return true;
+        }
+        return false;
+    }
     
     public void rateTeachers(Teacher teacher, double rate) {
     	teacher.setRate(rate);	
@@ -241,21 +238,34 @@ public class Student extends User {
     }
 //   
     public void setCourseMark(Course course, Mark mark) {
-    	marks2.put(course, mark);
+    	marks.put(course, mark);
     }
     public Mark viewMark2(Course course) {
-    	return marks2.get(course);
+    	return marks.get(course);
     }
     public void viewTranscript2() {
     	
-    	for (Course c : marks2.keySet()) {
-    		System.out.print(c.getTitle() + " | " + marks2.get(c).getFirstAttestation() + " | " + marks2.get(c).getSecondAttestation() +" | " +
-    	marks2.get(c).getFinal() + " | " + marks2.get(c).getTotal() + " | " + marks2.get(c).getLiteralMark()+ "\n");	
+    	for (Course c : marks.keySet()) {
+    		System.out.print(c.getTitle() + " | " + marks.get(c).getFirstAttestation() + " | " + marks.get(c).getSecondAttestation() +" | " +
+    	marks.get(c).getFinal() + " | " + marks.get(c).getTotal() + " | " + marks.get(c).getLiteralMark()+ "\n");
     	}    	
     }
-    
-    public void setCourses2(Course course) {
-        courses2.add(course);
+
+    public boolean isHavingCourse(Course course) {
+        return courses.contains(course);
+    }
+
+    public ArrayList<Course> getCoursesForRegistration() {
+        ArrayList<Course> allowedCourses = new ArrayList<>();
+        for (Course course: Database.courses)
+            if (course.getFaculty().equals(this.getFaculty()))
+                allowedCourses.add(course);
+        return allowedCourses;
+    }
+
+
+    public void setCourses(Course course) {
+        courses.add(course);
     }
     
 //    public HashSet<CourseFiles>viewCourseFiles2(Course course) {
