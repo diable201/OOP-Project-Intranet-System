@@ -67,21 +67,25 @@ public class Teacher extends Employee {
 		course.deleteCourseFiles(courseFiles);
 	}
 
-	public HashSet<CourseFiles>viewCourseFiles(Course course){
+	public HashSet<CourseFiles>viewCourseFiles(Course course) {
 		return course.getCourseFiles();
 	}
+
 	public int hashCode() {
         return Objects.hash(super.hashCode(),faculty,academicDegree);
     }
+
     public boolean equals(Object o) {
         if (o == this) return true;
-        if (!(o instanceof Student)) return false;
+        if (!(o instanceof Teacher)) return false;
         Teacher t = (Teacher) o;
         return super.equals(t) && t.faculty.equals(faculty) && t.academicDegree.equals(academicDegree);
     }
+
     public String toString() {
     	return super.toString() + "," + academicDegree + " of " + faculty;
     }
+
     public ArrayList<News>seeNews() {
     	return news;
     }

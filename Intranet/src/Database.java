@@ -183,8 +183,4 @@ public class Database implements Serializable {
                 allMessages.add(message);
         return allMessages;
     }
-
-
-
-    
 }
