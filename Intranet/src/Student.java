@@ -49,7 +49,8 @@ public class Student extends User {
      */
     private HashMap<Course, Mark> marks;
 
-  
+    private HashMap<Course, Mark> marks2 = new HashMap<Course, Mark>();
+    private ArrayList<Course> courses2 = new ArrayList<Course>();
     /**
      * @generated
      */
@@ -238,6 +239,28 @@ public class Student extends User {
     	Student s = (Student) o;
     	return getUsername().compareTo(s.getUsername());
     }
+//   
+    public void setCourseMark(Course course, Mark mark) {
+    	marks2.put(course, mark);
+    }
+    public Mark viewMark2(Course course) {
+    	return marks2.get(course);
+    }
+    public void viewTranscript2() {
+    	
+    	for (Course c : marks2.keySet()) {
+    		System.out.print(c.getTitle() + " | " + marks2.get(c).getFirstAttestation() + " | " + marks2.get(c).getSecondAttestation() +" | " +
+    	marks2.get(c).getFinal() + " | " + marks2.get(c).getTotal() + " | " + marks2.get(c).getLiteralMark()+ "\n");	
+    	}    	
+    }
+    
+    public void setCourses2(Course course) {
+        courses2.add(course);
+    }
+    
+//    public HashSet<CourseFiles>viewCourseFiles2(Course course) {
+//    	return course.getCourseFiles();
+//    }
 //
 //    //                          Operations
 //
