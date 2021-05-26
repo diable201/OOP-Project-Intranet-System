@@ -40,7 +40,7 @@ public class StudentMenu {
 
                                 1. View course files\s
                                 0. Exit to main menu""";
-
+                        System.out.println(student.getCourses());
                         System.out.println(menuCoursesInfo);
                         choice = reader.readLine();
 
@@ -48,12 +48,11 @@ public class StudentMenu {
                         if (choice.equals("0"))
                             break;
 
-                            // View course files
-//                        else if (choice.equals("1")) {
-//                            StudentController.checkCourseFiles();
-//
-//                        }
+//                             View course files
+                        else if (choice.equals("1")) {
+                            StudentMenu.checkCourseFiles();
 
+                        }
                         else
                             System.out.println("\n[Incorrect input format. Please choose available option]\n");
                     }
@@ -64,83 +63,58 @@ public class StudentMenu {
 
 
             // 2 main menu option: managing registration for courses
-//            else if (choice.equals("2"))
+            else if (choice.equals("2"))
 
-//                if (Database.registrationIsOpen)
+                if (Database.registrationIsOpen)
 //
-//                    while (true) {
+                    while (true) {
 //
-//                        if (student.getCoursesForRegistration().size() > 0) {
-//                            Views.showCourses(student, 8, student.getCoursesForRegistration());
+                        if (student.getCoursesForRegistration().size() > 0) {
+                            System.out.println(student.getCoursesForRegistration());
+//
+                            String manageRegistrationMenu = """
 
-//                            String manageRegistrationMenu =   "\n1. Add course for registration"
-//                                    + "\n2. Delete course from registration"
-//                                    + "\n0. Exit to main menu";
-//
-//                            System.out.println(manageRegistrationMenu);
-//                            choice = reader.readLine();
-//
-//                            // Back to main menu
-//                            if (choice.equals("0"))
-//                                break;
-//
-//                                // Add/Delete course in registration
-//                            else if (choice.equals("1") || choice.equals("2")) {
-//                                StudentController.processCourseRegistrationOptions(choice);
-//
-//                            }
-//
-//                            else
-//                                System.out.println("\n[Incorrect input format. Please choose available option]\n");
-//                        }
-//                        else {
-//                            System.out.println("[There are no any courses available for registration yet. Please wait, they will be added by manager very soon ]");
-//
-//                        }
-//                    }
-//
-//                else {
-//                    System.out.println("[Registration for courses is closed]");
-//
-//                }
+                                    1. Add course for registration
+                                    2. Delete course from registration
+                                    0. Exit to main menu""";
+
+                            System.out.println(manageRegistrationMenu);
+                            choice = reader.readLine();
+
+                            // Back to main menu
+                            if (choice.equals("0"))
+                                break;
+
+                                // Add/Delete course in registration
+                            else if (choice.equals("1") || choice.equals("2")) {
+                                StudentMenu.processCourseRegistrationOptions(choice);
+                            }
+                            else
+                                System.out.println("\n[Incorrect input format. Please choose available option]\n");
+                        }
+                        else {
+                            System.out.println("[There are no any courses available for registration yet. Please wait, they will be added by manager very soon ]");
+                            break;
+                        }
+                    }
+
+                else {
+                    System.out.println("[Registration for courses is closed]");
+                }
 //
 //
 //                // 3 main menu option: view transcript
-//            else if (choice.equals("3")) {
-//                student.viewTranscript();
-//
-//            }
+            else if (choice.equals("3")) {
+                student.viewTranscript();
 
-//            // 4 main menu option: change password
-//            else if (choice.equals("4"))
-//                student.changePassword();
+            }
+//
+            // 4 main menu option: change password
+            else if (choice.equals("4"))
+                Menu.showMenuForChangePassword(user, reader);
 //
 //            else
 //                System.out.println("\n[Incorrect input format. Please choose available option]");
-        }
-    }
-
-
-    // ----------------------------------------------------------------------------
-    // Subcontrollers of individual stages of information input and processing
-    // Made to visually relieve the main controller
-    //-----------------------------------------------------------------------------
-
-    // Subcontroller: view course files
-    public static void checkCourseFiles() throws IOException {
-
-        try {
-
-            System.out.print("\nPlease enter ID of course from the list: ");
-            String choice = reader.readLine();
-
-            int courseId = Integer.parseInt(choice);
-//            Course course = Database.getCourse(courseId);
-
-
-
-        } catch (NumberFormatException exception) {
-            System.out.println("[Incorrect input format. Please enter number]\n");
         }
     }
 
@@ -149,15 +123,15 @@ public class StudentMenu {
 
         try {
             System.out.print("\nPlease enter ID of course from the list: ");
-            String input = reader.readLine();
+//            String input = reader.readLine();
 
-            int courseId =  Integer.parseInt(input);
+            String courseId =  reader.readLine();
 
-//            if (option.equals("1"))
-//                if (student.registerForCourse(Database.getCourse(courseId)))
-//                    System.out.println("[Successfully added to registration]\n");
-//                else
-//                    System.out.println("[Incorrect course ID, course is full or you are already registered for this course]\n");
+            if (option.equals("1"))
+                if (student.registerForCourse(Database.getCourse(courseId)))
+                    System.out.println("[Successfully added to registration]\n");
+                else
+                    System.out.println("[Incorrect course ID, course is full or you are already registered for this course]\n");
 //
 //            else if (option.equals("2"))
 //                if (student.unregisterFromCourse(Database.getCourse(courseId)))
@@ -172,5 +146,21 @@ public class StudentMenu {
         }
     }
 
+    public static void checkCourseFiles() throws IOException {
+        try {
+            System.out.print("\nPlease enter ID of course from the list: ");
+//            String choice = reader.readLine();
+
+            String courseId = reader.readLine();
+            Course course = Database.getCourse(courseId);
+            if (student.isHavingCourse(course)) {
+                student.viewCourseFiles(course);
+            } else {
+                System.out.println("Error");
+            }
+        } catch (NumberFormatException exception) {
+            System.out.println("[Incorrect input format. Please enter number]\n");
+        }
+    }
 
 }

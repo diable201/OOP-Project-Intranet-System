@@ -12,8 +12,8 @@ public class Tester {
         s2.rateTeachers(t1, 5.0);
         System.out.print(t1.getRate());
         // Student s5 = new Student(5, "Jony", "TTT", 2, Faculty.FIT, Degree.BACHELOR);
-        // Database.users.add(s1); Database.users.add(s2); Database.users.add(s3); Database.users.add(s4);
-        // Database.saveUsers();
+//         Database.users.add(s1); Database.users.add(s2); Database.users.add(s3); Database.users.add(s4);
+//         Database.saveUsers();
         //Database.loadUsers();
         // Database.serUsers();
         // Database.desUsers();
@@ -23,15 +23,18 @@ public class Tester {
 //        Student s5 = new Student("5", "Jony", "TTT", 2, Faculty.FIT, Degree.BACHELOR);
         Database.users.add(s1); Database.users.add(s2); Database.users.add(s3); Database.users.add(s4);
         Database.saveUsers();
-        Database.loadUsers();
-
-        Course OOP = new Course("CS1", "Object-Oriented Programming and Design", 3);
-        Course ADS = new Course("CS2", "Algorithms and Data Structures", 3);
-        Course DB = new Course("CS3", "Databases", 3);
-        Course ICT = new Course("CS4", "Information and Communication Technologies", 3);
-        Course PP2 = new Course("CS5", "Programming principles 2", 4);
-        Course PP1 = new Course("CS6", "Programming principles 1", 4);
-        Database.courses.add(PP1); Database.courses.add(PP2); Database.courses.add(OOP); Database.courses.add(DB); Database.courses.add(ADS); Database.courses.add(ICT);
+//        Database.loadUsers();
+        Course c2 = new Course("CSCI11", "PP2", 4, Faculty.FIT);
+        Database.courses.add(c2);
+        c2.setStudents(s4);
+        Database.saveCourses();
+//        Course OOP = new Course("CS1", "Object-Oriented Programming and Design", 3);
+//        Course ADS = new Course("CS2", "Algorithms and Data Structures", 3);
+//        Course DB = new Course("CS3", "Databases", 3);
+//        Course ICT = new Course("CS4", "Information and Communication Technologies", 3);
+//        Course PP2 = new Course("CS5", "Programming principles 2", 4);
+//        Course PP1 = new Course("CS6", "Programming principles 1", 4);
+//        Database.courses.add(PP1); Database.courses.add(PP2); Database.courses.add(OOP); Database.courses.add(DB); Database.courses.add(ADS); Database.courses.add(ICT);
 //        Database.saveCourses();
 //        Database.loadCourses();
 //        System.out.println(Database.getStudents());

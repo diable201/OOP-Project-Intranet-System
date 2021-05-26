@@ -14,10 +14,11 @@ public class Course implements Serializable {
 	public Course() {
 	}
 	
-	public Course(String code, String title, int credits) {
+	public Course(String code, String title, int credits, Faculty faculty) {
 		this.code = code;
 		this.title = title;
 		this.credits = credits;
+		this.faculty = faculty;
 	}
 	
 	private String code;
@@ -37,7 +38,7 @@ public class Course implements Serializable {
 	    * @generated
 	    */
 	private HashSet<CourseFiles>courseFiles = new HashSet<CourseFiles>();
-	
+	private Faculty faculty;
 	private HashSet<Course>prerequisites = new HashSet<Course>();
 	private ArrayList<Student>students = new ArrayList<Student>();
 	private HashMap<Student, Mark>marks = new HashMap<Student, Mark>();
@@ -72,8 +73,8 @@ public class Course implements Serializable {
 	public void setCourseFiles(CourseFiles courseF) {
 		courseFiles.add(courseF);
 	}
-	public void deleteCourseFiles(CourseFiles courseF) {
-		courseFiles.remove(courseF);
+	public boolean deleteCourseFiles(CourseFiles courseF) {
+		return courseFiles.remove(courseF);
 	}
 	public HashSet<CourseFiles> getCourseFiles(){
 		return courseFiles;
@@ -99,7 +100,7 @@ public class Course implements Serializable {
 	public ArrayList<Lesson> getLessons(){
 		return lessons;
 	}
-	public void putMark(Student student, double points, TypeOfMark typeOfMark, Database database) {
+	public void putMark(Student student, double points, TypeOfMark typeOfMark) {
 		try {
 			Mark mark = marks.get(student);
 			mark.putMark(typeOfMark, points);
@@ -110,7 +111,21 @@ public class Course implements Serializable {
 		}
 		
 	}
-	
+
+	public Faculty getFaculty() {
+		return faculty;
+	}
+
+	public void setFaculty(Faculty faculty) {
+		this.faculty = faculty;
+	}
+
+	public void addStudent(Student student) {
+		if (!students.contains(student)) {
+			students.add(student);
+		}
+	}
+
 	public Mark getMarkOfStudent(Student student){
 		return marks.get(student);
 	}
@@ -130,5 +145,13 @@ public class Course implements Serializable {
 				", title='" + title + '\'' +
 				", credits=" + credits +
 				'}';
+	}
+	public CourseFiles getFile(String name) {
+		for(CourseFiles c: courseFiles) {
+			if(c.getName().equals(name)) {
+				return c;
+			}
+		}
+		return null;
 	}
 }

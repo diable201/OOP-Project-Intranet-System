@@ -16,9 +16,19 @@ public class Database implements Serializable {
     protected static HashMap<Course, Mark> marks = new HashMap<>();
     protected static ArrayList<News> news = new ArrayList<>();
     protected static ArrayList<Message> messages = new ArrayList<>();
+    protected static boolean registrationIsOpen = true;
 
     protected static String getKeyword() {
         return "Test";
+    }
+
+    private static Database INSTANCE = null;
+
+    private Database() {}
+
+    public static Database getInstance() {
+        if (INSTANCE == null) INSTANCE = new Database();
+        return INSTANCE;
     }
 
     public static void serUsers() throws IOException{
@@ -235,5 +245,16 @@ public class Database implements Serializable {
             if (user.getUsername().equals(username))
                 return user;
         return null;
+    }
+    public static Student getStudent(String id) {
+    	for(User user: users) {
+    		if (user instanceof Student) {
+    			Student st = (Student) user;
+    			if(st.getId().equals(id)) {
+    				return st;
+    			}
+    		}
+    	}
+    	return null;
     }
 }
