@@ -10,9 +10,9 @@ public class Mark implements Serializable {
     * @generated
     */
     private double points;
-    private double first_attestation;
-    private double second_attestation;
-    private double final_exam;
+    private double first_attestation = 0;
+    private double second_attestation = 0;
+    private double final_exam = 0;
     private double total;
     /**
     * @generated
@@ -52,7 +52,7 @@ public class Mark implements Serializable {
     /**
     * @generated
     */
-    private String getLiteralMark() {
+    public String getLiteralMark() {
         return this.literalMark;
     }
     
@@ -198,10 +198,16 @@ public class Mark implements Serializable {
     	}
     }
     public void putMark(TypeOfMark typeOfMark, double points) {
-    	switch (typeOfMark) {
-        case FIRST_ATTESTATION -> this.setFirstAttestation(points);
-        case SECOND_ATTESTATION -> this.setSecondAttestation(points);
-        case FINAL -> this.setFinal(points);
+    	if(typeOfMark==TypeOfMark.FIRST_ATTESTATION) {
+    		this.setFirstAttestation(points);
+    	}
+    	else if(typeOfMark == TypeOfMark.SECOND_ATTESTATION) {
+    		this.setSecondAttestation(points);
+    	}
+    	else if(typeOfMark == TypeOfMark.FINAL) {
+    		this.setFinal(points);
+    		this.transformMark(this.getTotal());
     	}
     }
+    
 }
