@@ -40,8 +40,9 @@ public class StudentMenu {
 
                                 1. View course files\s
                                 0. Exit to main menu""";
-                        System.out.println(student.getCourses());
+
                         System.out.println(menuCoursesInfo);
+                        System.out.println(student.getCourses());
                         choice = reader.readLine();
 
                         // Back to main menu
@@ -147,7 +148,9 @@ public class StudentMenu {
     }
 
     public static void checkCourseFiles() throws IOException {
+
         try {
+
             System.out.print("\nPlease enter ID of course from the list: ");
 //            String choice = reader.readLine();
 

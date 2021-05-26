@@ -81,7 +81,7 @@ public class Student extends User {
      * @generated
      */
     public ArrayList <Course> getCourses() {
-        return this.courses;
+        return courses;
     }
 
     /**
@@ -180,13 +180,7 @@ public class Student extends User {
         this.yearOfStudy++;
     }
     
-    public void viewTranscript() {
-    	String result = "";
-    	for (Map.Entry <Course,Mark> marks: marks.entrySet()) {
-    		result += "Course Name: " + marks.getKey().getTitle() + "Mark: " + marks.getValue().getTotal() +"\n";	
-    	}
-    	System.out.print(result);
-    }
+
     public void registerCourses(Course course) {
     	courses.add(course);
     }
@@ -216,7 +210,7 @@ public class Student extends User {
 
     public boolean registerForCourse(Course course) {
         if (!isHavingCourse(course) && getCoursesForRegistration().contains(course)) {
-            this.setCourses(course);
+            this.courses.add(course);
             return true;
         }
         return false;
@@ -243,8 +237,7 @@ public class Student extends User {
     public Mark viewMark2(Course course) {
     	return marks.get(course);
     }
-    public void viewTranscript2() {
-    	
+    public void viewTranscript() {
     	for (Course c : marks.keySet()) {
     		System.out.print(c.getTitle() + " | " + marks.get(c).getFirstAttestation() + " | " + marks.get(c).getSecondAttestation() +" | " +
     	marks.get(c).getFinal() + " | " + marks.get(c).getTotal() + " | " + marks.get(c).getLiteralMark()+ "\n");

@@ -1,8 +1,8 @@
 import java.util.Date;
 
 /**
-* @generated
-*/
+ * @generated
+ */
 public class News implements Cloneable{
 
     public News() {}
@@ -14,72 +14,72 @@ public class News implements Cloneable{
     }
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     private Date date;
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private String description;
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private String title;
 
     /**
-    * @generated
-    */
-  
+     * @generated
+     */
+
     public Date getDate() {
         return this.date;
     }
-    
+
     /**
-    * @generated
-    */
-    
-	public void setDate(Date date) {
+     * @generated
+     */
+
+    public void setDate(Date date) {
         this.date = date;
     }
-    
+
     /**
-    * @generated
-    */
-  
-	private String getDescription() {
+     * @generated
+     */
+
+    private String getDescription() {
         return this.description;
     }
-    
+
     /**
-    * @generated
-    */
-    
-	public void setDescription(String description) {
+     * @generated
+     */
+
+    public void setDescription(String description) {
         this.description = description;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     public String getTitle() {
         return this.title;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
     //                          Operations
     public Object clone() throws CloneNotSupportedException{
-    	return super.clone();
+        return super.clone();
     }
     public String toString() {
-    	return "News: " + title + ", description: " + description;
-    } 
-    
+        return "News: " + title + ", description: " + description;
+    }
+
 }

@@ -18,7 +18,8 @@ public class TeacherTester {
 		
 		Course c1 = new Course("CSCI12", "WebDev", 4, Faculty.FIT);
 		Course c2 = new Course("CSCI11", "PP2", 4, Faculty.FIT);
-		
+//		t1.setCourses(c1);
+//		System.out.println(t1.getCourses());
 		c1.setLimitOfStudents(85);
 //		System.out.println(c1.getLimitOfStudents());
 //		System.out.println(c2.getTitle());
@@ -67,8 +68,8 @@ public class TeacherTester {
 		c1.setStudents(s3);
 		c2.setStudents(s3);
 //
-		s3.setCourses(c1);
-		s3.setCourses(c2);
+//		s3.setCourses(c1);
+//		s3.setCourses(c2);
 		
 //		System.out.println(t1.viewStudentsInfo(c1));
 //		System.out.println("_______________________________________________");
@@ -96,7 +97,7 @@ public class TeacherTester {
 		System.out.println(s3.viewMark2(c1));
 		
 		System.out.println("_______________________________________________");
-		s3.viewTranscript2();
+		s3.viewTranscript();
 
 		t1.putMark(c2, TypeOfMark.FIRST_ATTESTATION, 30, s3);
 		t1.putMark(c2, TypeOfMark.SECOND_ATTESTATION, 30, s3);

@@ -22,12 +22,25 @@ public class Tester {
         Database.users.add(a1);
 //        Student s5 = new Student("5", "Jony", "TTT", 2, Faculty.FIT, Degree.BACHELOR);
         Database.users.add(s1); Database.users.add(s2); Database.users.add(s3); Database.users.add(s4);
-        Database.saveUsers();
+//        Database.saveUsers();
 //        Database.loadUsers();
         Course c2 = new Course("CSCI11", "PP2", 4, Faculty.FIT);
         Database.courses.add(c2);
-        c2.setStudents(s4);
+//        c2.setStudents(s4);
+
+        t1.setCourses(c2);
+
+//        s4.setCourses(c2);
+        Database.users.add(t1);
+        System.out.println("teacher");
+        System.out.println(t1.getCourses());
+        System.out.println(s4.getId());
+        System.out.println("student");
+        System.out.println(s4.getCourses());
+        System.out.println(c2.getStudents());
+        System.out.println(s4.getCourses());
         Database.saveCourses();
+        Database.saveUsers();
 //        Course OOP = new Course("CS1", "Object-Oriented Programming and Design", 3);
 //        Course ADS = new Course("CS2", "Algorithms and Data Structures", 3);
 //        Course DB = new Course("CS3", "Databases", 3);

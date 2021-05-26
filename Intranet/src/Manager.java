@@ -3,29 +3,29 @@ import java.util.Collections;
 
 
 /**
-* @generated
-*/
+ * @generated
+ */
 public class Manager extends Employee {
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private ArrayList<Course> courses;
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private ArrayList <Teacher> teachers;
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private ArrayList <Student> students;
-    
+
     private ArrayList <News> news;
     /**
-    * @generated
-    */
+     * @generated
+     */
 
     public Manager(String id, String name, String surname, EmployeeTypes department) {
         super(id, name, surname, department);
@@ -33,59 +33,59 @@ public class Manager extends Employee {
 
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     private ArrayList <Course> getCourses() {
         return this.courses;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private void setCourses(ArrayList <Course> courses) {
         this.courses = courses;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private ArrayList <Teacher> getTeachers() {
         return this.teachers;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private void setTeachers(ArrayList <Teacher> teachers) {
         this.teachers = teachers;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private ArrayList <Student> getStudents() {
         return this.students;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private void setStudents(ArrayList <Student> students) {
         this.students = students;
     }
-    
-    
+
+
     private ArrayList <News> getNews() {
         return this.news;
     }
-    
-    public void setNews(ArrayList<News> news) {
-		this.news = news;
-	}
-    
 
-    //                          Operations                                  
-    
+    public void setNews(ArrayList<News> news) {
+        this.news = news;
+    }
+
+
+    //                          Operations
+
 
 //    public createStatisticalReport() {
 //        //TODO
@@ -111,8 +111,8 @@ public class Manager extends Employee {
     }
 
     public void extendRegistration() {
-        if(Database.registrationIsOpen == false) {
-        	Database.registrationIsOpen = true;
+        if(!Database.registrationIsOpen) {
+            Database.registrationIsOpen = true;
         }
     }
     public void addNews(News n) {
@@ -127,16 +127,16 @@ public class Manager extends Employee {
         news.remove(n);
     }
     public ArrayList <Teacher> viewTeachersInAlphabeticOrder() {
-    	Collections.sort(teachers, new SortTeacherByName());
+        Collections.sort(teachers, new SortTeacherByName());
         return teachers;
     }
 
     public ArrayList<Course> viewTeachersCourse(Teacher teacher) {
-    	return teacher.getCourses();
+        return teacher.getCourses();
     }
 
     public void viewStudentsTranscript(Student student) {
-        student.viewTranscript2();
+        student.viewTranscript();
     }
 
     public ArrayList <Student> viewStudentsInAlphabeticOrder() {
