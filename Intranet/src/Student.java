@@ -81,10 +81,7 @@ public class Student extends User {
      * @generated
      */
     public ArrayList <Course> getCourses() {
-        ArrayList<Course> coursesList = new ArrayList<>();
-        for (Course course: courses)
-            coursesList.add(course);
-        return coursesList;
+        return courses;
     }
 
     /**
@@ -213,8 +210,7 @@ public class Student extends User {
 
     public boolean registerForCourse(Course course) {
         if (!isHavingCourse(course) && getCoursesForRegistration().contains(course)) {
-            course.setStudents(this);
-//            c2.setStudents(s4);
+            this.courses.add(course);
             return true;
         }
         return false;
@@ -242,7 +238,6 @@ public class Student extends User {
     	return marks.get(course);
     }
     public void viewTranscript() {
-    	
     	for (Course c : marks.keySet()) {
     		System.out.print(c.getTitle() + " | " + marks.get(c).getFirstAttestation() + " | " + marks.get(c).getSecondAttestation() +" | " +
     	marks.get(c).getFinal() + " | " + marks.get(c).getTotal() + " | " + marks.get(c).getLiteralMark()+ "\n");

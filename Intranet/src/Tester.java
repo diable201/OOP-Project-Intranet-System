@@ -26,11 +26,17 @@ public class Tester {
 //        Database.loadUsers();
         Course c2 = new Course("CSCI11", "PP2", 4, Faculty.FIT);
         Database.courses.add(c2);
-        c2.setStudents(s4);
+//        c2.setStudents(s4);
+
         t1.setCourses(c2);
+
+//        s4.setCourses(c2);
         Database.users.add(t1);
+        System.out.println("teacher");
         System.out.println(t1.getCourses());
         System.out.println(s4.getId());
+        System.out.println("student");
+        System.out.println(s4.getCourses());
         System.out.println(c2.getStudents());
         System.out.println(s4.getCourses());
         Database.saveCourses();

@@ -120,10 +120,12 @@ public class Course implements Serializable {
 		this.faculty = faculty;
 	}
 
-	public void addStudent(Student student) {
+	public boolean addStudent(Student student) {
 		if (!students.contains(student)) {
 			students.add(student);
+			return true;
 		}
+		return false;
 	}
 
 	public Mark getMarkOfStudent(Student student){
@@ -137,6 +139,8 @@ public class Course implements Serializable {
 	public void setMarks(HashMap<Student, Mark> marks) {
 		this.marks = marks;
 	}
+
+
 
 	@Override
 	public String toString() {
