@@ -78,21 +78,21 @@ public class Student extends User {
         this.marks = marks;
     }
     
-    private Integer getYearOfStudy() {
+    public Integer getYearOfStudy() {
         return this.yearOfStudy;
     }
 
     /**
      * @generated
      */
-    private void setYearOfStudy(Integer yearOfStudy) {
+    public void setYearOfStudy(Integer yearOfStudy) {
         this.yearOfStudy = yearOfStudy;
     }
 
     /**
      * @generated
      */
-    private ArrayList <Course> getCourses() {
+    public ArrayList <Course> getCourses() {
         return this.courses;
     }
 
@@ -100,77 +100,77 @@ public class Student extends User {
      * @generated
      */
 
-    private void setCourses(ArrayList <Course> courses) {
+    public void setCourses(ArrayList <Course> courses) {
         this.courses = courses;
     }
 
     /**
      * @generated
      */
-    private Faculty getFaculty() {
+    public Faculty getFaculty() {
         return this.faculty;
     }
 
     /**
      * @generated
      */
-    private void setFaculty(Faculty faculty) {
+    public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
     }
 
     /**
      * @generated
      */
-    private Degree getDegree() {
+    public Degree getDegree() {
         return this.degree;
     }
 
     /**
      * @generated
      */
-    private void setDegree(Degree degree) {
+    public void setDegree(Degree degree) {
         this.degree = degree;
     }
 
     /**
      * @generated
      */
-    private Integer getCreditLimit() {
+    public Integer getCreditLimit() {
         return this.creditLimit;
     }
 
     /**
      * @generated
      */
-    private void setCreditLimit(Integer creditLimit) {
+    public void setCreditLimit(Integer creditLimit) {
         this.creditLimit = creditLimit;
     }
 
     /**
      * @generated
      */
-    private Integer getTotalCredits() {
+    public Integer getTotalCredits() {
         return this.totalCredits;
     }
 
     /**
      * @generated
      */
-    private void setTotalCredits(Integer totalCredits) {
+    public void setTotalCredits(Integer totalCredits) {
         this.totalCredits = totalCredits;
     }
 
     /**
      * @generated
      */
-    private HashMap <Course, Mark> getMarks() {
+    public HashMap <Course, Mark> getMarks() {
         return this.marks;
     }
 
     /**
      * @generated
      */
-    private void setMarks(HashMap <Course, Mark> marks) {
+    public void setMarks(HashMap <Course, Mark> marks) {
         this.marks = marks;
     }
 
@@ -224,6 +224,10 @@ public class Student extends User {
     			System.out.println(coursefiles.toString());
     		}
     	}
+    }
+    
+    public void rateTeachers(Teacher teacher, double rate) {
+    	teacher.setRate(rate);	
     }
     
     @Override
