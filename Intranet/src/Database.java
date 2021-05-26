@@ -16,8 +16,19 @@ public class Database implements Serializable {
     protected static HashMap<Course, Mark> marks = new HashMap<>();
     protected static ArrayList<News> news = new ArrayList<>();
     protected static ArrayList<Message> messages = new ArrayList<>();
+    protected static boolean registrationIsOpen = true;
+
     protected static String getKeyword() {
         return "Test";
+    }
+
+    private static Database INSTANCE = null;
+
+    private Database() {}
+
+    public static Database getInstance() {
+        if (INSTANCE == null) INSTANCE = new Database();
+        return INSTANCE;
     }
 
     public static void serUsers() throws IOException{
