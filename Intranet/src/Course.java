@@ -20,13 +20,6 @@ public class Course implements Serializable {
 		this.credits = credits;
 	}
 	
-	public Course(String code, String title, int credits, HashSet<Course> prerequisites) {
-		this.code = code;
-		this.title = title;
-		this.credits = credits;
-		this.prerequisites = prerequisites;
-	}
-
 	private String code;
 	/**
 	    * @generated
@@ -49,7 +42,7 @@ public class Course implements Serializable {
 	private ArrayList<Student>students = new ArrayList<Student>();
 	private HashMap<Student, Mark>marks = new HashMap<Student, Mark>();
 	private ArrayList<Lesson>lessons = new ArrayList<Lesson>();
-    /**
+	/**
     * @generated
     */
 	public String getCode() {
@@ -121,12 +114,21 @@ public class Course implements Serializable {
 	public Mark getMarkOfStudent(Student student){
 		return marks.get(student);
 	}
-	
+    
 	public HashMap<Student, Mark> getMarks() {
 		return marks;
 	}
 
 	public void setMarks(HashMap<Student, Mark> marks) {
 		this.marks = marks;
+
+
+	@Override
+	public String toString() {
+		return "Course{" +
+				"code='" + code + '\'' +
+				", title='" + title + '\'' +
+				", credits=" + credits +
+				'}';
 	}
 }

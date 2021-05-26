@@ -15,6 +15,8 @@ public class Teacher extends Employee {
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	private ArrayList<News> news = new ArrayList<News>();
 	private Faculty faculty;
+	private int numberOfVotes;
+	private double rate;
 
 	public Teacher() {
 		super();
@@ -73,6 +75,7 @@ public class Teacher extends Employee {
 		course.deleteCourseFiles(courseFiles);
 	}
 
+
 	public HashSet<String>viewCourseFiles(Course course){
 		HashSet<String> coursef = new HashSet<String>();
 		for (CourseFiles cf : course.getCourseFiles()) {
@@ -80,18 +83,44 @@ public class Teacher extends Employee {
 		}
 		return coursef;
 	}
+	
+	public int getNumberOfVotes() {
+		return this.numberOfVotes;
+	}
+	
+	public void setNumberOfVotes(int numberOfVotes) {
+		this.numberOfVotes = numberOfVotes;
+	}
+	
+	public double getRate() {
+		return this.rate;
+	}
+	
+	public void setRate(double rate) {
+		this.numberOfVotes++;
+		this.rate+=rate;
+		this.rate /= (double)this.numberOfVotes;
+	}
+
 	public int hashCode() {
         return Objects.hash(super.hashCode(),faculty,academicDegree);
     }
+
     public boolean equals(Object o) {
         if (o == this) return true;
-        if (!(o instanceof Student)) return false;
+        if (!(o instanceof Teacher)) return false;
         Teacher t = (Teacher) o;
         return t.faculty.equals(faculty) || t.academicDegree.equals(academicDegree);
     }
+
+    @Override
     public String toString() {
-    	return super.toString() + "," + academicDegree + " of " + faculty;
+		return "Teacher {" +
+				super.toString() +
+				"Degree" + academicDegree +
+				'}';
     }
+
     public ArrayList<News>seeNews() {
     	return news;
     }
