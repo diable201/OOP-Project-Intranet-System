@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
 * @generated
 */
-public class Employee extends User {
+public abstract class Employee extends User {
     
     /**
     * @generated
@@ -59,5 +59,13 @@ public class Employee extends User {
         if (super.compareTo(user) == 0)
             return department.compareTo(employee.department);
         return super.compareTo(user);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                super.toString() +
+                "department=" + department +
+                '}';
     }
 }

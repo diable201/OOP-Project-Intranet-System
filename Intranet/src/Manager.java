@@ -25,8 +25,12 @@ public class Manager extends Employee {
     * @generated
     */
     private News news;
-    
-    
+
+    public Manager(String id, String name, String surname, EmployeeTypes department) {
+        super(id, name, surname, department);
+    }
+
+
     /**
     * @generated
     */
@@ -183,4 +187,11 @@ public class Manager extends Employee {
 //    public viewStudentsByGPA() {
 //        //TODO
 //    }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                super.toString() +
+                '}';
+    }
 }

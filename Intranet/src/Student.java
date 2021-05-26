@@ -53,9 +53,7 @@ public class Student extends User {
     /**
      * @generated
      */
-    
-    private Integer currentYearOfStudy = 1;
-    
+
     public Student() {
         super();
     }
@@ -189,7 +187,7 @@ public class Student extends User {
     }
     
     public void increaseYearOfStudy() {
-        this.currentYearOfStudy++;
+        this.yearOfStudy++;
     }
     
     public void viewTranscript() {

@@ -102,8 +102,12 @@ public class Teacher extends Employee {
         return super.equals(t) && t.faculty.equals(faculty) && t.academicDegree.equals(academicDegree);
     }
 
+    @Override
     public String toString() {
-    	return super.toString() + "," + academicDegree + " of " + faculty;
+		return "Teacher {" +
+				super.toString() +
+				"Degree" + academicDegree +
+				'}';
     }
 
     public ArrayList<News>seeNews() {
