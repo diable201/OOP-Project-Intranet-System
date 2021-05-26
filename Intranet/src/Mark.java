@@ -141,7 +141,7 @@ public class Mark implements Serializable {
         if (Double.compare(mark.second_attestation, second_attestation) != 0) return false;
         if (Double.compare(mark.final_exam, final_exam) != 0) return false;
         if (Double.compare(mark.total, total) != 0) return false;
-        if (literalMark != mark.literalMark) return false;
+        if (!literalMark.equals(mark.literalMark)) return false;
         return Objects.equals(student, mark.student);
     }
 

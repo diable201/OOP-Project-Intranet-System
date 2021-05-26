@@ -100,6 +100,16 @@ public class Database implements Serializable {
         return s.toString();
     }
 
+    public static String getCourses() {
+        StringBuilder s = new StringBuilder();
+        for (Course course: courses) {
+            if (course != null) {
+                s.append(course.toString()).append("\n");
+            }
+        }
+        return s.toString();
+    }
+
     public Student getStudentByName(String name) {
         for (User user : users) {
             if (user instanceof Student) {
@@ -168,8 +178,44 @@ public class Database implements Serializable {
 //        }
     }
 
+    public static void saveCourses() {
+        try (ObjectOutputStream oot = new ObjectOutputStream
+                (new FileOutputStream("courses.dat"))) {
+            oot.writeObject(courses);
+            oot.flush();
+            encryptString(getKeyword());
+        }
+        catch (IOException e) {
+            System.err.println("courses.dat: IOException");
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public static void loadCourses() {
+        try {
+            if (decryptString(getKeyword()) == encryptString(getKeyword())) {
+                FileInputStream fis = new FileInputStream("courses.dat");
+                ObjectInputStream oin = new ObjectInputStream(fis);
+                courses = (ArrayList<Course>) oin.readObject();
+                oin.close();
+                fis.close();
+            }
+        }
+        catch (IOException|ClassNotFoundException e) {
+            courses = new ArrayList<>();
+            System.err.println("users.dat: IOException");
+        }
+    }
+
+    public static Course getCourse(String code) {
+        for (Course course: courses)
+            if (course.getCode().equals(code))
+                return course;
+        return null;
+    }
+
     public static ArrayList<Message> getMessagesToUser(User user) {
-        ArrayList<Message> allMessages = new ArrayList<Message>();
+        ArrayList<Message> allMessages = new ArrayList<>();
         for (Message message: messages)
             if (message.getReceiver().equals(user))
                 allMessages.add(message);
@@ -177,10 +223,17 @@ public class Database implements Serializable {
     }
 
     public static ArrayList<Message> getMessagesFromUser(User user) {
-        ArrayList<Message> allMessages = new ArrayList<Message>();
+        ArrayList<Message> allMessages = new ArrayList<>();
         for (Message message: messages)
             if (message.getSender().equals(user))
                 allMessages.add(message);
         return allMessages;
+    }
+
+    public static User getUser(String username) {
+        for (User user: users)
+            if (user.getUsername().equals(username))
+                return user;
+        return null;
     }
 }

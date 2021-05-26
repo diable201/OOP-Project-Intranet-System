@@ -53,9 +53,7 @@ public class Student extends User {
     /**
      * @generated
      */
-    
-    private Integer currentYearOfStudy = 1;
-    
+
     public Student() {
         super();
     }
@@ -78,21 +76,21 @@ public class Student extends User {
         this.marks = marks;
     }
     
-    private Integer getYearOfStudy() {
+    public Integer getYearOfStudy() {
         return this.yearOfStudy;
     }
 
     /**
      * @generated
      */
-    private void setYearOfStudy(Integer yearOfStudy) {
+    public void setYearOfStudy(Integer yearOfStudy) {
         this.yearOfStudy = yearOfStudy;
     }
 
     /**
      * @generated
      */
-    private ArrayList <Course> getCourses() {
+    public ArrayList <Course> getCourses() {
         return this.courses;
     }
 
@@ -163,14 +161,14 @@ public class Student extends User {
     /**
      * @generated
      */
-    private HashMap <Course, Mark> getMarks() {
+    public HashMap <Course, Mark> getMarks() {
         return this.marks;
     }
 
     /**
      * @generated
      */
-    private void setMarks(HashMap <Course, Mark> marks) {
+    public void setMarks(HashMap <Course, Mark> marks) {
         this.marks = marks;
     }
 
@@ -189,7 +187,7 @@ public class Student extends User {
     }
     
     public void increaseYearOfStudy() {
-        this.currentYearOfStudy++;
+        this.yearOfStudy++;
     }
     
     public void viewTranscript() {
