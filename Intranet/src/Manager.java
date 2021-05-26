@@ -49,7 +49,7 @@ public class Manager extends Employee {
     /**
      * @generated
      */
-    private ArrayList <Teacher> getTeachers() {
+    public ArrayList <Teacher> getTeachers() {
         return this.teachers;
     }
 
@@ -93,9 +93,11 @@ public class Manager extends Employee {
 
     public void addCourse(Course course) {
         courses.add(course);
+//        Database.courses.add(course);
     }
     public void deleteCourse(Course course) {
         courses.remove(course);
+//        Database.courses.remove(course);
     }
     public void changeLimitOfStudents(Course course, int number) {
         course.setLimitOfStudents(number);
