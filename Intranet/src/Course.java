@@ -13,14 +13,13 @@ public class Course implements Serializable {
     */
 	public Course() {
 	}
-
+	
 	public Course(String code, String title, int credits) {
 		this.code = code;
 		this.title = title;
 		this.credits = credits;
-		// this.prerequisites = prerequisites;
 	}
-
+	
 	private String code;
 	/**
 	    * @generated
@@ -87,6 +86,9 @@ public class Course implements Serializable {
 	}
 	public void setStudents(Student s) {
 		students.add(s);
+		Mark m = new Mark();
+		m.setStudent(s);
+		marks.put(s, m);
 	}
 	public ArrayList<Student> getStudents(){
 		return students;
@@ -97,18 +99,29 @@ public class Course implements Serializable {
 	public ArrayList<Lesson> getLessons(){
 		return lessons;
 	}
-	public void putMark(Student student, double points, TypeOfMark typeOfMark) {
+	public void putMark(Student student, double points, TypeOfMark typeOfMark, Database database) {
 		try {
 			Mark mark = marks.get(student);
 			mark.putMark(typeOfMark, points);
+//			database.setStudentMarks(marks);
+			System.out.println("Successful operation");
 		} catch(Exception e) {
-			System.out.println("This student is not registered in this course.");
+			System.out.println("Unsuccessful operation: This student is not registered in this course.");
 		}
 		
 	}
+	
 	public Mark getMarkOfStudent(Student student){
 		return marks.get(student);
 	}
+    
+	public HashMap<Student, Mark> getMarks() {
+		return marks;
+	}
+
+	public void setMarks(HashMap<Student, Mark> marks) {
+		this.marks = marks;
+
 
 	@Override
 	public String toString() {
