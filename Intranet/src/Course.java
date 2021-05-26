@@ -121,7 +121,7 @@ public class Course implements Serializable {
 
 	public void setMarks(HashMap<Student, Mark> marks) {
 		this.marks = marks;
-
+	}
 
 	@Override
 	public String toString() {
