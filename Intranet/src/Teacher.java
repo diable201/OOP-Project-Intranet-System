@@ -45,12 +45,9 @@ public class Teacher extends Employee {
 		this.faculty = faculty;
 	}
 
-	public ArrayList<String> getCourses(){
-		ArrayList<String> course = new ArrayList<String>();
-		for (Course c: courses) {
-			course.add(c.getTitle());
-		}
-		return course;
+	public ArrayList<Course> getCourses(){
+		
+		return courses;
 	}
 
 	public void setCourses(Course course) {
@@ -61,8 +58,8 @@ public class Teacher extends Employee {
 		return course.getStudents();
 	}
 
-	public void putMark(Course course, TypeOfMark typeOfMark, double points, Student student, Database database) {
-		course.putMark(student, points, typeOfMark, database);
+	public void putMark(Course course, TypeOfMark typeOfMark, double points, Student student) {
+		course.putMark(student, points, typeOfMark);
 		Mark m = course.getMarkOfStudent(student);
 		student.setCourseMark(course, m);
 	}
@@ -71,8 +68,8 @@ public class Teacher extends Employee {
 		course.setCourseFiles(courseFiles);
 	}
 
-	public void deleteFiles(Course course, CourseFiles courseFiles) {
-		course.deleteCourseFiles(courseFiles);
+	public boolean deleteFiles(Course course, CourseFiles courseFiles) {
+		return course.deleteCourseFiles(courseFiles);
 	}
 
 

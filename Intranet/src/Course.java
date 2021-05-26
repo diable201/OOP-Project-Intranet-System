@@ -73,8 +73,8 @@ public class Course implements Serializable {
 	public void setCourseFiles(CourseFiles courseF) {
 		courseFiles.add(courseF);
 	}
-	public void deleteCourseFiles(CourseFiles courseF) {
-		courseFiles.remove(courseF);
+	public boolean deleteCourseFiles(CourseFiles courseF) {
+		return courseFiles.remove(courseF);
 	}
 	public HashSet<CourseFiles> getCourseFiles(){
 		return courseFiles;
@@ -100,7 +100,7 @@ public class Course implements Serializable {
 	public ArrayList<Lesson> getLessons(){
 		return lessons;
 	}
-	public void putMark(Student student, double points, TypeOfMark typeOfMark, Database database) {
+	public void putMark(Student student, double points, TypeOfMark typeOfMark) {
 		try {
 			Mark mark = marks.get(student);
 			mark.putMark(typeOfMark, points);
@@ -145,5 +145,13 @@ public class Course implements Serializable {
 				", title='" + title + '\'' +
 				", credits=" + credits +
 				'}';
+	}
+	public CourseFiles getFile(String name) {
+		for(CourseFiles c: courseFiles) {
+			if(c.getName().equals(name)) {
+				return c;
+			}
+		}
+		return null;
 	}
 }
