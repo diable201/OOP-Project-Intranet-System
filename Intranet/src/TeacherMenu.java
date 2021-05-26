@@ -36,9 +36,10 @@ public class TeacherMenu {
             	case "1" ->{
             		if(teacher.getCourses().size()!=0) {
             			while(true) {
-            				for(Course c: teacher.getCourses()) {
-            					c.toString();
-            				}
+//            				for(Course c: teacher.getCourses()) {
+							System.out.println(teacher.getCourses());
+//            					c.toString();
+//            				}
             				System.out.println("\n1. Manage course files " + "\n0. Exit");	
             				choice = reader.readLine();
             				if (choice.equals("0"))
@@ -55,10 +56,13 @@ public class TeacherMenu {
             	case "2"->{
             		if(teacher.getCourses().size()!=0) {
             			while(true) {
-            				for(Course c: teacher.getCourses()) {
-            					c.toString();
-            				}
-            				System.out.println("\n1. Choose course" + "\n0. Exit");	
+//            				for(Course c: teacher.getCourses()) {
+            					System.out.println(teacher.getCourses());
+//            				}
+            				System.out.println("""
+
+									1. Choose course
+									0. Exit""");
             				choice = reader.readLine();
             				if(choice.equals("0")) {
             					break;
