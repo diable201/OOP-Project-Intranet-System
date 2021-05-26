@@ -98,12 +98,12 @@ public class TeacherTester {
 		System.out.println("_______________________________________________");
 		s3.viewTranscript2();
 
-		t1.putMark(c2, TypeOfMark.FIRST_ATTESTATION, 30, s3,d);
-		t1.putMark(c2, TypeOfMark.SECOND_ATTESTATION, 30, s3,d);
-		t1.putMark(c2, TypeOfMark.FINAL, 34, s3,d);
+		t1.putMark(c2, TypeOfMark.FIRST_ATTESTATION, 30, s3);
+		t1.putMark(c2, TypeOfMark.SECOND_ATTESTATION, 30, s3);
+		t1.putMark(c2, TypeOfMark.FINAL, 34, s3);
 //		System.out.println("_______________________________________________");
 		
-		t1.putMark(c1, TypeOfMark.FINAL, 35, s1,d);
+		t1.putMark(c1, TypeOfMark.FINAL, 35, s1);
 //		System.out.println("_______________________________________________");
 //		System.out.println(t1.getMarksOfStudent(s3));
 //		System.out.println("_______________________________________________");

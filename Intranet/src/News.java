@@ -32,7 +32,7 @@ public class News implements Cloneable{
     * @generated
     */
   
-	private Date getDate() {
+    public Date getDate() {
         return this.date;
     }
     
@@ -40,7 +40,7 @@ public class News implements Cloneable{
     * @generated
     */
     
-	private void setDate(Date date) {
+	public void setDate(Date date) {
         this.date = date;
     }
     
@@ -56,21 +56,21 @@ public class News implements Cloneable{
     * @generated
     */
     
-	private void setDescription(String description) {
+	public void setDescription(String description) {
         this.description = description;
     }
     
     /**
     * @generated
     */
-    private String getTitle() {
+    public String getTitle() {
         return this.title;
     }
     
     /**
     * @generated
     */
-    private void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 

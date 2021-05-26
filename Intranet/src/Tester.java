@@ -49,5 +49,12 @@ public class Tester {
         Teacher t2 = new Teacher("1", "Pakita", "Shamoi", EmployeeTypes.EDUCATIONAL, AcademicDegree.PROFESSOR);
         Database.users.add(t2);
         Database.saveUsers();
+        
+        Course c1 = new Course("CSCI12", "WebDev", 4, Faculty.FIT);
+        Database.courses.add(c1);
+        Database.saveCourses();
+        
+        t2.setCourses(c1);
+        
     }
 }
