@@ -48,6 +48,7 @@ public abstract class User implements Serializable, Comparable<User> {
         this.surname = surname;
         this.password = "KBTU2021";
         this.username = this.name.substring(0, 1).toLowerCase() + '_' + this.surname.toLowerCase();
+        this.fullName = name + " " + surname;
     }
 
     /**

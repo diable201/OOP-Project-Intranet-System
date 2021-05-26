@@ -15,6 +15,8 @@ public class Teacher extends Employee {
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	private ArrayList<News> news = new ArrayList<News>();
 	private Faculty faculty;
+	private int numberOfVotes;
+	private double rate;
 
 	public Teacher() {
 		super();
@@ -43,12 +45,8 @@ public class Teacher extends Employee {
 		this.faculty = faculty;
 	}
 
-	public ArrayList<String> getCourses(){
-		ArrayList<String> course = new ArrayList<String>();
-		for (Course c: courses) {
-			course.add(c.getTitle());
-		}
-		return course;
+	public ArrayList<Course> getCourses(){
+		return courses;
 	}
 
 	public void setCourses(Course course) {
@@ -59,10 +57,8 @@ public class Teacher extends Employee {
 		return course.getStudents();
 	}
 
-	public void putMark(Course course, TypeOfMark typeOfMark, double points, Student student, Database database) {
-		course.putMark(student, points, typeOfMark, database);
-		Mark m = course.getMarkOfStudent(student);
-		student.setCourseMark(course, m);
+	public void putMark(Course course, TypeOfMark typeOfMark, double points, Student student) {
+		course.putMark(student, points, typeOfMark);
 	}
 
 	public void addFiles(Course course, CourseFiles courseFiles) {
@@ -73,41 +69,63 @@ public class Teacher extends Employee {
 		course.deleteCourseFiles(courseFiles);
 	}
 
-	public HashSet<String>viewCourseFiles(Course course){
-		HashSet<String> coursef = new HashSet<String>();
-		for (CourseFiles cf : course.getCourseFiles()) {
-			coursef.add(cf.getName());
-		}
-		return coursef;
+	public HashSet<CourseFiles>viewCourseFiles(Course course) {
+		return course.getCourseFiles();
 	}
+	
+	public int getNumberOfVotes() {
+		return this.numberOfVotes;
+	}
+	
+	public void setNumberOfVotes(int numberOfVotes) {
+		this.numberOfVotes = numberOfVotes;
+	}
+	
+	public double getRate() {
+		return this.rate;
+	}
+	
+	public void setRate(double rate) {
+		this.numberOfVotes++;
+		this.rate+=rate;
+		this.rate /= (double)this.numberOfVotes;
+	}
+
 	public int hashCode() {
         return Objects.hash(super.hashCode(),faculty,academicDegree);
     }
+
     public boolean equals(Object o) {
         if (o == this) return true;
-        if (!(o instanceof Student)) return false;
+        if (!(o instanceof Teacher)) return false;
         Teacher t = (Teacher) o;
-        return t.faculty.equals(faculty) || t.academicDegree.equals(academicDegree);
+        return super.equals(t) && t.faculty.equals(faculty) && t.academicDegree.equals(academicDegree);
     }
+
+    @Override
     public String toString() {
-    	return super.toString() + "," + academicDegree + " of " + faculty;
+		return "Teacher {" +
+				super.toString() +
+				"Degree" + academicDegree +
+				'}';
     }
+
     public ArrayList<News>seeNews() {
     	return news;
     }
 
-	public HashMap<String, Mark> getMarksOfStudent(Student student){
-		HashMap<String, Mark> marksOfStudent = new HashMap<String, Mark>();
+	public HashMap<Course, Mark> getMarksOfStudent(Student student){
+		HashMap<Course, Mark> marksOfStudent = new HashMap<Course, Mark>();
 		for (Course c: courses) {
-			marksOfStudent.put(c.getTitle(), c.getMarkOfStudent(student));
+			marksOfStudent.put(c, c.getMarkOfStudent(student));
 		}
 		return marksOfStudent;
 	}
-	public HashMap<Student, Mark> getMarksOfStudents(Course course){
-		HashMap<Student, Mark> markOfStudents = new HashMap<Student, Mark>();
-		for (Student s: course.getStudents()) {
-			markOfStudents.put(s, course.getMarkOfStudent(s));
-		}
-		return markOfStudents;
-	}
+//  public HashMap<Student, Mark> getMarksOfStudents(Course course){
+//		HashMap<Student, Mark> markOfStudents = new HashMap<Student, Mark>();
+//		for (Student s: course.getStudents()) {
+//			markOfStudents.put(s, s.getCourseMarks(course));
+//		}
+//		return markOfStudents;
+//	}
 }
