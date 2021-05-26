@@ -15,6 +15,8 @@ public class Teacher extends Employee {
 	private ArrayList<Course> courses = new ArrayList<Course>();
 	private ArrayList<News> news = new ArrayList<News>();
 	private Faculty faculty;
+	private int numberOfVotes;
+	private double rate;
 
 	public Teacher() {
 		super();
@@ -69,6 +71,24 @@ public class Teacher extends Employee {
 
 	public HashSet<CourseFiles>viewCourseFiles(Course course) {
 		return course.getCourseFiles();
+	}
+	
+	public int getNumberOfVotes() {
+		return this.numberOfVotes;
+	}
+	
+	public void setNumberOfVotes(int numberOfVotes) {
+		this.numberOfVotes = numberOfVotes;
+	}
+	
+	public double getRate() {
+		return this.rate;
+	}
+	
+	public void setRate(double rate) {
+		this.numberOfVotes++;
+		this.rate+=rate;
+		this.rate /= (double)this.numberOfVotes;
 	}
 
 	public int hashCode() {
