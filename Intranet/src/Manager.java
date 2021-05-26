@@ -143,9 +143,10 @@ public class Manager extends Employee {
         Collections.sort(students, new SortStudentByName());
         return students;
     }
-//    public viewStudentsByGPA() {
-//        //TODO
-//    }
+    public ArrayList<Student>viewStudentsByGPA(Course course) {
+        Collections.sort(students, new SortStudentByGpa(course));
+        return students;
+    }
 
     @Override
     public String toString() {

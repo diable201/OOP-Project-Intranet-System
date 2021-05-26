@@ -14,6 +14,7 @@ public class Mark implements Serializable {
     private double second_attestation = 0;
     private double final_exam = 0;
     private double total;
+    private double gpa = 0;
     /**
     * @generated
     */
@@ -188,10 +189,10 @@ public class Mark implements Serializable {
     		literalMark = "C-";
     	}
     	else if(total>=54.5 && total<59.5) {
-    		literalMark = "D";
+    		literalMark = "D+";
     	}
     	else if(total>=50 && total<54.5) {
-    		literalMark = "D-";
+    		literalMark = "D";
     	}
     	else {
     		literalMark = "F";
@@ -208,6 +209,34 @@ public class Mark implements Serializable {
     		this.setFinal(points);
     		this.transformMark(this.getTotal());
     	}
+    }
+    public void getGpa(String literalMark) {
+    	if(literalMark=="A") {
+    		gpa = 4.0;
+    	}else if(literalMark=="A-") {
+    		gpa = 3.67;
+    	}else if(literalMark=="B+") {
+    		gpa = 3.33;
+    	}else if(literalMark=="B") {
+    		gpa = 3.0;
+    	}else if(literalMark=="B-") {
+    		gpa = 2.67;
+    	}else if(literalMark=="C+") {
+    		gpa = 2.33;
+    	}else if(literalMark=="C") {
+    		gpa = 2.0;
+    	}else if(literalMark=="C-") {
+    		gpa = 1.67;
+    	}else if(literalMark=="D+") {
+    		gpa = 1.33;
+    	}else if(literalMark=="D") {
+    		gpa = 1.0;
+    	}else {
+    		gpa = 0.0;
+    	}
+    }
+    public Double returnGpa() {
+    	return gpa;
     }
     
 }
