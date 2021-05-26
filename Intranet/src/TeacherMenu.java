@@ -21,16 +21,172 @@ public class TeacherMenu {
                     + "\n1. Manage courses and files"
                     + "\n2. View students info/Put marks"
 //                    + "\n3. Send/View messages to managers [Unread:" + Database.getUnreadMessagesToUser(teacher).size() + "]"
-                    + "\n4. Send/View orders to support"
-                    + "\n5. Change password"
+                    + "\n4. Change password"
                     + "\n0. Logout";
 
 
             System.out.println(teacherHomePage);
             String choice = reader.readLine();
+            switch(choice) {
+            	case "0" ->{
+            		teacher.logout();
+            		System.out.println("You are logged out!");
+            		break;
+            	}
+            	case "1" ->{
+            		if(teacher.getCourses().size()!=0) {
+            			while(true) {
+            				for(Course c: teacher.getCourses()) {
+            					c.toString();
+            				}
+            				System.out.println("\n1. Manage course files " + "\n0. Exit");	
+            				choice = reader.readLine();
+            				if (choice.equals("0"))
+    							break;
+    						
+    						else if (choice.equals("1")) 
+    							TeacherMenu.manageCourseFiles();
+            			}
+            		}
+            		else {
+            			System.out.println("Teacher has no courses");
+            		}
+            	}
+            	case "2"->{
+            		if(teacher.getCourses().size()!=0) {
+            			while(true) {
+            				for(Course c: teacher.getCourses()) {
+            					c.toString();
+            				}
+            				System.out.println("\n1. Choose course" + "\n0. Exit");	
+            				choice = reader.readLine();
+            				if(choice.equals("0")) {
+            					break;
+            				}
+            				else if(choice.equals("1")){
+            					TeacherMenu.chooseCourse();
+            				}
+            			}
+            		}
+            		else {
+            			System.out.println("Teacher has no courses");
+            		}
+            	}
+            	case "4" ->{
+            		Menu.showMenuForChangePassword(user, reader);
+                    break;
+            	}
+            		
+            }
         }
     }
+    public static void manageCourseFiles() throws IOException{
+    	try {
+
+			System.out.print("\nChoose code from the list: ");
+			String choice = reader.readLine();
+			Course course = Database.getCourse(choice);
+
+			while(true) {
+				
+				System.out.println("1. Add file"
+						 + "\n2. Delete file"
+						 + "\n0. Exit back");
+				choice = reader.readLine();
+					
+				if (choice.equals("1")) {
+					System.out.print("Please enter file name: ");
+					String fileName = reader.readLine();
+						
+					System.out.print("Please enter file content: ");
+					String fileContent = reader.readLine();
+						
+					teacher.addFiles(course, new CourseFiles(fileName, fileContent));
+					System.out.println("File was created");
+				}
+					
+				else if (choice.equals("2")) {
+						
+					System.out.print("Please enter file name: ");
+					String inputName = reader.readLine();
+						
+					if (teacher.deleteFiles(course, course.getFile(inputName)))
+						System.out.println("File was deleted");
+					else 
+						System.out.println("File with that name doesn't exist");
+					}
+					
+					else if (choice.equals("0"))
+						break;
+					
+					else 
+						System.out.println("Incorrect choice. Choose available one");
+					
+				} 
+    	}catch (NullPointerException exception) {
+    		System.out.println("[Incorrect name]\n");
+    	}
+    }
+    public static void chooseCourse()  throws IOException{
+    	try{
+    		System.out.print("\nEnter code of course from the list: ");
+			String choice = reader.readLine();
+			Course course = Database.getCourse(choice);
+			while(true) {
+				System.out.println("\n1. Put student mark"+"\n0. Exit back");
+				choice = reader.readLine();
+				if(choice.equals("0")) {
+					break;
+				}
+				else if(choice.equals("1")) {
+					System.out.print("Enter student ID: ");
+					String input = reader.readLine();
+					Student student = Database.getStudent(input);
+					if(course.getStudents().contains(student)) {
+						System.out.println("Student: " + student.getFullName() +"/n");
+						System.out.println("Choose type of mark" + "/n" +
+						"/n1 First attestation" +
+								"/n2 Second attestation" + 
+								"/n3 Final" );
+						input = reader.readLine();
+						TypeOfMark tm = null;
+						if (input.equals("1")) {
+							tm = TypeOfMark.FIRST_ATTESTATION;
+						}else if (input.equals("2")) {
+							tm = TypeOfMark.SECOND_ATTESTATION;
+						}else if (input.equals("3")) {
+							tm = TypeOfMark.FINAL;
+						}
+						System.out.println("Please enter your mark");
+	
+						input = reader.readLine();
+						double studentPoint = Double.parseDouble(input);
+						teacher.putMark(course, tm, studentPoint, student);
+						System.out.println("Mark was added");
+						
+						
+					}
+					else {
+						System.out.println("Student doesn't exist");
+					}
+				}
+			}
+    	}catch (NullPointerException exception){
+    		System.out.println("[Incorrect name]\n");
+    	}
+    }
 }
+
+    
+
+//		} catch (NumberFormatException exception) {
+//			System.out.println("[Incorrect input format. Please enter number]\n");
+//		} catch (NullPointerException exception) {
+//			System.out.println("[Incorrect name]\n");
+//		}
+    	
+    
+
 
 //                            if (choice.equals("0"))
 //                                break;
