@@ -32,17 +32,19 @@ public class Tester {
         Course PP2 = new Course("CS5", "Programming principles 2", 4);
         Course PP1 = new Course("CS6", "Programming principles 1", 4);
         Database.courses.add(PP1); Database.courses.add(PP2); Database.courses.add(OOP); Database.courses.add(DB); Database.courses.add(ADS); Database.courses.add(ICT);
-        Database.saveCourses();
-        Database.loadCourses();
+//        Database.saveCourses();
+//        Database.loadCourses();
 //        System.out.println(Database.getStudents());
 //        s1.increaseYearOfStudy();
 //        System.out.println(s1);
 //        Database.users.add(s1);
 //        Database.saveUsers();
 //        Database.loadUsers();
-        System.out.println(Database.getStudents());
+//        System.out.println(Database.getStudents());
 //        System.out.println(Database.getAdmins());
 //        System.out.println(Database.getCourses());
-//        Teacher t1 = new Teacher("1", "Pakita", "Shamoi", EmployeeTypes.EDUCATIONAL, AcademicDegree.PROFESSOR);
+        Teacher t2 = new Teacher("1", "Pakita", "Shamoi", EmployeeTypes.EDUCATIONAL, AcademicDegree.PROFESSOR);
+        Database.users.add(t2);
+        Database.saveUsers();
     }
 }

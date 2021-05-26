@@ -6,20 +6,20 @@ import java.util.ArrayList;
 public class AdminMenu {
     static Admin admin = null;
     static BufferedReader reader = null;
-    public static void menu(User user, BufferedReader bufReader) throws IOException {
+    public static void menu(User user, BufferedReader bf) throws IOException {
         admin = (Admin) user;
-        reader = bufReader;
-        String adminHomePage = "\n[Admin: " + admin.getFullName() + "]"
+        reader = bf;
+        String adminConsole = "\nWelcome, Admin: " + admin.getFullName() + ""
                 + "\n---------------------------------------"
                 + "\n1. Change password"
-                + "\n2. Manage users"
-                + "\n3. View logs"
+                + "\n2. Manage all users"
+                + "\n3. View log files"
                 + "\n0. Logout";
 
         while (admin.getIsLogged()) {
-            System.out.println(adminHomePage);
-            String choice = reader.readLine();
-            switch (choice) {
+            System.out.println(adminConsole);
+            String option = reader.readLine();
+            switch (option) {
                 case "0":
                     admin.logout();
                     System.out.println("\n[You logged out]");
@@ -39,8 +39,8 @@ public class AdminMenu {
                                 0. Exit to main menu""";
 
                         System.out.println(menuCreationUser);
-                        choice = reader.readLine();
-                        switch (choice) {
+                        option = reader.readLine();
+                        switch (option) {
                             case "0":
                                 break;
                             case "1": {
@@ -53,32 +53,30 @@ public class AdminMenu {
                                         0. Cancel""";
 
                                 System.out.println(userTypeInfo);
-                                choice = reader.readLine();
+                                option = reader.readLine();
 
-                                if (choice.equals("0")) {
+                                if (option.equals("0")) {
                                     continue;
                                 }
-                                else if (choice.equals("1") || choice.equals("2")
-                                        || choice.equals("3") || choice.equals("4")
-                                        || choice.equals("5")) {
-                                    AdminMenu.addUser(choice);
+                                else if (option.equals("1") || option.equals("2")
+                                        || option.equals("3") || option.equals("4")
+                                        || option.equals("5")) {
+                                    AdminMenu.addUser(option);
                                 }
                                 else {
-                                    System.out.println("\n[Incorrect input format. Please choose available option]\n");
+                                    System.out.println("\nPlease choose other option\n");
                                 }
                                 break;
                             }
-
-                            // Delete user
                             case "2":
                                 Database.getStudents();
                                 System.out.print("""
                                         (Enter 0 to cancel, 
                                         Enter 1 to continue)                  
                                         """);
-                                choice = reader.readLine();
+                                option = reader.readLine();
                                 try {
-                                    if (choice.equals("1")) {
+                                    if (option.equals("1")) {
                                         System.out.println("Enter Username of user, which you need to delete:");
                                         String username = reader.readLine();
                                         if (admin.deleteUser(Database.getUser(username))) {
@@ -96,29 +94,29 @@ public class AdminMenu {
 
                             // Update user info
                             case "3": {
-                                String userTypeInfo = """
+                                String userOption = """
 
                                         1. Increase students study year
                                         0. Exit to main menu""";
 
-                                System.out.println(userTypeInfo);
-                                choice = reader.readLine();
+                                System.out.println(userOption);
+                                option = reader.readLine();
 
-                                if (choice.equals("0")) {
+                                if (option.equals("0")) {
                                     break;
                                 }
-                                else if (choice.equals("1")) {
+                                else if (option.equals("1")) {
                                     System.out.println("This operation can't be disrupted after processing! " +
                                             "Are you sure? If you agree, enter 'YES'");
-                                    choice = reader.readLine();
-                                    if (choice.equals("YES")) {
+                                    option = reader.readLine();
+                                    if (option.equals("YES")) {
                                         admin.updateStudentsYearOfStudy();
                                         System.out.println("[All students study year has been increased]");
                                     } else {
-                                        System.out.println("[Operation has been disrupted]");
+                                        System.out.println("Operation was cancelled");
                                     }
                                 } else
-                                    System.out.println("\n[Incorrect input format. Please choose available option]\n");
+                                    System.out.println("\nPlease choose other option\n");
                                 break;
                             }
                             case "4":
@@ -128,7 +126,7 @@ public class AdminMenu {
                                 System.out.println(Database.getTeachers());
                             break;
                             default:
-                                System.out.println("\n[Incorrect input format. Please choose available option]\n");
+                                System.out.println("\nPlease choose other option\n");
                             break;
                         }
                         break;
@@ -167,11 +165,11 @@ public class AdminMenu {
                     }
 
                     System.out.print("\nEnter only one option: ");
-                    String choice = reader.readLine();
+                    String option = reader.readLine();
                     Degree degree = null;
-                    int num = Integer.parseInt(choice.strip());
-                    if (num <= Degree.values().length && num > 0) {
-                        degree = degreeList.get(num - 1);
+                    int choice = Integer.parseInt(option.strip());
+                    if (choice <= Degree.values().length && choice > 0) {
+                        degree = degreeList.get(choice - 1);
                     }
 
                     ArrayList<Faculty> faculties = new ArrayList<>();
@@ -182,11 +180,11 @@ public class AdminMenu {
                     }
 
                     System.out.print("\nEnter Faculty: ");
-                    choice = reader.readLine();
+                    option = reader.readLine();
                     Faculty faculty = null;
-                    num = Integer.parseInt(choice.strip());
-                    if (num <= Faculty.values().length && num > 0) {
-                        faculty = faculties.get(num - 1);
+                    choice = Integer.parseInt(option.strip());
+                    if (choice <= Faculty.values().length && choice > 0) {
+                        faculty = faculties.get(choice - 1);
                     }
                     System.out.print("Enter Study year: ");
                     int yearOfStudy = Integer.parseInt(reader.readLine());
@@ -207,11 +205,11 @@ public class AdminMenu {
                         academicDegreeList.add(teacherDegree);
                     }
                     System.out.print("\nEnter Degree: ");
-                    String choice = reader.readLine();
+                    String option = reader.readLine();
                     AcademicDegree teacherDegree;
-                    int num = Integer.parseInt(choice.strip());
-                    if (num <= AcademicDegree.values().length && num > 0) {
-                        teacherDegree = academicDegreeList.get(num - 1);
+                    int choice = Integer.parseInt(option.strip());
+                    if (choice <= AcademicDegree.values().length && choice > 0) {
+                        teacherDegree = academicDegreeList.get(choice - 1);
                         user = new Teacher(id, name, surname, EmployeeTypes.EDUCATIONAL, teacherDegree);
                     } else {
                         System.out.println("Error.");
@@ -225,8 +223,9 @@ public class AdminMenu {
                 Database.saveUsers();
                 System.out.println("User was successfully created");
             }
-            else
-                System.out.println("[User creation disrupted. There is a user with the same username]");
+            else {
+                System.out.println("Error. There is a user with the same username.");
+            }
         } catch (IOException|NumberFormatException|NullPointerException exception) {
             System.out.println("Something bad happened. Please, try again.");
         }

@@ -31,11 +31,11 @@ public class Menu {
                         while (user.getIsLogged()) {
                             if (user instanceof Admin) AdminMenu.menu(user, reader);
                             else if (user instanceof Student) StudentMenu.menu(user, reader);
+                            else if (user instanceof Teacher) TeacherMenu.menu(user, reader);
                             else System.out.println("\nUsername or password incorrect. Please try again");
                         }
 //
-//                            else if (user instanceof Teacher)
-//                                TeacherController.menu(user, reader);
+//
 //
 //                            else if (user instanceof ORManager)
 //                                ManagerController.menu(user, reader);
