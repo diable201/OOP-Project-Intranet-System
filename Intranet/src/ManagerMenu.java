@@ -143,16 +143,14 @@ public class ManagerMenu {
 			System.out.print("\nEnter ID of teacher: ");
 			String teacherId = reader.readLine();
 			Teacher teacher = Database.getTeacher(teacherId);
-			
-			if (teacher != null) {
-				if (manager.addCourse(new Course(code, title, credits, faculty, teacher)))
-					System.out.println("\n[Course was successfully created]");
-				else
-					System.out.println("\n[Course creation disrupted. The similar course is already created]");
-			}
-			else 
-				System.out.println("[Course creation disrupted. Incorrect teacher ID number]");
-		}catch (NullPointerException exception){
+			System.out.println(teacher);
+			if (manager.addCourse(new Course(code, title, credits, faculty, teacher)))
+				System.out.println("\n[Course was successfully created]");
+			else
+				System.out.println("\n[Course creation disrupted. The similar course is already created]");
+
+//				System.out.println("[Course creation disrupted. Incorrect teacher ID number]");
+		} catch (ExceptionInInitializerError exception){
     		System.out.println("[Course creation disrupted]\n");
     }
 

@@ -16,8 +16,8 @@ public class TeacherTester {
 		
 //		System.out.println("_______________________________________________");
 		
-		Course c1 = new Course("CSCI12", "WebDev", 4, Faculty.FIT);
-		Course c2 = new Course("CSCI11", "PP2", 4, Faculty.FIT);
+		Course c1 = new Course("CSCI12", "WebDev", 4, Faculty.FIT, t1);
+		Course c2 = new Course("CSCI11", "PP2", 4, Faculty.FIT, t2);
 //		t1.setCourses(c1);
 //		System.out.println(t1.getCourses());
 		c1.setLimitOfStudents(85);
@@ -25,9 +25,9 @@ public class TeacherTester {
 //		System.out.println(c2.getTitle());
 		
 		
-		t1.setCourses(c1);
-		t1.setCourses(c2);
-		t2.setCourses(c2);
+//		t1.setCourses(c1);
+//		t1.setCourses(c2);
+//		t2.setCourses(c2);
 		System.out.println(t2.getCourses());
 		System.out.println(t1.getCourses());
 //		System.out.println(t1.getCourses());
@@ -46,7 +46,7 @@ public class TeacherTester {
 //		t2.addFiles(c2, cf2);
 //		t1.addFiles(c1, cf4);
 		
-		
+
 //		System.out.println(t1.viewCourseFiles(c1));
 //		System.out.println("_______________________________________________");
 //		System.out.println(t2.viewCourseFiles(c2));

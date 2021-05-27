@@ -102,11 +102,12 @@ public class Teacher extends Employee {
     }
 
     public boolean equals(Object o) {
-        if (o == this) return true;
-        if (!(o instanceof Teacher)) return false;
-        Teacher t = (Teacher) o;
-        return t.faculty.equals(faculty) || t.academicDegree.equals(academicDegree);
-    }
+		if (o == this) return true;
+		if (!(o instanceof Teacher)) return false;
+		Teacher t = (Teacher) o;
+		return super.equals(t) &&
+				t.faculty.equals(faculty) && t.academicDegree.equals(academicDegree);
+	}
 
     @Override
     public String toString() {
@@ -135,4 +136,13 @@ public class Teacher extends Employee {
 		}
 		return markOfStudents;
 	}
+
+	public ArrayList<Course> getTeachingCourses() {
+		ArrayList<Course> courses = new ArrayList<>();
+		for (Course course: Database.courses)
+			if (course.getTeacher().equals(this))
+				courses.add(course);
+		return courses;
+	}
+
 }

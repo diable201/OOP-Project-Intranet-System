@@ -96,10 +96,15 @@ public class Manager extends Employee {
 //    }
 
     public boolean addCourse(Course course) {
-        if (!courses.contains(course))
-    	courses.add(course);
-        return false;
-//        Database.courses.add(course);
+        if (course != null && course.getTeacher() != null) {
+            for (Course courses: Database.courses)
+                if (courses.getTitle().equals(course.getTitle()) && courses.getTeacher().equals(course.getTeacher()))
+                    return false;
+            Database.courses.add(course);
+
+//            Database.logFiles.add(new LogFile(LogType.COURSE_CREATED));
+        }
+        return true;
     }
     public void deleteCourse(Course course) {
         courses.remove(course);

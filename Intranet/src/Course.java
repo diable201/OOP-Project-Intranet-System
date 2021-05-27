@@ -26,7 +26,7 @@ public class Course implements Serializable {
 	private String title;
 	private int credits;
 	private int limitOfStudents;
-
+	private Teacher teacher;
 	/**
 	    * @generated
 	    */
@@ -34,6 +34,7 @@ public class Course implements Serializable {
 	private Faculty faculty;
 	private HashSet<Course>prerequisites = new HashSet<>();
 	private ArrayList<Student>students = new ArrayList<>();
+	private ArrayList<Teacher>teachers = new ArrayList<>();
 	private HashMap<Student, Mark>marks = new HashMap<>();
 	private ArrayList<Lesson>lessons = new ArrayList<>();
 
@@ -181,6 +182,7 @@ public class Course implements Serializable {
 				"code='" + code + '\'' +
 				", title='" + title + '\'' +
 				", credits=" + credits +
+				", teacher=" + teacher +
 				'}';
 	}
 }

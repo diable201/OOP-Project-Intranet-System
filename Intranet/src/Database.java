@@ -275,17 +275,17 @@ public class Database implements Serializable {
     	return null;
     }
     
-    public static Teacher getTeacher(String id) {
-    	for(User user: users) {
-    		if (user instanceof Teacher) {
-    			Teacher st = (Teacher) user;
-    			if(st.getId().equals(id)) {
-    				return st;
-    			}
-    		}
-    	}
-    	return null;
-    }
+//    public static Teacher getTeacher(String id) {
+//    	for(User user: users) {
+//    		if (user instanceof Teacher) {
+//    			Teacher st = (Teacher) user;
+//    			if(st.getId().equals(id)) {
+//    				return st;
+//    			}
+//    		}
+//    	}
+//    	return null;
+//    }
 
     public static Teacher getTeacher(String id) {
         for(User user: users) {
