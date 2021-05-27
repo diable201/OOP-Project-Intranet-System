@@ -4,6 +4,10 @@ import java.util.*;
 /**
  * @generated
  */
+/**
+ * Represents Student’s information and account
+ * @extends User
+ */
 public class Student extends User {
 
     /**
@@ -131,19 +135,25 @@ public class Student extends User {
     }
 
     /**
-     * @generated
+     * Get student's total number of credits.
+     * @return Returns total number of credits.
      */
     public Integer getTotalCredits() {
         return this.totalCredits;
     }
 
     /**
-     * @generated
+     * Set new value for total credits.
+     * @param totalCredits - new value for total credits
      */
     public void setTotalCredits(Integer totalCredits) {
         this.totalCredits = totalCredits;
     }
-
+    /**
+     * Equals metod to compare.
+     * @param o - Object object which we compare.
+     * @return Returns true if objects are equal and false if not.
+     */
     @Override
     public boolean equals(Object o) {
         if (o == this) return true;
@@ -152,17 +162,25 @@ public class Student extends User {
         return super.equals(s) && s.yearOfStudy.equals(yearOfStudy) &&
                 s.faculty.equals(faculty) && s.degree.equals(degree);
     }
-    
+    /**
+     * Hash code method.
+     * @return Returns hash of object;
+     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), yearOfStudy,faculty,degree);
     }
-    
+    /**
+     * Increase year of study of student.
+     */
     public void increaseYearOfStudy() {
         this.yearOfStudy++;
     }
     
-
+    /**
+     * Withdraw particular course.
+     * @param course - Course object which need to be removed from courses.
+     */
     public void withdrawCourses(Course course) {
     	courses.remove(course);
     }
@@ -171,7 +189,11 @@ public class Student extends User {
     	order.setBook(book);
     	Librarian.addOrder(order);	
     }
-
+    /**
+     * Withdraw particular course.
+     * @param course - Course object, we can see its course files.
+     * @return Returns HashSet of course files.
+     */
     public HashSet<String> viewCourseFiles(Course course){
         HashSet<String> courseFiles = new HashSet<>();
         for (CourseFiles courseFile : course.getCourseFiles()) {
@@ -179,7 +201,11 @@ public class Student extends User {
         }
         return courseFiles;
     }
-
+    /**
+     * Register particular course.
+     * @param course - Course object which need to be registered.
+     * @return Returns true if course was successfully registered and false if wasn't.
+     */
     public boolean registerForCourse(Course course) {
         if (!isHavingCourse(course) && getCoursesForRegistration().contains(course)) {
             course.setStudents(this);
@@ -188,7 +214,11 @@ public class Student extends User {
         }
         return false;
     }
-
+    /**
+     * Rate particular teacher.
+     * @param teacher - Teacher object which need to be rated.
+     * @param rate - points for rating
+     */
     public void rateTeachers(Teacher teacher, double rate) {
     	teacher.setRate(rate);	
     }
@@ -197,19 +227,32 @@ public class Student extends User {
     public String toString() {
         return super.toString() + "\nYearOfStudy [" + yearOfStudy + "]" + "\nFaculty [" + faculty + "]" + "\nDegree [" + degree + "]";
     }
-
+    
     @Override
     public int compareTo(User o) {
     	Student s = (Student) o;
     	return getUsername().compareTo(s.getUsername());
     }
-//   
+//  
+    /**
+     * Set mark for student for particular type(first attestation,second or final).
+     * @param course - Course object, we add mark to this course.
+     * @param mark - Mark object of student for particular course.
+     */
     public void setCourseMark(Course course, Mark mark) {
     	marks.put(course, mark);
     }
+    /**
+     * View mark for particular course.
+     * @param course - Course object, we see mark for this course.
+     * @return Returns Marks of student.
+     */
     public Mark viewMark(Course course) {
     	return marks.get(course);
     }
+    /**
+     * View transcript.
+     */
     public void viewTranscript() {
         double totalGPA = 0;
     	for (Course c : marks.keySet()) {
@@ -223,11 +266,18 @@ public class Student extends User {
         }
     	System.out.println("Total GPA: " + totalGPA);
     }
-
+    /**
+     * Checks if student has a particular course.
+     * @param course - Course object which need to be checked.
+     * @return Returns true if student has this course and false if hasn't.
+     */
     public boolean isHavingCourse(Course course) {
         return courses.contains(course);
     }
-
+    /**
+     * Get courses for registartion.
+     * @return Returns ArrayList of courses, available for registration.
+     */
     public ArrayList<Course> getCoursesForRegistration() {
         ArrayList<Course> allowedCourses = new ArrayList<>();
         for (Course course: Database.courses)
@@ -236,7 +286,10 @@ public class Student extends User {
         return allowedCourses;
     }
 
-
+    /**
+     * Set course to courses.
+     * @param course - Course object which need to be added to courses.
+     */
     public void setCourses(Course course) {
         courses.add(course);
     }

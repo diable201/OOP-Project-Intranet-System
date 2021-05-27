@@ -4,30 +4,54 @@ import java.util.Objects;
 /**
  * @generated
  */
+/**
+ * Represents Mark's information and methods
+ *
+ * @implements Serializable to save and load marks
+ * 
+ */
 public class Mark implements Serializable {
 
-    /**
-     * @generated
+	/**
+     * point of mark
      */
     private double points;
+    /**
+     * point for 1 attestation 
+     */
     private double firstAttestation = 0;
+    /**
+     * point for 2 attestation 
+     */
     private double secondAttestation = 0;
+    /**
+     * point for final Exam
+     */
     private double finalExam = 0;
+    /**
+     * point for total
+     */
     private double total;
+    /**
+     * gpa mark
+     */
     private double gpa = 0;
+    /**
+     * the main gpa
+     */
     private double digit_mark;
     /**
-     * @generated
+     * literal mark of point
      */
     private String literalMark;
 
     /**
-     * @generated
+     * the Student
      */
     private Student student;
 
     public Mark() {}
-
+    
     public Mark(double points, TypeOfMark typeOfMark) {
         this.points = points;
         switch (typeOfMark) {
@@ -40,12 +64,24 @@ public class Mark implements Serializable {
     /**
      * @generated
      */
+    /**
+     * Get points
+     *
+     * @return Points
+     * 
+     */
     private double getPoints() {
         return this.points;
     }
 
     /**
      * @generated
+     */
+    /**
+     * Set points
+     *
+     * @param Points from user
+     * 
      */
     private void setPoints(double points) {
         this.points = points;
@@ -65,6 +101,13 @@ public class Mark implements Serializable {
     /**
      * @generated
      */
+    
+    /**
+     * Set literal mark
+     *
+     * @param Literal mark from user
+     * 
+     */
     private void setLiteralMark(String literalMark) {
         this.literalMark = literalMark;
     }
@@ -73,12 +116,24 @@ public class Mark implements Serializable {
     /**
      * @generated
      */
+    /**
+     * Get student
+     *
+     * @return student's all information
+     * 
+     */
     public Student getStudent() {
         return this.student;
     }
 
     /**
      * @generated
+     */
+    /**
+     * Setting student
+     *
+     * @param student's all information from user
+     * 
      */
     public void setStudent(Student student) {
         this.student = student;
@@ -90,11 +145,23 @@ public class Mark implements Serializable {
     /**
      * @generated
      */
+    /**
+     * Get points from 1 attestation
+     *
+     * @return 1st attestation point
+     * 
+     */
     public double getFirstAttestation() {
         return this.firstAttestation;
     }
     /**
      * @generated
+     */
+    /**
+     * Set points to 1 attestation
+     *
+     * @param 1st attestation point
+     * 
      */
     public void setFirstAttestation(double first_attestation) {
         this.firstAttestation = first_attestation;
@@ -102,11 +169,23 @@ public class Mark implements Serializable {
     /**
      * @generated
      */
+    /**
+     * Get points from 2 attestation
+     *
+     * @return 2 attestation point
+     * 
+     */
     public double getSecondAttestation() {
         return this.secondAttestation;
     }
     /**
      * @generated
+     */
+    /**
+     * Set points to 2 attestation
+     *
+     * @param 2 attestation point
+     * 
      */
     public void setSecondAttestation(double second_attestation) {
         this.secondAttestation = second_attestation;
@@ -114,17 +193,35 @@ public class Mark implements Serializable {
     /**
      * @generated
      */
+    /**
+     * Get Final
+     *
+     * @return final point
+     * 
+     */
     public double getFinal() {
         return this.finalExam;
     }
     /**
      * @generated
      */
+    /**
+     * Set points to final
+     *
+     * @param  final point
+     * 
+     */
     public void setFinal(double final_exam) {
         this.finalExam = final_exam;
     }
     /**
      * @generated
+     */
+    /**
+     * Get points to total, by calculating all points
+     *
+     * @return total point
+     * 
      */
     public double getTotal() {
         this.total = getFirstAttestation() + getSecondAttestation() + getFinal();
@@ -133,18 +230,41 @@ public class Mark implements Serializable {
     /**
      * @generated
      */
+    /**
+     * Set points to total
+     *
+     * @param total from user
+     * 
+     */
     public void setTotal(double total) {
         this.total = total;
     }
-
+    
+    /**
+     * Get Gpa
+     *
+     * @return gpa
+     * 
+     */
     public Double getGpa() {
         return gpa;
     }
-
+    /**
+     * Set gpa
+     *
+     * @param gpa from user
+     * 
+     */
     public void setGpa(double gpa) {
         this.gpa = gpa;
     }
-
+    /**
+     * Equals method
+     *
+     * @param object Mark
+     * @return boolean expression for equals
+     * 
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -159,11 +279,25 @@ public class Mark implements Serializable {
         return Objects.equals(student, mark.student);
     }
 
+    /**
+     * get Hash Code
+     *
+     * 
+     * @return code of current mark
+     * 
+     */
     @Override
     public int hashCode() {
         return Objects.hash(points, firstAttestation, secondAttestation, finalExam);
     }
 
+    /**
+     * ToString
+     *
+     * 
+     * @return All information about Mark
+     * 
+     */
     @Override
     public String toString() {
         return "Mark{" +
@@ -176,6 +310,13 @@ public class Mark implements Serializable {
                 ", student=" + student +
                 '}';
     }
+    /**
+     * Transform Mark from total to literal mark
+     *
+     * 
+     * @param total from user
+     * 
+     */
     public void transformMark(double total) {
         if(total>=94.5 && total<=100) {
             literalMark = "A";
@@ -222,7 +363,13 @@ public class Mark implements Serializable {
             digit_mark = 0;
         }
     }
-
+    /**
+     * method for putting Mark 
+     *
+     * 
+     * @param type of mark and point
+     * 
+     */
     public void putMark(TypeOfMark typeOfMark, double points) {
         if (typeOfMark == TypeOfMark.FIRST_ATTESTATION) {
             this.setFirstAttestation(points);
