@@ -26,9 +26,9 @@ public class TeacherMenu {
             		System.out.println("You are logged out!");
 				}
             	case "1" -> {
-            		if (teacher.getCourses().size()!=0) {
+            		if (teacher.getTeachingCourses().size() != 0) {
             			while (true) {
-							System.out.println(teacher.getCourses());
+							System.out.println(teacher.getTeachingCourses());
             				System.out.println("""
 									1. Manage course files\s
 									0. Exit""");
@@ -46,10 +46,10 @@ public class TeacherMenu {
             		}
             	}
             	case "2" -> {
-            		if (teacher.getCourses().size() != 0) {
+            		if (teacher.getTeachingCourses().size() != 0) {
             			while (true) {
 //            				for(Course c: teacher.getCourses()) {
-            					System.out.println(teacher.getCourses());
+            					System.out.println(teacher.getTeachingCourses());
 //            				}
             				System.out.println("""
 									1. Choose course
