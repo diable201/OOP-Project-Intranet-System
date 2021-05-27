@@ -15,7 +15,7 @@ public class LibrarianMenu {
                 + "\n2. Manage books"
                 + "\n3. Manage requests"
                 + "\n0. Logout";
-        while (user.getIsLogged()) {
+        while (librarian.getIsLogged()) {
         	System.out.println(librarianConsole);
             String option = reader.readLine();
             switch (option) {
@@ -33,10 +33,10 @@ public class LibrarianMenu {
                 								+"\n0. Cancel";
                 		System.out.print(manageBooksMenu);
                 		option = reader.readLine();
-                		if (option.equals("0")) 
-                			break; 
+                		if (option.equals("0")) {
+                            continue;
+                        }
                 		else if (option.equals("1")) {
-                			System.out.println(librarian.getBooks());
                 			System.out.print("Please enter book name: ");
         					String bookName = reader.readLine();
         					
@@ -62,12 +62,12 @@ public class LibrarianMenu {
         						System.out.println("Book with that name doesn't exist");
         					}
                 		}
-//                case "3":
-//                	while (true) {
-//                		String manageOrdersMenu = "\n1. Accept orders"
-//                								+"\n2. Reject Orders"
-//                								+"\n0. Cancel";
-//                		}
+                case "3":
+                	while (true) {
+                		String manageOrdersMenu = "\n1. Accept orders"
+                								+"\n2. Reject Orders"
+                								+"\n0. Cancel";
+                		}
                 	}
 }
 }
