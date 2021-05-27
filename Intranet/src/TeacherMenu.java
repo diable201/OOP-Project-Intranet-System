@@ -1,73 +1,64 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 
-
-
 public class TeacherMenu {
-
     static Teacher teacher = null;
     static BufferedReader reader = null;
 
-    // Teacher menu
     public static void menu(User user, BufferedReader bufReader) throws IOException {
-
         teacher = (Teacher) user;
         reader = bufReader;
-
         while (user.getIsLogged()) {
-
-            String teacherHomePage = "\n[Teacher: " + user.getFullName() + "]"
+            String teacherHomePage = "\nWelcome, Teacher: " + user.getFullName() + ""
                     + "\n---------------------------------------"
                     + "\n1. Manage courses and files"
                     + "\n2. View students info/Put marks"
 //                    + "\n3. Send/View messages to managers [Unread:" + Database.getUnreadMessagesToUser(teacher).size() + "]"
                     + "\n4. Change password"
+					+ "\n5. View Rating"
                     + "\n0. Logout";
-
 
             System.out.println(teacherHomePage);
             String choice = reader.readLine();
             switch(choice) {
-            	case "0" ->{
+            	case "0" -> {
             		teacher.logout();
             		System.out.println("You are logged out!");
-            		break;
-            	}
-            	case "1" ->{
-            		if(teacher.getCourses().size()!=0) {
-            			while(true) {
-//            				for(Course c: teacher.getCourses()) {
+				}
+            	case "1" -> {
+            		if (teacher.getCourses().size()!=0) {
+            			while (true) {
 							System.out.println(teacher.getCourses());
-//            					c.toString();
-//            				}
-            				System.out.println("\n1. Manage course files " + "\n0. Exit");	
+            				System.out.println("""
+									1. Manage course files\s
+									0. Exit""");
             				choice = reader.readLine();
-            				if (choice.equals("0"))
-    							break;
-    						
-    						else if (choice.equals("1")) 
-    							TeacherMenu.manageCourseFiles();
+            				if (choice.equals("0")) {
+								break;
+							}
+    						else if (choice.equals("1")) {
+								TeacherMenu.manageCourseFiles();
+							}
             			}
             		}
             		else {
             			System.out.println("Teacher has no courses");
             		}
             	}
-            	case "2"->{
-            		if(teacher.getCourses().size()!=0) {
-            			while(true) {
+            	case "2" -> {
+            		if (teacher.getCourses().size() != 0) {
+            			while (true) {
 //            				for(Course c: teacher.getCourses()) {
             					System.out.println(teacher.getCourses());
 //            				}
             				System.out.println("""
-
 									1. Choose course
 									0. Exit""");
             				choice = reader.readLine();
-            				if(choice.equals("0")) {
+            				if (choice.equals("0")) {
             					break;
             				}
-            				else if(choice.equals("1")){
+            				else if (choice.equals("1")) {
             					TeacherMenu.chooseCourse();
             				}
             			}
@@ -76,73 +67,74 @@ public class TeacherMenu {
             			System.out.println("Teacher has no courses");
             		}
             	}
-            	case "4" ->{
-            		Menu.showMenuForChangePassword(user, reader);
-                    break;
-            	}
-            		
+            	case "4" -> Menu.showMenuForChangePassword(user, reader);
+            	case "5" -> System.out.println(teacher.getRate());
             }
         }
     }
     public static void manageCourseFiles() throws IOException{
     	try {
-
 			System.out.print("\nChoose code from the list: ");
 			String choice = reader.readLine();
 			Course course = Database.getCourse(choice);
-
+			label:
 			while(true) {
 				
-				System.out.println("1. Add file"
-						 + "\n2. Delete file"
-						 + "\n0. Exit back");
+				System.out.println("""
+						1. Add file
+						2. Delete file
+						0. Exit back""");
 				choice = reader.readLine();
-					
-				if (choice.equals("1")) {
-					System.out.print("Please enter file name: ");
-					String fileName = reader.readLine();
-						
-					System.out.print("Please enter file content: ");
-					String fileContent = reader.readLine();
-						
-					teacher.addFiles(course, new CourseFiles(fileName, fileContent));
-					System.out.println("File was created");
-				}
-					
-				else if (choice.equals("2")) {
-						
-					System.out.print("Please enter file name: ");
-					String inputName = reader.readLine();
-						
-					if (teacher.deleteFiles(course, course.getFile(inputName)))
-						System.out.println("File was deleted");
-					else 
-						System.out.println("File with that name doesn't exist");
-					}
-					
-					else if (choice.equals("0"))
+
+				switch (choice) {
+					case "1":
+						System.out.print("Please enter file name: ");
+						String fileName = reader.readLine();
+
+						System.out.print("Please enter file content: ");
+						String fileContent = reader.readLine();
+
+						assert course != null;
+						teacher.addFiles(course, new CourseFiles(fileName, fileContent));
+						System.out.println("File was created");
 						break;
-					
-					else 
+					case "2":
+
+						System.out.print("Please enter file name: ");
+						String inputName = reader.readLine();
+
+						assert course != null;
+						if (teacher.deleteFiles(course, course.getFile(inputName)))
+							System.out.println("File was deleted");
+						else
+							System.out.println("File with that name doesn't exist");
+						break;
+					case "0":
+						break label;
+					default:
 						System.out.println("Incorrect choice. Choose available one");
-					
-				} 
-    	}catch (NullPointerException exception) {
-    		System.out.println("[Incorrect name]\n");
+						break;
+				}
+			}
+		} catch (NullPointerException exception) {
+    		System.out.println("Error\n");
     	}
     }
-    public static void chooseCourse()  throws IOException{
-    	try{
+
+    public static void chooseCourse() throws IOException{
+    	try {
     		System.out.print("\nEnter code of course from the list: ");
 			String choice = reader.readLine();
 			Course course = Database.getCourse(choice);
 			while(true) {
-				System.out.println("\n1. Put student mark"+"\n0. Exit back");
+				System.out.println("""
+						1. Put student mark
+						0. Exit back""");
 				choice = reader.readLine();
-				if(choice.equals("0")) {
+				if (choice.equals("0")) {
 					break;
 				}
-				else if(choice.equals("1")) {
+				else if (choice.equals("1")) {
 					System.out.print("Enter student ID: ");
 					String input = reader.readLine();
 					Student student = Database.getStudent(input);
@@ -155,86 +147,28 @@ public class TeacherMenu {
 								"/n2 Second attestation" + 
 								"/n3 Final" );
 						input = reader.readLine();
-						TypeOfMark tm = null;
-						if (input.equals("1")) {
-							tm = TypeOfMark.FIRST_ATTESTATION;
-						}else if (input.equals("2")) {
-							tm = TypeOfMark.SECOND_ATTESTATION;
-						}else if (input.equals("3")) {
-							tm = TypeOfMark.FINAL;
-						}
+						TypeOfMark tm = switch (input) {
+							case "1" -> TypeOfMark.FIRST_ATTESTATION;
+							case "2" -> TypeOfMark.SECOND_ATTESTATION;
+							case "3" -> TypeOfMark.FINAL;
+							default -> null;
+						};
 						System.out.println("Please enter your mark");
-	
 						input = reader.readLine();
 						double studentPoint = Double.parseDouble(input);
 						teacher.putMark(course, tm, studentPoint, student);
 						System.out.println("Mark was added");
-						
-						
 					}
 					else {
 						System.out.println("Student doesn't exist");
 					}
 				}
 			}
-    	}catch (NullPointerException exception){
-    		System.out.println("[Incorrect name]\n");
+    	} catch (NullPointerException exception){
+    		System.out.println("Error\n");
     	}
     }
 }
-
-    
-
-//		} catch (NumberFormatException exception) {
-//			System.out.println("[Incorrect input format. Please enter number]\n");
-//		} catch (NullPointerException exception) {
-//			System.out.println("[Incorrect name]\n");
-//		}
-    	
-    
-
-
-//                            if (choice.equals("0"))
-//                                break;
-
-//                            else if (choice.equals("1"))
-//                                TeacherController.manageCourseFiles();
-
-//                            else
-//                                System.out.println("\n[Incorrect input format. Please choose available option]\n");
-//                        }
-//                    } else {
-//                        System.out.println("[There are no any courses, which you teach. Please wait, they will be added by manager very soon]");
-//                        Controller.exitMessage(reader);
-//                    }
-//                    break;
-//
-                // 2 main menu option: view course students and put their marks
-//                case "2":
-//                    if (teacher.getTeachingCourses().size() > 0) {
-//                        while (true) {
-
-//                            Views.showCourses(teacher, 7, teacher.getTeachingCourses());
-//
-//                            String puttingMarksMenu = "\n1. Select course"
-//                                    + "\n0. Exit to main menu";
-//
-//                            System.out.println(puttingMarksMenu);
-//                            choice = reader.readLine();
-//
-//                            if (choice.equals("0"))
-//                                break;
-//                            else if (choice.equals("1"))
-//                                TeacherController.putMarks();
-//                            else
-//                                System.out.println("\n[Incorrect input format. Please choose available option]\n");
-//                        }
-//                    } else {
-//                        System.out.println("[There are no any courses, which you teach. Please wait, they will be added by manager very soon]");
-//                        Controller.exitMessage(reader);
-//                    }
-
-//                    break;
 
                 // 3 main menu option: manage messages to managers
 //                case "3":
@@ -301,58 +235,6 @@ public class TeacherMenu {
 //
 //                    }
 //                    break;
-//
-//                // 4 main menu option: manage orders to support
-////                case "4":
-//
-//                    while (true) {
-//
-//                        String detailInfoMenu = """
-//
-//                                1. Send new order to support
-//                                2. View all sent orders
-//                                0. Exit main""";
-//
-//                        System.out.println(detailInfoMenu);
-//                        String option = reader.readLine();
-//
-//                        // Send new order
-//                        if (option.equals("1")) {
-//
-//                            System.out.print("\nPlease describe problem in order to make request to support (0 to exit back): ");
-//                            String text = reader.readLine();
-//
-//                            if (!text.equals("0")) {
-////                                teacher.sendOrder(new Order(teacher, text));
-//                                System.out.println("[Your request has been sent to support]\n");
-//
-//                            }
-//                        }
-//
-//                        // View all sent orders
-//                        else if (option.equals("2")) {
-////                            Views.showOrders(Database.getOrdersFromUser(teacher));
-//
-//                        } else if (option.equals("0"))
-//                            break;
-//
-//                        else
-//                            System.out.println("\n[Incorrect input format. Please choose available option]");
-//
-//                    }
-//                    break;
-//
-//                // 5 main menu option: change password
-//                case "5":
-//                    Menu.showMenuForChangePassword(teacher, reader);
-//                    break;
-//                default:
-//                    System.out.println("\n[Incorrect input format. Please choose available option]");
-//                    break;
-//            }
-//
-//        }
-//    }
 //
 //    // ----------------------------------------------------------------------------
 //    // Subcontrollers of individual stages of information input and processing

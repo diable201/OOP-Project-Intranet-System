@@ -9,6 +9,7 @@ public abstract class Employee extends User {
     * @generated
     */
     private EmployeeTypes department;
+
     public Employee() {
         super();
     }

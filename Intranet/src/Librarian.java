@@ -4,10 +4,6 @@ import java.util.ArrayList;
 * @generated
 */
 public class Librarian extends Employee {
-    
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	/**
     * @generated

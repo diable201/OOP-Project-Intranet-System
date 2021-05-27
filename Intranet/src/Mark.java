@@ -10,9 +10,9 @@ public class Mark implements Serializable {
      * @generated
      */
     private double points;
-    private double first_attestation = 0;
-    private double second_attestation = 0;
-    private double final_exam = 0;
+    private double firstAttestation = 0;
+    private double secondAttestation = 0;
+    private double finalExam = 0;
     private double total;
     private double gpa = 0;
     private double digit_mark;
@@ -91,37 +91,37 @@ public class Mark implements Serializable {
      * @generated
      */
     public double getFirstAttestation() {
-        return this.first_attestation;
+        return this.firstAttestation;
     }
     /**
      * @generated
      */
     public void setFirstAttestation(double first_attestation) {
-        this.first_attestation = first_attestation;
+        this.firstAttestation = first_attestation;
     }
     /**
      * @generated
      */
     public double getSecondAttestation() {
-        return this.second_attestation;
+        return this.secondAttestation;
     }
     /**
      * @generated
      */
     public void setSecondAttestation(double second_attestation) {
-        this.second_attestation = second_attestation;
+        this.secondAttestation = second_attestation;
     }
     /**
      * @generated
      */
     public double getFinal() {
-        return this.final_exam;
+        return this.finalExam;
     }
     /**
      * @generated
      */
     public void setFinal(double final_exam) {
-        this.final_exam = final_exam;
+        this.finalExam = final_exam;
     }
     /**
      * @generated
@@ -137,15 +137,23 @@ public class Mark implements Serializable {
         this.total = total;
     }
 
+    public Double getGpa() {
+        return gpa;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Mark mark = (Mark) o;
         if (Double.compare(mark.points, points) != 0) return false;
-        if (Double.compare(mark.first_attestation, first_attestation) != 0) return false;
-        if (Double.compare(mark.second_attestation, second_attestation) != 0) return false;
-        if (Double.compare(mark.final_exam, final_exam) != 0) return false;
+        if (Double.compare(mark.firstAttestation, firstAttestation) != 0) return false;
+        if (Double.compare(mark.secondAttestation, secondAttestation) != 0) return false;
+        if (Double.compare(mark.finalExam, finalExam) != 0) return false;
         if (Double.compare(mark.total, total) != 0) return false;
         if (!literalMark.equals(mark.literalMark)) return false;
         return Objects.equals(student, mark.student);
@@ -153,16 +161,16 @@ public class Mark implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(points, first_attestation, second_attestation, final_exam);
+        return Objects.hash(points, firstAttestation, secondAttestation, finalExam);
     }
 
     @Override
     public String toString() {
         return "Mark{" +
                 "points=" + points +
-                ", first_attestation=" + first_attestation +
-                ", second_attestation=" + second_attestation +
-                ", final_exam=" + final_exam +
+                ", firstAttestation=" + firstAttestation +
+                ", secondAttestation=" + secondAttestation +
+                ", finalExam=" + finalExam +
                 ", total=" + total +
                 ", literalMark=" + literalMark +
                 ", student=" + student +
@@ -214,45 +222,17 @@ public class Mark implements Serializable {
             digit_mark = 0;
         }
     }
+
     public void putMark(TypeOfMark typeOfMark, double points) {
-        if(typeOfMark==TypeOfMark.FIRST_ATTESTATION) {
+        if (typeOfMark == TypeOfMark.FIRST_ATTESTATION) {
             this.setFirstAttestation(points);
         }
-        else if(typeOfMark == TypeOfMark.SECOND_ATTESTATION) {
+        else if (typeOfMark == TypeOfMark.SECOND_ATTESTATION) {
             this.setSecondAttestation(points);
         }
-        else if(typeOfMark == TypeOfMark.FINAL) {
+        else if (typeOfMark == TypeOfMark.FINAL) {
             this.setFinal(points);
             this.transformMark(this.getTotal());
         }
     }
-    public void getGpa(String literalMark) {
-        if(literalMark.equals("A")) {
-            gpa = 4.0;
-        }else if(literalMark.equals("A-")) {
-            gpa = 3.67;
-        }else if(literalMark.equals("B+")) {
-            gpa = 3.33;
-        }else if(literalMark.equals("B")) {
-            gpa = 3.0;
-        }else if(literalMark.equals("B-")) {
-            gpa = 2.67;
-        }else if(literalMark.equals("C+")) {
-            gpa = 2.33;
-        }else if(literalMark.equals("C")) {
-            gpa = 2.0;
-        }else if(literalMark.equals("C-")) {
-            gpa = 1.67;
-        }else if(literalMark.equals("D+")) {
-            gpa = 1.33;
-        }else if(literalMark.equals("D")) {
-            gpa = 1.0;
-        }else {
-            gpa = 0.0;
-        }
-    }
-    public Double returnGpa() {
-        return gpa;
-    }
-
 }

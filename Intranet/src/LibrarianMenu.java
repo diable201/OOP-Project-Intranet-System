@@ -2,10 +2,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class LibrarianMenu {
-	
 	static Librarian librarian = null;
     static BufferedReader reader = null;
-    
     public static void menu(User user, BufferedReader bf) throws IOException {
     	librarian = (Librarian) user;
         reader = bf;
@@ -30,7 +28,6 @@ public class LibrarianMenu {
 					try {
 						while (true) {
 							String manageBooksMenu = """
-
 								1. Add books
 								2. Delete books
 								3. View all books
@@ -41,18 +38,15 @@ public class LibrarianMenu {
 								case "0":
 									break;
 								case "1":
-									System.out.print("Please enter book name: ");
+									System.out.println("Please enter book name: ");
 									String bookName = reader.readLine();
-
-									System.out.print("Please enter book id: ");
+									System.out.println("Please enter book id: ");
 									String bookId = reader.readLine();
 									int id = Integer.parseInt(bookId);
-									System.out.print("Please enter book author: ");
+									System.out.println("Please enter book author: ");
 									String bookAuthor = reader.readLine();
-
-									System.out.print("Please enter link to book: ");
+									System.out.println("Please enter link to book: ");
 									String bookLink = reader.readLine();
-
 									librarian.addBooks(new Book(bookName, id, bookAuthor, bookLink));
 									System.out.println("Book was created");
 									break;
@@ -61,10 +55,12 @@ public class LibrarianMenu {
 									System.out.println("Please choose book id: ");
 									bookId = reader.readLine();
 									id = Integer.parseInt(bookId);
-									if (librarian.deleteBooks(librarian.getBookById(id)))
+									if (librarian.deleteBooks(librarian.getBookById(id))) {
 										System.out.println("Book was deleted");
-									else
+									}
+									else {
 										System.out.println("Book with that name doesn't exist");
+									}
 									break;
 								case "3":
 									System.out.println(librarian.getBooks());
@@ -89,5 +85,3 @@ public class LibrarianMenu {
 		}
     }
 }
-
-

@@ -75,11 +75,7 @@ public class StudentTester {
 			else if(input == 7) {
 				System.out.println("Rate teachers");
 			}
-			
-			
-				
-	
-}
+		}
 	}
 }
 

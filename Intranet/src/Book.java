@@ -119,6 +119,4 @@ public class Book {
                 ", link='" + link + '\'' +
                 '}';
     }
-
-    //                          Operations
 }
