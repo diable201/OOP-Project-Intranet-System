@@ -4,6 +4,10 @@ import java.util.*;
 /**
  * @generated
  */
+/**
+ * Represents Student’s information and account
+ * @extends User
+ */
 public class Student extends User {
 
     /**
