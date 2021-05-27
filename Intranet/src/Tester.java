@@ -22,8 +22,8 @@ public class Tester {
         //System.out.println(Database.getStudents());
         ArrayList<Student> students = new ArrayList<Student>();
         students.add(s4);
-        students.add(s3);
         students.add(s2);
+        students.add(s3);
         students.add(s1);
         Collections.sort(students, new SortStudentByName());
         for (Student s: students) {

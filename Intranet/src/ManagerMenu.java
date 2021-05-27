@@ -100,7 +100,9 @@ public class ManagerMenu {
         		   System.out.println(sort);
         		   String a = reader.readLine();
         		   if (a.equals("0")) break;
-        		   else if (a.equals("1")) Collections.sort(Database.getStudentsList(), new SortStudentByName());
+        		   else if (a.equals("1")) {
+        			   Collections.sort(Database.getStudentsList(), new SortStudentByName());
+        		   System.out.println(Database.getStudents()); }
         		   
         	   }
         	}
