@@ -16,7 +16,7 @@ public class ManagerMenu {
                     + "\n1. Manage registration and courses"
                     + "\n2. View teachers and student info"
 //                    + "\n3. Send/View messages to managers [Unread:" + Database.getUnreadMessagesToUser(teacher).size() + "]"
-                    + "\n4. Change password"
+                    + "\n3. Change password"
                     + "\n0. Logout");
         	String choice = reader.readLine();
 			label:
@@ -52,79 +52,72 @@ public class ManagerMenu {
 							System.out.println("Choose course code:");
 							String inputName = reader.readLine();
 //        				Course delC = Database.getCourse(inputName);
-							Database.deleteCourse(inputName);
-							System.out.print(Database.getCourses());
-							break;
-						case "3":
-							System.out.print(Database.getCourses());
-							break;
-						case "4":
-							if (manager.getRegistration()) {
-								System.out.print("Registration is open");
-								String actionsWithRegistration = """
+        				Database.deleteCourse(inputName);
+        				System.out.print(Database.getCourses());
+        			}
+        			else if(inp.equals("3")) 
+        				System.out.print(Database.getCourses());
+        			else if(inp.equals("4")) {
+        				if(manager.getRegistration()) {
+        				System.out.print("Registration is open");
+        				String actionsWithRegistration = "\n---------------------------------"
+        						+ "\n1. Close registration"
+        						+ "\n0. Cancel" ;
+        				System.out.println(actionsWithRegistration);
+        				String action = reader.readLine();
+;        				if (action.equals("0")) break;
+        				else if(action.equals("1")) manager.closeRegistration();
+						System.out.println("Registration is open now");
+        				}
+        				else System.out.print("Registration is closed"); {
+        					String actionsWithClosedRegistration = "\n---------------------------------"
+            						+ "\n1. Open registration"
+            						+ "\n0. Cancel" ;
+        					System.out.println(actionsWithClosedRegistration);
+        					String action = reader.readLine();
+        					if(action.equals("0")) 
+        						break;
+        					else if (action.equals("1")) 
+        						manager.openRegistration();
+        					System.out.println("Registration is open now");
+        				}
+        			}
+        		}
+        	}
+        	case "2" -> {
+        		String usersInfo = "\n---------------------------------"
+        					+ "\n1. Teachers" 
+        					+ "\n2. Students"
+        					+ "\n0. Cancel" ;
+        	   System.out.println(usersInfo);
+        	   String inp = reader.readLine();
+        	   if (inp.equals("0")) break;
+        	   else if (inp.equals("1")) {
+        		   System.out.println(Database.getTeachers());
+        	   }
+        	   else if (inp.equals("2")) {
+        		   String sort = "\n---------------------------------"
+        				   	+ "\n1. By GPA"
+        				   	+ "\n2. By name"
+        				   	+ "\n0. Cancel" ;
+        	   
+        		   System.out.println(sort);
+        		   String a = reader.readLine();
+        		   if (a.equals("0")) break;
+        		   else if (a.equals("2")) {
+//        			   Collections.sort(Database.getStudentsList(), new SortStudentByName());
+        		   System.out.println(Database.getStudentsListByName()); }
+        		   
+        	   }
+        	}
+        	case "3" ->{
+        		Menu.showMenuForChangePassword(user, reader);
+                break;
+        	}
+        	
+        	}
+        }
 
-										---------------------------------
-										1. Close registration
-										0. Cancel""";
-								System.out.println(actionsWithRegistration);
-								String action = reader.readLine();
-								if (action.equals("0")) break;
-								else if (action.equals("1")) manager.closeRegistration();
-								System.out.println("Registration is open now");
-							} else System.out.print("Registration is closed");
-						{
-							String actionsWithClosedRegistration = """
-
-									---------------------------------
-									1. Open registration
-									0. Cancel""";
-							System.out.println(actionsWithClosedRegistration);
-							String action = reader.readLine();
-							if (action.equals("0"))
-								break;
-							else if (action.equals("1"))
-								manager.openRegistration();
-							System.out.println("Registration is open now");
-						}
-						break;
-					}
-				}
-			}
-			case "3" -> {
-				String usersInfo = """
-
-						---------------------------------
-						1. Teachers
-						2. Students
-						0. Cancel""";
-			   System.out.println(usersInfo);
-			   String inp = reader.readLine();
-				switch (inp) {
-					case "0":
-						break label;
-					case "1":
-						System.out.println(Database.getTeachers());
-						break;
-					case "2":
-						String sort = """
-
-								---------------------------------
-								1. By GPA
-								2. By name
-								0. Cancel""";
-
-						System.out.println(sort);
-						String a = reader.readLine();
-						if (a.equals("0")) break label;
-						else if (a.equals("1")) Database.getStudentsList().sort(new SortStudentByName());
-
-						break;
-				}
-			}
-			case "4" ->
-				Menu.showMenuForChangePassword(user, reader);
-			}
-		}
     }
     public static void createCourse() throws IOException{
     	try {

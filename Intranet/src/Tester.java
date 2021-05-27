@@ -22,8 +22,8 @@ public class Tester {
         //System.out.println(Database.getStudents());
         ArrayList<Student> students = new ArrayList<Student>();
         students.add(s4);
-        students.add(s3);
         students.add(s2);
+        students.add(s3);
         students.add(s1);
         Collections.sort(students, new SortStudentByName());
         for (Student s: students) {
@@ -88,8 +88,8 @@ public class Tester {
 //        s1.increaseYearOfStudy();
 //        System.out.println(s1);
 //        Database.users.add(s1);
-//        Database.saveUsers();
-//        Database.loadUsers();
+        Database.saveUsers();
+        Database.loadUsers();
 //        System.out.println(Database.getStudents());
 //        System.out.println(Database.getAdmins());
 //        System.out.println(Database.getCourses());
