@@ -76,7 +76,7 @@ public class Teacher extends Employee {
 	public HashSet<String>viewCourseFiles(Course course){
 		HashSet<String> coursef = new HashSet<String>();
 		for (CourseFiles cf : course.getCourseFiles()) {
-			coursef.add(cf.getName());
+			coursef.add(cf.getName() + " " + cf.getContent());
 		}
 		return coursef;
 	}

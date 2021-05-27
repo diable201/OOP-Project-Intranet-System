@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 
 /**
@@ -199,18 +196,19 @@ public class Student extends User {
     	order.setBook(book);
     	Librarian.addOrder(order);	
     }
-    
-    public void viewCourseFiles(Course course) {
-    	if(courses.contains(course)) {
-    		for(CourseFiles coursefiles : course.getCourseFiles()) {
-    			System.out.println(coursefiles.toString());
-    		}
-    	}
+
+    public HashSet<String> viewCourseFiles(Course course){
+        HashSet<String> coursef = new HashSet<String>();
+        for (CourseFiles cf : course.getCourseFiles()) {
+            coursef.add(cf.getName() + " " + cf.getContent());
+        }
+        return coursef;
     }
 
     public boolean registerForCourse(Course course) {
         if (!isHavingCourse(course) && getCoursesForRegistration().contains(course)) {
-            this.courses.add(course);
+            course.setStudents(this);
+            this.setCourses(course);
             return true;
         }
         return false;
@@ -238,10 +236,11 @@ public class Student extends User {
     	return marks.get(course);
     }
     public void viewTranscript() {
+//        System.out.println("bug");
     	for (Course c : marks.keySet()) {
     		System.out.print(c.getTitle() + " | " + marks.get(c).getFirstAttestation() + " | " + marks.get(c).getSecondAttestation() +" | " +
     	marks.get(c).getFinal() + " | " + marks.get(c).getTotal() + " | " + marks.get(c).getLiteralMark()+ "\n");
-    	}    	
+    	}
     }
 
     public boolean isHavingCourse(Course course) {

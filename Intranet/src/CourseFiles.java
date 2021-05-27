@@ -39,14 +39,14 @@ public class CourseFiles implements Cloneable{
     /**
     * @generated
     */
-    private String getContent() {
+    public String getContent() {
         return this.content;
     }
     
     /**
     * @generated
     */
-    private void setContent(String content) {
+    public void setContent(String content) {
         this.content = content;
     }
     

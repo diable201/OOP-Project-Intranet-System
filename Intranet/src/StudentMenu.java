@@ -34,7 +34,7 @@ public class StudentMenu {
             // 2 main menu option: view registered courses and their files
             else if (choice.equals("1"))
 
-                if (student.getCourses().size() > 0)
+                if (student.getCourses().size() >= 1)
                     while (true) {
                         String menuCoursesInfo  = """
 
@@ -153,11 +153,11 @@ public class StudentMenu {
 
             System.out.print("\nPlease enter ID of course from the list: ");
 //            String choice = reader.readLine();
-
             String courseId = reader.readLine();
             Course course = Database.getCourse(courseId);
             if (student.isHavingCourse(course)) {
-                student.viewCourseFiles(course);
+                assert course != null;
+                System.out.println(student.viewCourseFiles(course));
             } else {
                 System.out.println("Error");
             }
