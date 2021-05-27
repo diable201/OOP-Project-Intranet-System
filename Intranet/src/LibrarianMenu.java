@@ -53,7 +53,6 @@ public class LibrarianMenu {
         					System.out.println("Book was created"); 
                 		}
                 		else if (option.equals("2")) {
-                			System.out.println(librarian.getBooks());
                 			System.out.print("Please choose book name: ");
                 			String inputName = reader.readLine();
     						
