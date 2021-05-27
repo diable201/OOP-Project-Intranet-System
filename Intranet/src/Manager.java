@@ -39,14 +39,14 @@ public class Manager extends Employee {
     /**
      * @generated
      */
-    private ArrayList <Course> getCourses() {
+    public ArrayList <Course> getCourses() {
         return this.courses;
     }
 
     /**
      * @generated
      */
-    private void setCourses(ArrayList <Course> courses) {
+    public void setCourses(ArrayList <Course> courses) {
         this.courses = courses;
     }
 
@@ -60,26 +60,26 @@ public class Manager extends Employee {
     /**
      * @generated
      */
-    private void setTeachers(ArrayList <Teacher> teachers) {
+    public void setTeachers(ArrayList <Teacher> teachers) {
         this.teachers = teachers;
     }
 
     /**
      * @generated
      */
-    private ArrayList <Student> getStudents() {
+    public ArrayList <Student> getStudents() {
         return this.students;
     }
 
     /**
      * @generated
      */
-    private void setStudents(ArrayList <Student> students) {
+    public void setStudents(ArrayList <Student> students) {
         this.students = students;
     }
 
 
-    private ArrayList <News> getNews() {
+    public ArrayList <News> getNews() {
         return this.news;
     }
 
@@ -95,8 +95,10 @@ public class Manager extends Employee {
 //        //TODO
 //    }
 
-    public void addCourse(Course course) {
-        courses.add(course);
+    public boolean addCourse(Course course) {
+        if (!courses.contains(course))
+    	courses.add(course);
+        return false;
 //        Database.courses.add(course);
     }
     public void deleteCourse(Course course) {
@@ -114,6 +116,10 @@ public class Manager extends Employee {
     }
     public void closeRegistration() {
         Database.registrationIsOpen = false;
+    }
+    
+    public boolean getRegistration() {
+    	return Database.registrationIsOpen;
     }
 
     public void extendRegistration() {

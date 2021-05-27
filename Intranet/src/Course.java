@@ -14,26 +14,19 @@ public class Course implements Serializable {
 	public Course() {
 	}
 	
-	public Course(String code, String title, int credits, Faculty faculty) {
+	public Course(String code, String title, int credits, Faculty faculty, Teacher teacher) {
 		this.code = code;
 		this.title = title;
 		this.credits = credits;
 		this.faculty = faculty;
+		this.teacher = teacher;
 	}
 	
 	private String code;
-	/**
-	    * @generated
-	    */
 	private String title;
-	/**
-	    * @generated
-	    */
 	private int credits;
-	/**
-	    * @generated
-	    */
 	private int limitOfStudents;
+
 	/**
 	    * @generated
 	    */
@@ -43,6 +36,7 @@ public class Course implements Serializable {
 	private ArrayList<Student>students = new ArrayList<>();
 	private HashMap<Student, Mark>marks = new HashMap<>();
 	private ArrayList<Lesson>lessons = new ArrayList<>();
+
 	/**
     * @generated
     */
@@ -64,6 +58,13 @@ public class Course implements Serializable {
 
 	public int getCredits() {
 		return credits;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+	public Teacher getTeacher() {
+		return teacher;
 	}
 
 	public void setCredits(int credits) {
@@ -127,6 +128,14 @@ public class Course implements Serializable {
 					"registered in this course.");
 		}
 		
+	}
+	
+	public void setTeachers(ArrayList<Teacher> teachers) {
+		this.teachers = teachers;
+	}
+	
+	public ArrayList<Teacher> getTeachers() {
+		return teachers;
 	}
 
 	public Faculty getFaculty() {
