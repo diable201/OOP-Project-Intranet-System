@@ -49,8 +49,8 @@ public class LibrarianMenu {
         					System.out.print("Please enter link to book: ");
         					String bookLink = reader.readLine();
         						
-        					if (librarian.addBooks(new Book(bookName, id, bookAuthor, bookLink)));
-        					System.out.println("Book was created");
+        					librarian.addBooks(new Book(bookName, id, bookAuthor, bookLink)) ;
+        					System.out.println("Book was created"); 
                 		}
                 		else if (option.equals("2")) {
                 			System.out.print("Please choose book name: ");
