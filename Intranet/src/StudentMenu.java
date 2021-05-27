@@ -15,6 +15,7 @@ public class StudentMenu {
                 + "\n3. View transcript"
                 + "\n4. Change password"
                 + "\n5. Rate teachers"
+                + "\n6. View news"
                 + "\n0. Logout";
 
         while (student.getIsLogged()) {
@@ -104,6 +105,8 @@ public class StudentMenu {
                     student.rateTeachers(teacher, ratingInt);
                     System.out.println("Thanks for the rate.");
                     break;
+                case "6":
+                    System.out.println(Database.getNews());
             }
         }
     }

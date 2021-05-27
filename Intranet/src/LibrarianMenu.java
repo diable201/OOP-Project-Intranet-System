@@ -14,6 +14,7 @@ public class LibrarianMenu {
 //                + "\n3. Manage requests"
 				+ "\n3. Send message"
 				+ "\n4. Read message"
+				+ "\n5. View news"
                 + "\n0. Logout";
         while (librarian.getIsLogged()) {
 			System.out.println(librarianConsole);
@@ -87,6 +88,8 @@ public class LibrarianMenu {
 					System.out.println("Message was sent");
 				case "4":
 					System.out.println(librarian.getMessage());
+				case "5":
+					System.out.println(Database.getNews());
 //				case "3":
 //                	while (true) {
 //                		String manageOrdersMenu = "\n1. Accept orders"

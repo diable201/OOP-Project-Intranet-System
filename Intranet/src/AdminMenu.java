@@ -16,6 +16,7 @@ public class AdminMenu {
                 + "\n3. View log files"
                 + "\n4. Send message"
                 + "\n5. Read message"
+                + "\n6. View news"
                 + "\n0. Logout";
 
         while (admin.getIsLogged()) {
@@ -134,6 +135,8 @@ public class AdminMenu {
                     System.out.println("Message was sent");
                 case "5":
                     System.out.println(admin.getMessage());
+                case "6":
+                    System.out.println(Database.getNews());
                 default:
                     break;
                     // TODO log files

@@ -1,14 +1,14 @@
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @generated
  */
-public class News implements Cloneable{
+public class News implements Cloneable, Serializable {
 
     public News() {}
 
-    public News(Date date, String description, String title) {
-        this.date = date;
+    public News(String description, String title) {
         this.description = description;
         this.title = title;
     }
@@ -48,7 +48,7 @@ public class News implements Cloneable{
      * @generated
      */
 
-    private String getDescription() {
+    public String getDescription() {
         return this.description;
     }
 
@@ -87,8 +87,9 @@ public class News implements Cloneable{
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
     }
+
     public String toString() {
-        return "News: " + title + ", description: " + description;
+        return "Title: " + title + "\nDescription: " + description;
     }
 
 }

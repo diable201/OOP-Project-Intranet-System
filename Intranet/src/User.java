@@ -214,4 +214,16 @@ public abstract class User implements Serializable, Comparable<User> {
     public boolean logout() {
         return this.isLogged = false;
     }
+
+    public String viewNews() {
+        StringBuilder ans = new StringBuilder();
+        int i = 0;
+        for (News news : Database.news) {
+            i++;
+            ans.append(i).append(") News title: ").append(news.getTitle()).append("\n" +
+                    "Description: ").append(news.getDescription()).append("\n" +
+                    "Post Date: ").append(news.getDate()).append("\n");
+        }
+        return ans.toString();
+    }
 }

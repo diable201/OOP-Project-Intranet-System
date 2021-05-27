@@ -18,6 +18,8 @@ public class ManagerMenu {
                     + "\n3. Change password"
 					+ "\n4. Send message"
 					+ "\n5. Read message"
+					+ "\n6. View news"
+					+ "\n7. Create news"
                     + "\n0. Logout");
         	String choice = reader.readLine();
 			switch(choice) {
@@ -136,9 +138,30 @@ public class ManagerMenu {
 					System.out.println("Message was sent");
 				}
 				case "5" -> System.out.println(manager.getMessage());
+				case "6" -> System.out.println(Database.getNews());
+				case "7" -> ManagerMenu.createNews();
 			}
         }
     }
+
+    public static void createNews() throws IOException {
+		try {
+			String title, description;
+			System.out.println("Enter Title: ");
+			title = reader.readLine();
+			System.out.println("Enter Description: ");
+			description = reader.readLine();
+			if (manager.addNews(new News(title, description))) {
+				System.out.println("\n[News was successfully created]");
+			}
+			else {
+				System.out.println("\n[News creation disrupted. The similar course is already created]");
+			}
+		} catch (ExceptionInInitializerError exception) {
+			System.out.println("News creation disrupted\n");
+		}
+    }
+
     public static void createCourse() throws IOException{
     	try {
     		String code;
