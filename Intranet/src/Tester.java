@@ -45,6 +45,8 @@ public class Tester {
 //        t2.putMark(c1, TypeOfMark.SECOND_ATTESTATION, 40, s4);
 //        t2.putMark(c1, TypeOfMark.FINAL, 30, s4);
         Database.users.add(t1);
+        Manager m = new Manager("1", "Chel", "Slave", EmployeeTypes.MANAGEMENT);
+        Database.users.add(m);
 //        System.out.print(c2.getStudents());
         System.out.println(s4.getCourses());
         s4.viewTranscript();

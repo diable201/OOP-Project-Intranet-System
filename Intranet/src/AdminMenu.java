@@ -25,7 +25,6 @@ public class AdminMenu {
                     System.out.println("\n[You logged out]");
                     break;
                 case "1":
-//                    System.out.println("Bug");
                     Menu.showMenuForChangePassword(user, reader);
                     break;
                 case "2":
@@ -91,8 +90,6 @@ public class AdminMenu {
                                     System.out.println("Incorrect number");
                                 }
                                 break;
-
-                            // Update user info
                             case "3": {
                                 String userOption = """
 
@@ -101,22 +98,15 @@ public class AdminMenu {
 
                                 System.out.println(userOption);
                                 option = reader.readLine();
-
                                 if (option.equals("0")) {
                                     break;
                                 }
                                 else if (option.equals("1")) {
-                                    System.out.println("This operation can't be disrupted after processing! " +
-                                            "Are you sure? If you agree, enter 'YES'");
-                                    option = reader.readLine();
-                                    if (option.equals("YES")) {
-                                        admin.updateStudentsYearOfStudy();
-                                        System.out.println("[All students study year has been increased]");
-                                    } else {
-                                        System.out.println("Operation was cancelled");
-                                    }
-                                } else
-                                    System.out.println("\nPlease choose other option\n");
+                                    admin.updateStudentsYearOfStudy();
+                                    System.out.println("All students study year has been increased");
+                                } else {
+                                    System.out.println("\nPlease choose other option.\n");
+                                }
                                 break;
                             }
                             case "4":
@@ -126,7 +116,7 @@ public class AdminMenu {
                                 System.out.println(Database.getTeachers());
                             break;
                             default:
-                                System.out.println("\nPlease choose other option\n");
+                                System.out.println("\nPlease choose other option.\n");
                             break;
                         }
                         break;
@@ -137,9 +127,6 @@ public class AdminMenu {
                     // TODO log files
 //                case "2":
 //                    Views.showLogs(Database.logFiles);
-//                    break;
-
-//                default:
 //                    break;
             }
         }

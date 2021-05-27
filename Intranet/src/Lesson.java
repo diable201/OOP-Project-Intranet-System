@@ -5,9 +5,7 @@ import java.util.Objects;
 */
 public class Lesson {
     
-	public Lesson() {
-		
-	}
+	public Lesson() {}
 
 	public Lesson(LessonType type, Integer time, Day day) {
 		this.type = type;

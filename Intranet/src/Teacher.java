@@ -12,8 +12,8 @@ public class Teacher extends Employee {
     * @generated
     */
 	private AcademicDegree academicDegree;
-	private ArrayList<Course> courses = new ArrayList<Course>();
-	private ArrayList<News> news = new ArrayList<News>();
+	private ArrayList<Course> courses = new ArrayList<>();
+	private ArrayList<News> news = new ArrayList<>();
 	private Faculty faculty;
 	private int numberOfVotes;
 	private double rate;
@@ -21,7 +21,6 @@ public class Teacher extends Employee {
 	public Teacher() {
 		super();
 	}
-
 
 	public Teacher(String id, String name, String surname,
 				   EmployeeTypes department, AcademicDegree academicDegree) {
@@ -46,7 +45,6 @@ public class Teacher extends Employee {
 	}
 
 	public ArrayList<Course> getCourses(){
-		
 		return courses;
 	}
 
@@ -74,11 +72,11 @@ public class Teacher extends Employee {
 
 
 	public HashSet<String>viewCourseFiles(Course course){
-		HashSet<String> coursef = new HashSet<String>();
-		for (CourseFiles cf : course.getCourseFiles()) {
-			coursef.add(cf.getName() + " " + cf.getContent());
+		HashSet<String> courseFiles = new HashSet<String>();
+		for (CourseFiles courseFile : course.getCourseFiles()) {
+			courseFiles.add(courseFile.getName() + " " + courseFile.getContent());
 		}
-		return coursef;
+		return courseFiles;
 	}
 	
 	public int getNumberOfVotes() {
@@ -95,8 +93,8 @@ public class Teacher extends Employee {
 	
 	public void setRate(double rate) {
 		this.numberOfVotes++;
-		this.rate+=rate;
-		this.rate /= (double)this.numberOfVotes;
+		this.rate += rate;
+		this.rate /= this.numberOfVotes;
 	}
 
 	public int hashCode() {
@@ -123,14 +121,15 @@ public class Teacher extends Employee {
     }
 
 	public HashMap<String, Mark> getMarksOfStudent(Student student){
-		HashMap<String, Mark> marksOfStudent = new HashMap<String, Mark>();
+		HashMap<String, Mark> marksOfStudent = new HashMap<>();
 		for (Course c: courses) {
 			marksOfStudent.put(c.getTitle(), c.getMarkOfStudent(student));
 		}
 		return marksOfStudent;
 	}
+
 	public HashMap<Student, Mark> getMarksOfStudents(Course course){
-		HashMap<Student, Mark> markOfStudents = new HashMap<Student, Mark>();
+		HashMap<Student, Mark> markOfStudents = new HashMap<>();
 		for (Student s: course.getStudents()) {
 			markOfStudents.put(s, course.getMarkOfStudent(s));
 		}

@@ -35,8 +35,8 @@ public class Student extends User {
      * @generated
      */
     private Integer totalCredits;
-    private HashMap<Course, Mark> marks = new HashMap<Course, Mark>();
-    private ArrayList<Course> courses = new ArrayList<Course>();
+    private HashMap<Course, Mark> marks = new HashMap<>();
+    private ArrayList<Course> courses = new ArrayList<>();
     /**
      * @generated
      */
@@ -84,7 +84,6 @@ public class Student extends User {
     /**
      * @generated
      */
-
     public void setCourses(ArrayList <Course> courses) {
         this.courses = courses;
     }
@@ -144,21 +143,7 @@ public class Student extends User {
     public void setTotalCredits(Integer totalCredits) {
         this.totalCredits = totalCredits;
     }
-
-    /**
-     * @generated
-     */
-    public HashMap <Course, Mark> getMarks() {
-        return this.marks;
-    }
-
-    /**
-     * @generated
-     */
-    public void setMarks(HashMap <Course, Mark> marks) {
-        this.marks = marks;
-    }
-
+    
     @Override
     public boolean equals(Object o) {
         if (o == this) return true;
@@ -178,10 +163,6 @@ public class Student extends User {
     }
     
 
-    public void registerCourses(Course course) {
-    	courses.add(course);
-    }
-    
     public void withdrawCourses(Course course) {
     	courses.remove(course);
     }
@@ -198,11 +179,11 @@ public class Student extends User {
     }
 
     public HashSet<String> viewCourseFiles(Course course){
-        HashSet<String> coursef = new HashSet<String>();
-        for (CourseFiles cf : course.getCourseFiles()) {
-            coursef.add(cf.getName() + " " + cf.getContent());
+        HashSet<String> courseFiles = new HashSet<>();
+        for (CourseFiles courseFile : course.getCourseFiles()) {
+            courseFiles.add(courseFile.getName() + " " + courseFile.getContent());
         }
-        return coursef;
+        return courseFiles;
     }
 
     public boolean registerForCourse(Course course) {
@@ -213,7 +194,7 @@ public class Student extends User {
         }
         return false;
     }
-    
+
     public void rateTeachers(Teacher teacher, double rate) {
     	teacher.setRate(rate);	
     }
@@ -237,14 +218,11 @@ public class Student extends User {
     }
     public void viewTranscript() {
         double totalGPA = 0;
-//        System.out.println("bug");
     	for (Course c : marks.keySet()) {
     		System.out.print(c.getTitle() + " | " + marks.get(c).getFirstAttestation() + " | "
-                    + marks.get(c).getSecondAttestation() +" | " +
-    	            marks.get(c).getFinal() + " | " + marks.get(c).getTotal() +
-                    " | " + marks.get(c).getLiteralMark() + " | " + marks.get(c).getDigitMark() + " | " + "\n" +
-                    marks.size());
-
+                    + marks.get(c).getSecondAttestation() +" | " + marks.get(c).getFinal() + " | "
+                    + marks.get(c).getTotal() + " | " + marks.get(c).getLiteralMark() +
+                    " | " + marks.get(c).getDigitMark() + " | " + "\n" + marks.size());
     	}
         for (Course c : marks.keySet()) {
             totalGPA += (marks.get(c).getDigitMark() * c.getCredits()) / (c.getCredits() * marks.size());
@@ -269,63 +247,9 @@ public class Student extends User {
         courses.add(course);
     }
 
-//    public HashSet<CourseFiles>viewCourseFiles2(Course course) {
-//    	return course.getCourseFiles();
-//    }
-//
+
 //    //                          Operations
 //
-//    /**
-//     * @generated
-//     */
-//    public getYear() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
-//    public setYear() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
-//    public getFaculty() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
-//    public setFaculty() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
-//    public viewTranscript() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
-//    public registerCourses() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
-//    public withdrawCourses() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
-//    public rateTeachers() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
 //    public viewTeachersInfo() {
 //        //TODO
 //    }
@@ -338,31 +262,14 @@ public class Student extends User {
 //    /**
 //     * @generated
 //     */
-//    public viewSchedule() {
-//        //TODO
-//    }
 //    /**
 //     * @generated
 //     */
 //    public viewMarks() {
 //        //TODO
 //    }
-//    /**
-//     * @generated
-//     */
+
 //    public sendRequestToLibrary() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
-//    public viewCoursesFiles() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
-//    public increaseYearOfStudy() {
 //        //TODO
 //    }
 

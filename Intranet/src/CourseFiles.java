@@ -27,7 +27,7 @@ public class CourseFiles implements Cloneable{
     
     public String getName() {
 		    return name;
-	  }
+    }
 
     /**
     * @generated
@@ -49,8 +49,7 @@ public class CourseFiles implements Cloneable{
     public void setContent(String content) {
         this.content = content;
     }
-    
-    
+
     /**
     * @generated
     */
@@ -65,10 +64,12 @@ public class CourseFiles implements Cloneable{
         this.course = course;
     }
 
-    //                          Operations   
+    //                          Operations
+    @Override
     public String toString() {
     	return course.getTitle() + " file { name: " + name + ", content: " + content +"}"; 
     }
+
     public Object clone() throws CloneNotSupportedException{
     	return super.clone();
     }

@@ -9,6 +9,7 @@ public class Menu {
         System.out.println(Database.getStudents());
         System.out.println(Database.getTeachers());
         System.out.println(Database.getLibrarians());
+        System.out.println(Database.getManagers());
         System.out.println(Database.getCourses());
         startSystem();
     }

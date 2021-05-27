@@ -37,77 +37,94 @@ public class Course implements Serializable {
 	/**
 	    * @generated
 	    */
-	private HashSet<CourseFiles>courseFiles = new HashSet<CourseFiles>();
+	private HashSet<CourseFiles>courseFiles = new HashSet<>();
 	private Faculty faculty;
-	private HashSet<Course>prerequisites = new HashSet<Course>();
-	private ArrayList<Student>students = new ArrayList<Student>();
-	private HashMap<Student, Mark>marks = new HashMap<Student, Mark>();
-	private ArrayList<Lesson>lessons = new ArrayList<Lesson>();
+	private HashSet<Course>prerequisites = new HashSet<>();
+	private ArrayList<Student>students = new ArrayList<>();
+	private HashMap<Student, Mark>marks = new HashMap<>();
+	private ArrayList<Lesson>lessons = new ArrayList<>();
 	/**
     * @generated
     */
 	public String getCode() {
 		return code;
 	}
+
 	public void setCode(String code) {
 		this.code = code;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public int getCredits() {
 		return credits;
 	}
+
 	public void setCredits(int credits) {
 		this.credits = credits;
 	}
+
 	public int getLimitOfStudents() {
 		return limitOfStudents;
 	}
+
 	public void setLimitOfStudents(int limitOfStudents) {
 		this.limitOfStudents = limitOfStudents;
 	}
+
 	public void setCourseFiles(CourseFiles courseF) {
 		courseFiles.add(courseF);
 	}
+
 	public boolean deleteCourseFiles(CourseFiles courseF) {
 		return courseFiles.remove(courseF);
 	}
+
 	public HashSet<CourseFiles> getCourseFiles(){
 		return courseFiles;
 	}
+
 	public void setPrerequisites(Course c) {
 		prerequisites.add(c);
 	}
-	public HashSet<Course> getPrerequisites(){
+
+	public HashSet<Course> getPrerequisites() {
 		return prerequisites;
 	}
+
 	public void setStudents(Student s) {
 		students.add(s);
 		Mark m = new Mark();
 		m.setStudent(s);
 		marks.put(s, m);
 	}
-	public ArrayList<Student> getStudents(){
+
+	public ArrayList<Student> getStudents() {
 		return students;
 	}
+
 	public void setLessons(Lesson l) {
 		lessons.add(l);
 	}
+
 	public ArrayList<Lesson> getLessons(){
 		return lessons;
 	}
+
 	public void putMark(Student student, double points, TypeOfMark typeOfMark) {
 		try {
 			Mark mark = marks.get(student);
 			mark.putMark(typeOfMark, points);
-//			database.setStudentMarks(marks);
 			System.out.println("Successful operation");
 		} catch(Exception e) {
-			System.out.println("Unsuccessful operation: This student is not registered in this course.");
+			System.out.println("Unsuccessful operation: This student is not " +
+					"registered in this course.");
 		}
 		
 	}
@@ -140,7 +157,14 @@ public class Course implements Serializable {
 		this.marks = marks;
 	}
 
-
+	public CourseFiles getFile(String name) {
+		for (CourseFiles c: courseFiles) {
+			if (c.getName().equals(name)) {
+				return c;
+			}
+		}
+		return null;
+	}
 
 	@Override
 	public String toString() {
@@ -149,13 +173,5 @@ public class Course implements Serializable {
 				", title='" + title + '\'' +
 				", credits=" + credits +
 				'}';
-	}
-	public CourseFiles getFile(String name) {
-		for(CourseFiles c: courseFiles) {
-			if(c.getName().equals(name)) {
-				return c;
-			}
-		}
-		return null;
 	}
 }

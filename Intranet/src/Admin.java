@@ -13,7 +13,6 @@ public class Admin extends Employee {
         super(id, name, surname, department);
     }
 
-
     /**
     * @generated
     */
@@ -51,12 +50,6 @@ public class Admin extends Employee {
 //     * @return
     */
     public boolean deleteUser(User user) {
-//        if (user instanceof Teacher) {
-//            Database.users.remove(user);
-//        }
-//        else if (user instanceof Student) {
-//            Database.users.remove(user);
-//        }
         Database.users.remove(user);
         return true;
     }
@@ -71,27 +64,12 @@ public class Admin extends Employee {
 //    }
  
 
-//    private void checkStatus(User user) {
-//        if (user instanceof Teacher) {
-//            Teacher teacher = (Teacher) user;
-//            //Add to Database
-//            users.add(teacher);
-//        }
-//        else if (user instanceof Student) {
-//            Student student = (Student) user;
-//            //Add to Database
-//            users.add(student);
-//        }
-//    }
-
     public void updateStudentsYearOfStudy() {
         for (Student student: getStudents()) {
             student.increaseYearOfStudy();
             Database.users.remove(student);
             Database.users.add(student);
         }
-//            System.out.println(student);
-//            student.increaseYearOfStudy();
     }
 
     @Override
