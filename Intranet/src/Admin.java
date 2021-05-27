@@ -78,4 +78,21 @@ public class Admin extends Employee {
                 super.toString() +
                 '}';
     }
+
+    public void sentMessage() {
+
+    }
+
+    public String getMessage() {
+        StringBuilder ans = new StringBuilder();
+        int msgCount = 0;
+        for (Message message : Database.messages) {
+            if (message.getReceiver().equals(this.getUsername())) {
+                msgCount ++;
+                ans.append(msgCount).append(") Message for Admin from: ").append(message.getSender()).append("\n    " +
+                        "Text: ").append(message.getBody()).append("\n\n");
+            }
+        }
+        return ans.toString();
+    }
 }

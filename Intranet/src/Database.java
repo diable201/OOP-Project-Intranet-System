@@ -112,6 +112,17 @@ public class Database implements Serializable {
         return s;
     }
 
+    public static String getEmployees() {
+        StringBuilder s = new StringBuilder();
+        for (User user: users) {
+            if (user instanceof Employee) {
+                Employee student = (Employee) user;
+                s.append(student.toString()).append("\n");
+            }
+        }
+        return s.toString();
+    }
+
     public static String getManagers() {
         StringBuilder s = new StringBuilder();
         for (User user: users) {
@@ -153,6 +164,10 @@ public class Database implements Serializable {
             }
         }
         return s.toString();
+    }
+
+    public static ArrayList<Message> getMessages() {
+        return messages;
     }
 
     public Student getStudentByName(String name) {

@@ -10,6 +10,7 @@ public class Tester {
         Student s4 = new Student("4", "Brown", "Les", 1, Faculty.FIT, Degree.BACHELOR);
 
         Teacher t1 = new Teacher("5","Alimzhan","Amanov", EmployeeTypes.EDUCATIONAL, AcademicDegree.LECTURER);
+        Database.users.add(t1);
 //        s1.rateTeachers(t1, 4.0);
 //        s2.rateTeachers(t1, 5.0);
 //        System.out.print(t1.getRate());
@@ -50,6 +51,10 @@ public class Tester {
         Manager m = new Manager("11","Manager","Manager",EmployeeTypes.MANAGEMENT);
         Database.users.add(m);
         Database.users.add(l1);
+        Database.users.add(t2);
+        t1.sentMessage("Hello", "Alimzhan", "1");
+        System.out.println(Database.getMessages());
+        System.out.println(t2.getMessage());
 //        t1.setCourses(c1);
 //        t2.setCourses(c1);
 //        Database.users.add(t2);

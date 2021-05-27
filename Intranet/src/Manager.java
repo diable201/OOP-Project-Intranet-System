@@ -107,8 +107,8 @@ public class Manager extends Employee {
         return true;
     }
     public void deleteCourse(Course course) {
-        courses.remove(course);
-//        Database.courses.remove(course);
+//        courses.remove(course);
+        Database.courses.remove(course);
     }
     public void changeLimitOfStudents(Course course, int number) {
         course.setLimitOfStudents(number);
@@ -170,5 +170,22 @@ public class Manager extends Employee {
         return "Manager{" +
                 super.toString() +
                 '}';
+    }
+
+    public void sentMessage() {
+
+    }
+
+    public String getMessage() {
+        StringBuilder ans = new StringBuilder();
+        int msgCount = 0;
+        for (Message message : Database.messages) {
+            if(message.getReceiver().equals(this.getUsername())) {
+                msgCount++;
+                ans.append(msgCount).append(") Message for Admin from: ").append(message.getSender()).append("\n" +
+                        "Text: ").append(message.getBody()).append("\n\n");
+            }
+        }
+        return ans.toString();
     }
 }

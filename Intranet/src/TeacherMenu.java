@@ -16,6 +16,8 @@ public class TeacherMenu {
 //                    + "\n3. Send/View messages to managers [Unread:" + Database.getUnreadMessagesToUser(teacher).size() + "]"
                     + "\n4. Change password"
 					+ "\n5. View Rating"
+					+ "\n6. Send Message"
+					+ "\n7. Read Message"
                     + "\n0. Logout";
 
             System.out.println(teacherHomePage);
@@ -69,6 +71,18 @@ public class TeacherMenu {
             	}
             	case "4" -> Menu.showMenuForChangePassword(user, reader);
             	case "5" -> System.out.println(teacher.getRate());
+            	case "6" -> {
+					System.out.println("Enter text: ");
+					String body = reader.readLine();
+					System.out.println("Enter your name: ");
+					String sender = reader.readLine();
+					System.out.println(Database.getEmployees());
+					System.out.println("Enter employee id you want to message to: ");
+					String receiver = reader.readLine();
+					teacher.sentMessage(body, sender, receiver);
+					System.out.println("Message was sent");
+				}
+				case "7" -> System.out.println(teacher.getMessage());
             }
         }
     }
@@ -142,10 +156,11 @@ public class TeacherMenu {
 					if(course.getStudents().contains(student)) {
 						assert student != null;
 						System.out.println("Student: " + student.getFullName() +"/n");
-						System.out.println("Choose type of mark" + "/n" +
-						"/n1 First attestation" +
-								"/n2 Second attestation" + 
-								"/n3 Final" );
+						System.out.println("""
+								Choose type of mark/n
+								1. First attestation
+								2. Second attestation
+								3. Final""");
 						input = reader.readLine();
 						TypeOfMark tm = switch (input) {
 							case "1" -> TypeOfMark.FIRST_ATTESTATION;

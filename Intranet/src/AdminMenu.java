@@ -14,6 +14,8 @@ public class AdminMenu {
                 + "\n1. Change password"
                 + "\n2. Manage all users"
                 + "\n3. View log files"
+                + "\n4. Send message"
+                + "\n5. Read message"
                 + "\n0. Logout";
 
         while (admin.getIsLogged()) {
@@ -90,7 +92,7 @@ public class AdminMenu {
                                     System.out.println("Incorrect number");
                                 }
                                 break;
-                            case "3": {
+                            case "3":
                                 String userOption = """
 
                                         1. Increase students study year
@@ -108,7 +110,6 @@ public class AdminMenu {
                                     System.out.println("\nPlease choose other option.\n");
                                 }
                                 break;
-                            }
                             case "4":
                                 System.out.println(Database.getStudents());
                                 System.out.println(Database.getManagers());
@@ -121,7 +122,18 @@ public class AdminMenu {
                         }
                         break;
                     }
-
+                case "4":
+                    System.out.println("Enter text: ");
+                    String body = reader.readLine();
+                    System.out.println("Enter your name: ");
+                    String sender = reader.readLine();
+                    System.out.println(Database.getEmployees());
+                    System.out.println("Enter employee id you want to message to: ");
+                    String receiver = reader.readLine();
+                    admin.sentMessage(body, sender, receiver);
+                    System.out.println("Message was sent");
+                case "5":
+                    System.out.println(admin.getMessage());
                 default:
                     break;
                     // TODO log files

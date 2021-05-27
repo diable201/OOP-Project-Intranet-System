@@ -12,12 +12,12 @@ public class Message {
     /**
     * @generated
     */
-    private User sender;
+    private String sender;
     
     /**
     * @generated
     */
-    private User receiver;
+    private String receiver;
     
     /**
     * @generated
@@ -26,11 +26,10 @@ public class Message {
 
     public Message() {}
 
-    public Message(String body, User sender, User receiver, Boolean isRead) {
+    public Message(String body, String sender, String receiver) {
         this.body = body;
         this.sender = sender;
         this.receiver = receiver;
-        this.isRead = isRead;
     }
     
     /**
@@ -50,28 +49,28 @@ public class Message {
     /**
     * @generated
     */
-    public User getSender() {
+    public String getSender() {
         return this.sender;
     }
     
     /**
     * @generated
     */
-    public void setSender(User sender) {
+    public void setSender(String sender) {
         this.sender = sender;
     }
     
     /**
     * @generated
     */
-    public User getReceiver() {
+    public String getReceiver() {
         return this.receiver;
     }
     
     /**
     * @generated
     */
-    public void setReceiver(User receiver) {
+    public void setReceiver(String receiver) {
         this.receiver = receiver;
     }
     
@@ -116,7 +115,6 @@ public class Message {
                 "body='" + body + '\'' +
                 ", sender=" + sender +
                 ", receiver=" + receiver +
-                ", isRead=" + isRead +
                 '}';
     }
 }

@@ -11,7 +11,9 @@ public class LibrarianMenu {
                 + "\n---------------------------------------"
                 + "\n1. Change password"
                 + "\n2. Manage books"
-                + "\n3. Manage requests"
+//                + "\n3. Manage requests"
+				+ "\n3. Send message"
+				+ "\n4. Read message"
                 + "\n0. Logout";
         while (librarian.getIsLogged()) {
 			System.out.println(librarianConsole);
@@ -73,7 +75,18 @@ public class LibrarianMenu {
 					} catch (IOException e) {
 						System.out.println("error");
 					}
-
+				case "3":
+					System.out.println("Enter text: ");
+					String body = reader.readLine();
+					System.out.println("Enter your name: ");
+					String sender = reader.readLine();
+					System.out.println(Database.getEmployees());
+					System.out.println("Enter employee id you want to message to: ");
+					String receiver = reader.readLine();
+					librarian.sentMessage(body, sender, receiver);
+					System.out.println("Message was sent");
+				case "4":
+					System.out.println(librarian.getMessage());
 //				case "3":
 //                	while (true) {
 //                		String manageOrdersMenu = "\n1. Accept orders"

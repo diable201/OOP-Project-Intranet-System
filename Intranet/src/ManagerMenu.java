@@ -11,12 +11,13 @@ public class ManagerMenu {
         reader = bufReader;
         
         while (user.getIsLogged()) {
-        	System.out.println("\n[Manager: " + user.getFullName() + "]"
+        	System.out.println("\nWelcome, Manager: " + user.getFullName() + ""
                     + "\n---------------------------------------"
                     + "\n1. Manage registration and courses"
                     + "\n2. View teachers and student info"
-//                    + "\n3. Send/View messages to managers [Unread:" + Database.getUnreadMessagesToUser(teacher).size() + "]"
                     + "\n3. Change password"
+					+ "\n4. Send message"
+					+ "\n5. Read message"
                     + "\n0. Logout");
         	String choice = reader.readLine();
 			switch(choice) {
@@ -122,8 +123,19 @@ public class ManagerMenu {
 							break;
 					}
 				}
-				case "3" ->
-					Menu.showMenuForChangePassword(user, reader);
+				case "3" -> Menu.showMenuForChangePassword(user, reader);
+				case "4" -> {
+					System.out.println("Enter text: ");
+					String body = reader.readLine();
+					System.out.println("Enter your name: ");
+					String sender = reader.readLine();
+					System.out.println(Database.getEmployees());
+					System.out.println("Enter employee id you want to message to: ");
+					String receiver = reader.readLine();
+					manager.sentMessage(body, sender, receiver);
+					System.out.println("Message was sent");
+				}
+				case "5" -> System.out.println(manager.getMessage());
 			}
         }
     }

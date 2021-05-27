@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
 * @generated
 */
-public abstract class Employee extends User {
+public abstract class Employee extends User implements Messageable {
     
     /**
     * @generated
@@ -34,24 +34,24 @@ public abstract class Employee extends User {
     }
 
     //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void sendMessage(Message message) {
-        Database.messages.add(message);
+
+    public void sentMessage(String body, String sender, String receiver) {
+        Message m = new Message(body, sender, receiver);
+        Database.messages.add(m);
     }
-    /**
-    * @generated
-    */
-    public ArrayList<Message> viewIncomingMessage() {
-        return Database.getMessagesFromUser(this);
-    }
-    /**
-    * @generated
-    */
-    public ArrayList<Message> viewSentMessage() {
-        return Database.getMessagesToUser(this);
+
+    public String getMessage() {
+        StringBuilder ans = new StringBuilder();
+        int msgCount = 0;
+        for (Message message : Database.messages) {
+            if(message.getReceiver().equals(this.getId())) {
+                msgCount ++;
+                ans.append(msgCount).append(") Message from: ").append(message.getSender()).append("\n    " +
+                        "Title: ").append(message.getIsRead()).append("\n    " +
+                        "Text: ").append(message.getBody()).append("\n\n");
+            }
+        }
+        return ans.toString();
     }
 
     @Override
