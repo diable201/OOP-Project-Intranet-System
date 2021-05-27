@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Base64;
+import java.util.Collections;
 /**
 * @generated
 */
@@ -96,6 +97,18 @@ public class Database implements Serializable {
                 s.add(student);
             }
         }
+        return s;
+    }
+    
+    public static ArrayList<Student> getStudentsListByName() {
+    	ArrayList<Student> s = new ArrayList<Student>();
+        for (User user: users) {
+            if (user instanceof Student) {
+                Student student = (Student) user;
+                s.add(student);
+            }
+        }
+        Collections.sort(s, new SortStudentByName());
         return s;
     }
 

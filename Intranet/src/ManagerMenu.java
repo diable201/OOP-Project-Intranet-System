@@ -16,7 +16,7 @@ public class ManagerMenu {
                     + "\n1. Manage registration and courses"
                     + "\n2. View teachers and student info"
 //                    + "\n3. Send/View messages to managers [Unread:" + Database.getUnreadMessagesToUser(teacher).size() + "]"
-                    + "\n4. Change password"
+                    + "\n3. Change password"
                     + "\n0. Logout");
         	String choice = reader.readLine();
         	switch(choice) {
@@ -80,7 +80,7 @@ public class ManagerMenu {
         			}
         		}
         	}
-        	case "3" -> {
+        	case "2" -> {
         		String usersInfo = "\n---------------------------------"
         					+ "\n1. Teachers" 
         					+ "\n2. Students"
@@ -100,13 +100,13 @@ public class ManagerMenu {
         		   System.out.println(sort);
         		   String a = reader.readLine();
         		   if (a.equals("0")) break;
-        		   else if (a.equals("1")) {
-        			   Collections.sort(Database.getStudentsList(), new SortStudentByName());
-        		   System.out.println(Database.getStudents()); }
+        		   else if (a.equals("2")) {
+//        			   Collections.sort(Database.getStudentsList(), new SortStudentByName());
+        		   System.out.println(Database.getStudentsListByName()); }
         		   
         	   }
         	}
-        	case "4" ->{
+        	case "3" ->{
         		Menu.showMenuForChangePassword(user, reader);
                 break;
         	}

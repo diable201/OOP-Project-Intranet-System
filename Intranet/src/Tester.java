@@ -88,8 +88,8 @@ public class Tester {
 //        s1.increaseYearOfStudy();
 //        System.out.println(s1);
 //        Database.users.add(s1);
-//        Database.saveUsers();
-//        Database.loadUsers();
+        Database.saveUsers();
+        Database.loadUsers();
 //        System.out.println(Database.getStudents());
 //        System.out.println(Database.getAdmins());
 //        System.out.println(Database.getCourses());
