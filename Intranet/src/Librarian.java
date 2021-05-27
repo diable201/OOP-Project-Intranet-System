@@ -42,15 +42,23 @@ public class Librarian extends Employee {
     public static void addOrder(Order order) {
         Librarian.orders.add(order);
     }
+    
+    public Book getBookByName(String name) {
+    	for (Book b : books) {
+    		if (b.getName().equals(name))
+    			return b;
+    	}
+    	return null;
+    }
 
     //                          Operations                                  
 
-    public void addBooks(Book book) {
-        books.add(book);
+    public boolean addBooks(Book book) {
+        return books.add(book);
     }
 
-    public void deleteBooks(Book book) {
-        books.remove(book);
+    public boolean deleteBooks(Book book) {
+        return books.remove(book);
     }
   
     public void checkRequest(Order order) {
