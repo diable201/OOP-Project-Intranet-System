@@ -441,7 +441,7 @@ public class Database implements Serializable {
         Database.news.add(news);
     }
     /**
-     * Serialize all nwes.
+     * Serialize all news.
      */
     private static void saveNews() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("news.dat"))) {
@@ -453,7 +453,7 @@ public class Database implements Serializable {
         }
     }
     /**
-     * Deserialize all nwes.
+     * Deserialize all news.
      */
     @SuppressWarnings("unchecked")
     private static void loadNews() {
