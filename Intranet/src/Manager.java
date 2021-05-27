@@ -106,6 +106,20 @@ public class Manager extends Employee {
         }
         return true;
     }
+
+    public boolean addNews(News news) {
+        if (news != null) {
+            for (News newsIter: Database.news)
+                if (newsIter.getTitle().equals(news.getTitle()) &&
+                        newsIter.getDescription().equals(news.getDescription()))
+                    return false;
+            Database.news.add(news);
+
+//            Database.logFiles.add(new LogFile(LogType.COURSE_CREATED));
+        }
+        return true;
+    }
+
     public void deleteCourse(Course course) {
 //        courses.remove(course);
         Database.courses.remove(course);
@@ -131,9 +145,6 @@ public class Manager extends Employee {
         if(!Database.registrationIsOpen) {
             Database.registrationIsOpen = true;
         }
-    }
-    public void addNews(News n) {
-        news.add(n);
     }
 
     public void updateNews(News n, String description) {

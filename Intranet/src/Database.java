@@ -170,6 +170,16 @@ public class Database implements Serializable {
         return messages;
     }
 
+    public static String getNews() {
+        StringBuilder s = new StringBuilder();
+        for (News newsIter: news) {
+            if (newsIter != null) {
+                s.append(newsIter.toString()).append("\n");
+            }
+        }
+        return s.toString();
+    }
+
     public Student getStudentByName(String name) {
         for (User user : users) {
             if (user instanceof Student) {
@@ -196,13 +206,13 @@ public class Database implements Serializable {
 
     private static boolean encryptString(String data) {
         Base64.getEncoder().encodeToString((data.getBytes()));
-        // System.out.println("Encryption is successful: " + encryptedData);
+        System.out.println("Encryption is successful: " + data);
         return true;
     }
 
     private static boolean decryptString(String data) {
         String decryptedData = new String(Base64.getDecoder().decode(data));
-        // System.out.println("Decryption is successful: " + decryptedData);
+        System.out.println("Decryption is successful: " + decryptedData);
         return true;
     }
 
@@ -279,22 +289,6 @@ public class Database implements Serializable {
             if (course.getCode().equals(code))
                 courses.remove(course);
     }
-    
-    public static ArrayList<Message> getMessagesToUser(User user) {
-        ArrayList<Message> allMessages = new ArrayList<>();
-        for (Message message: messages)
-            if (message.getReceiver().equals(user))
-                allMessages.add(message);
-        return allMessages;
-    }
-
-    public static ArrayList<Message> getMessagesFromUser(User user) {
-        ArrayList<Message> allMessages = new ArrayList<>();
-        for (Message message: messages)
-            if (message.getSender().equals(user))
-                allMessages.add(message);
-        return allMessages;
-    }
 
     public static User getUser(String username) {
         for (User user: users)
@@ -302,6 +296,7 @@ public class Database implements Serializable {
                 return user;
         return null;
     }
+
     public static Student getStudent(String id) {
     	for(User user: users) {
     		if (user instanceof Student) {
@@ -313,18 +308,6 @@ public class Database implements Serializable {
     	}
     	return null;
     }
-    
-//    public static Teacher getTeacher(String id) {
-//    	for(User user: users) {
-//    		if (user instanceof Teacher) {
-//    			Teacher st = (Teacher) user;
-//    			if(st.getId().equals(id)) {
-//    				return st;
-//    			}
-//    		}
-//    	}
-//    	return null;
-//    }
 
     public static Teacher getTeacher(String id) {
         for(User user: users) {
@@ -338,32 +321,36 @@ public class Database implements Serializable {
         return null;
     }
 
-    public void addNews(News news) {
-        Database.news.add(news);
-    }
-
-    private static void saveNews() {
-        try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("news.dat"))) {
+    public static void saveNews() {
+        try (ObjectOutputStream oot = new ObjectOutputStream
+                (new FileOutputStream("news.dat"))) {
             oot.writeObject(news);
             oot.flush();
+            encryptString(getKeyword());
         }
         catch (IOException e) {
             System.err.println("news.dat: IOException");
         }
     }
 
+//    public static ArrayList<News> getNews() {
+//        return news;
+//    }
+
     @SuppressWarnings("unchecked")
-    private static void loadNews() {
+    public static void loadNews() {
         try {
-            FileInputStream fis = new FileInputStream("news.txt");
-            ObjectInputStream oin = new ObjectInputStream(fis);
-            news = (ArrayList<News>) oin.readObject();
-            oin.close();
-            fis.close();
+            if (decryptString(getKeyword()) == encryptString(getKeyword())) {
+                FileInputStream fis = new FileInputStream("news.dat");
+                ObjectInputStream oin = new ObjectInputStream(fis);
+                news = (ArrayList<News>) oin.readObject();
+                oin.close();
+                fis.close();
+            }
         }
-        catch (ClassNotFoundException|IOException e) {
+        catch (IOException|ClassNotFoundException e) {
             news = new ArrayList<>();
-            System.err.println("news.txt: ClassNotFoundException");
+            System.err.println("news.dat: IOException");
         }
     }
 

@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 public class Tester {
     public static void main(String[] args) throws Exception {
@@ -53,8 +54,17 @@ public class Tester {
         Database.users.add(l1);
         Database.users.add(t2);
         t1.sentMessage("Hello", "Alimzhan", "1");
-        System.out.println(Database.getMessages());
-        System.out.println(t2.getMessage());
+//        System.out.println(Database.getMessages());
+//        System.out.println(t2.getMessage());
+//        Date today = new Date();
+        News n1 = new News("test", "test");
+        Database.news.add(n1);
+        System.out.println(Database.getNews());
+        Database.saveNews();
+//        Database.loadNews();
+//        System.out.println(Database.getNews());
+//        System.out.println(Database.getNews());
+//        System.out.println(s1.viewNews());
 //        t1.setCourses(c1);
 //        t2.setCourses(c1);
 //        Database.users.add(t2);
@@ -114,7 +124,8 @@ public class Tester {
 //        Database.courses.add(c2);
 //        Database.courses.add(c1);
         Database.saveCourses();
-        
+        Database.loadUsers();
+        System.out.println(Database.getAdmins());
 //        t2.setCourses(c1);
         
     }

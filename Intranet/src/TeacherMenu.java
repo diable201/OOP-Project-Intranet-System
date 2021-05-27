@@ -13,11 +13,11 @@ public class TeacherMenu {
                     + "\n---------------------------------------"
                     + "\n1. Manage courses and files"
                     + "\n2. View students info/Put marks"
-//                    + "\n3. Send/View messages to managers [Unread:" + Database.getUnreadMessagesToUser(teacher).size() + "]"
-                    + "\n4. Change password"
-					+ "\n5. View Rating"
-					+ "\n6. Send Message"
-					+ "\n7. Read Message"
+                    + "\n3. Change password"
+					+ "\n4. View Rating"
+					+ "\n5. Send message"
+					+ "\n6. Read message"
+					+ "\n7. View news"
                     + "\n0. Logout";
 
             System.out.println(teacherHomePage);
@@ -69,9 +69,9 @@ public class TeacherMenu {
             			System.out.println("Teacher has no courses");
             		}
             	}
-            	case "4" -> Menu.showMenuForChangePassword(user, reader);
-            	case "5" -> System.out.println(teacher.getRate());
-            	case "6" -> {
+            	case "3" -> Menu.showMenuForChangePassword(user, reader);
+            	case "4" -> System.out.println(teacher.getRate());
+            	case "5" -> {
 					System.out.println("Enter text: ");
 					String body = reader.readLine();
 					System.out.println("Enter your name: ");
@@ -82,7 +82,8 @@ public class TeacherMenu {
 					teacher.sentMessage(body, sender, receiver);
 					System.out.println("Message was sent");
 				}
-				case "7" -> System.out.println(teacher.getMessage());
+				case "6" -> System.out.println(teacher.getMessage());
+            	case "7" -> System.out.println(Database.getNews());
             }
         }
     }

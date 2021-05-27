@@ -4,6 +4,7 @@ public class Menu {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Database.loadUsers();
         Database.loadCourses();
+        Database.loadNews();
         // Database.getAdmins();
         System.out.println(Database.getAdmins());
         System.out.println(Database.getStudents());
@@ -11,6 +12,7 @@ public class Menu {
         System.out.println(Database.getLibrarians());
         System.out.println(Database.getManagers());
         System.out.println(Database.getCourses());
+        System.out.println(Database.getNews());
         startSystem();
     }
     public static void startSystem() throws IOException, ClassNotFoundException {
@@ -80,7 +82,7 @@ public class Menu {
                 Please enter new password:\s
                 """);
         String password = reader.readLine();
-        System.out.print("Please repeat your new password: ");
+        System.out.println("Please repeat your new password: ");
         String repeatedPassword = reader.readLine();
         System.out.println(checkAndChangePassword(user, password, repeatedPassword));
     }
