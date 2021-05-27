@@ -87,6 +87,17 @@ public class Database implements Serializable {
         }
         return s.toString();
     }
+    
+    public static ArrayList<Student> getStudentsList() {
+    	ArrayList<Student> s = new ArrayList<Student>();
+        for (User user: users) {
+            if (user instanceof Student) {
+                Student student = (Student) user;
+                s.add(student);
+            }
+        }
+        return s;
+    }
 
     public static String getManagers() {
         StringBuilder s = new StringBuilder();
