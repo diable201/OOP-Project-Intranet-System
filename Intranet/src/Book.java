@@ -42,56 +42,56 @@ public class Book {
     /**
     * @generated
     */
-    private String getName() {
+    public String getName() {
         return this.name;
     }
     
     /**
     * @generated
     */
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
     
     /**
     * @generated
     */
-    private Integer getId() {
+    public Integer getId() {
         return this.id;
     }
     
     /**
     * @generated
     */
-    private void setId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     
     /**
     * @generated
     */
-    private String getAuthor() {
+    public String getAuthor() {
         return this.author;
     }
     
     /**
     * @generated
     */
-    private void setAuthor(String author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
     
     /**
     * @generated
     */
-    private String getLink() {
+    public String getLink() {
         return this.link;
     }
     
     /**
     * @generated
     */
-    private void setLink(String link) {
+    public void setLink(String link) {
         this.link = link;
     }
     
