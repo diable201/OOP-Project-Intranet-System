@@ -12,7 +12,7 @@ public class Librarian extends Employee {
 	/**
     * @generated
     */
-    private ArrayList<Book> books;
+    private ArrayList<Book> books = new  ArrayList<Book>();
     private static ArrayList<Order> orders;
 
     public Librarian() {
@@ -43,9 +43,9 @@ public class Librarian extends Employee {
         Librarian.orders.add(order);
     }
     
-    public Book getBookByName(String name) {
+    public Book getBookById(Integer id) {
     	for (Book b : books) {
-    		if (b.getName().equals(name))
+    		if (b.getId().equals(id))
     			return b;
     	}
     	return null;
@@ -53,12 +53,15 @@ public class Librarian extends Employee {
 
     //                          Operations                                  
 
-    public boolean addBooks(Book book) {
-        return books.add(book);
+    public void addBooks(Book book) {
+    	books.add(book);
     }
 
     public boolean deleteBooks(Book book) {
+    	if (books.contains(book)) {
         return books.remove(book);
+    	}
+    	return false;
     }
   
     public void checkRequest(Order order) {

@@ -31,6 +31,10 @@ public class Manager extends Employee {
         super(id, name, surname, department);
     }
 
+    public Manager() {
+
+    }
+
 
     /**
      * @generated

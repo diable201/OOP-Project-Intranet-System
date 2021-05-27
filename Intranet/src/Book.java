@@ -109,7 +109,16 @@ public class Book {
     public void setLibrarian(Librarian librarian) {
         this.librarian = librarian;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", author='" + author + '\'' +
+                ", link='" + link + '\'' +
+                '}';
+    }
 
     //                          Operations
 }

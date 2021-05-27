@@ -76,7 +76,8 @@ public class Tester {
 //        System.out.println(Database.getStudents());
 //        System.out.println(Database.getAdmins());
 //        System.out.println(Database.getCourses());
-
+        Librarian l = new Librarian("1", "erna", "tolya", EmployeeTypes.OTHER);
+        Database.users.add(l);
         Database.saveUsers();
         Database.saveCourses();
         CourseFiles cf = new CourseFiles("Test", "test");

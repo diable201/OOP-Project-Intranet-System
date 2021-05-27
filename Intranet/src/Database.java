@@ -110,6 +110,17 @@ public class Database implements Serializable {
         return s.toString();
     }
 
+    public static String getLibrarians() {
+        StringBuilder s = new StringBuilder();
+        for (User user: users) {
+            if (user instanceof Librarian) {
+                Librarian student = (Librarian) user;
+                s.append(student.toString()).append("\n");
+            }
+        }
+        return s.toString();
+    }
+
     public static String getCourses() {
         StringBuilder s = new StringBuilder();
         for (Course course: courses) {
@@ -257,4 +268,34 @@ public class Database implements Serializable {
     	}
     	return null;
     }
+
+    public void addNews(News news) {
+        Database.news.add(news);
+    }
+
+    private static void saveNews() {
+        try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("news.dat"))) {
+            oot.writeObject(news);
+            oot.flush();
+        }
+        catch (IOException e) {
+            System.err.println("news.dat: IOException");
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private static void loadNews() {
+        try {
+            FileInputStream fis = new FileInputStream("news.txt");
+            ObjectInputStream oin = new ObjectInputStream(fis);
+            news = (ArrayList<News>) oin.readObject();
+            oin.close();
+            fis.close();
+        }
+        catch (ClassNotFoundException|IOException e) {
+            news = new ArrayList<>();
+            System.err.println("news.txt: ClassNotFoundException");
+        }
+    }
+
 }
