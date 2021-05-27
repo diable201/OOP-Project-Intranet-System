@@ -43,9 +43,9 @@ public class Librarian extends Employee {
         Librarian.orders.add(order);
     }
     
-    public Book getBookByName(String name) {
+    public Book getBookById(Integer id) {
     	for (Book b : books) {
-    		if (b.getName().equals(name))
+    		if (b.getId().equals(id))
     			return b;
     	}
     	return null;
