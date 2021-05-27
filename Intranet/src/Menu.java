@@ -33,6 +33,7 @@ public class Menu {
                             if (user instanceof Admin) AdminMenu.menu(user, reader);
                             else if (user instanceof Student) StudentMenu.menu(user, reader);
                             else if (user instanceof Teacher) TeacherMenu.menu(user, reader);
+                            else if (user instanceof Manager) ManagerMenu.menu(user, reader);
                             else System.out.println("\nUsername or password incorrect. Please try again");
                         }
 //

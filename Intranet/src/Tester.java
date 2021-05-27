@@ -26,15 +26,25 @@ public class Tester {
 //        Database.loadUsers();
         Course c2 = new Course("CSCI11", "PP2", 4, Faculty.FIT);
         Database.courses.add(c2);
-        c2.setStudents(s4);
+//        c2.setStudents(s4);
+        Course c1 = new Course("CSCI12", "WebDev", 4, Faculty.FIT);
+        Database.courses.add(c1);
         t1.setCourses(c2);
+//        s4.registerForCourse(c2);
+//        s4.registerForCourse(c1);
         Database.users.add(t1);
-        System.out.println(t1.getCourses());
-        System.out.println(s4.getId());
-        System.out.println(c2.getStudents());
+//        System.out.print(c2.getStudents());
         System.out.println(s4.getCourses());
-        Database.saveCourses();
-        Database.saveUsers();
+//        System.out.print(c2.getStudents());
+//        System.out.println("teacher");
+//        System.out.println(t1.getCourses());
+//        System.out.println(s4.getId());
+//        System.out.println("student");
+//        System.out.println(s4.getCourses());
+//        System.out.println(c2.getStudents());
+//        System.out.println(s4.getCourses());
+//        Database.saveCourses();
+//        Database.saveUsers();
 //        Course OOP = new Course("CS1", "Object-Oriented Programming and Design", 3);
 //        Course ADS = new Course("CS2", "Algorithms and Data Structures", 3);
 //        Course DB = new Course("CS3", "Databases", 3);
@@ -54,7 +64,19 @@ public class Tester {
 //        System.out.println(Database.getAdmins());
 //        System.out.println(Database.getCourses());
         Teacher t2 = new Teacher("1", "Pakita", "Shamoi", EmployeeTypes.EDUCATIONAL, AcademicDegree.PROFESSOR);
+        t1.setCourses(c1);
+        t2.setCourses(c1);
         Database.users.add(t2);
         Database.saveUsers();
+        Database.saveCourses();
+        CourseFiles cf = new CourseFiles("Test", "test");
+        t1.addFiles(c1, cf);
+        System.out.println(s4.viewCourseFiles(c1));
+//        Database.courses.add(c2);
+//        Database.courses.add(c1);
+//        Database.saveCourses();
+        
+//        t2.setCourses(c1);
+        
     }
 }

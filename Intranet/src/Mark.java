@@ -2,26 +2,27 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
-* @generated
-*/
+ * @generated
+ */
 public class Mark implements Serializable {
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private double points;
     private double first_attestation = 0;
     private double second_attestation = 0;
     private double final_exam = 0;
     private double total;
+    private double gpa = 0;
     /**
-    * @generated
-    */
+     * @generated
+     */
     private String literalMark;
 
     /**
-    * @generated
-    */
+     * @generated
+     */
     private Student student;
 
     public Mark() {}
@@ -34,99 +35,99 @@ public class Mark implements Serializable {
             case FINAL -> this.setFinal(points);
         }
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private double getPoints() {
         return this.points;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private void setPoints(double points) {
         this.points = points;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     public String getLiteralMark() {
         return this.literalMark;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     private void setLiteralMark(String literalMark) {
         this.literalMark = literalMark;
     }
-    
-    
+
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     public Student getStudent() {
         return this.student;
     }
-    
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     public void setStudent(Student student) {
         this.student = student;
     }
-    
 
-    //                          Operations                                  
-    
+
+    //                          Operations
+
     /**
-    * @generated
-    */
+     * @generated
+     */
     public double getFirstAttestation() {
         return this.first_attestation;
     }
     /**
-    * @generated
-    */
+     * @generated
+     */
     public void setFirstAttestation(double first_attestation) {
         this.first_attestation = first_attestation;
     }
     /**
-    * @generated
-    */
+     * @generated
+     */
     public double getSecondAttestation() {
         return this.second_attestation;
     }
     /**
-    * @generated
-    */
+     * @generated
+     */
     public void setSecondAttestation(double second_attestation) {
         this.second_attestation = second_attestation;
     }
     /**
-    * @generated
-    */
+     * @generated
+     */
     public double getFinal() {
         return this.final_exam;
     }
     /**
-    * @generated
-    */
+     * @generated
+     */
     public void setFinal(double final_exam) {
         this.final_exam = final_exam;
     }
     /**
-    * @generated
-    */
+     * @generated
+     */
     public double getTotal() {
         this.total = getFirstAttestation() + getSecondAttestation() + getFinal();
         return this.total;
     }
     /**
-    * @generated
-    */
+     * @generated
+     */
     public void setTotal(double total) {
         this.total = total;
     }
@@ -163,51 +164,79 @@ public class Mark implements Serializable {
                 '}';
     }
     public void transformMark(double total) {
-    	if(total>=94.5 && total<=100) {
-    		literalMark = "A";
-    	}
-    	else if(total>=89.5 && total<94.5) {
-    		literalMark = "A-";
-    	}
-    	else if(total>=84.5 && total<89.5) {
-    		literalMark = "B+";
-    	}
-    	else if(total>=79.5 && total<84.5) {
-    		literalMark = "B";
-    	}
-    	else if(total>=74.5 && total<79.5) {
-    		literalMark = "B-";
-    	}
-    	else if(total>=69.5 && total<74.5) {
-    		literalMark = "C+";
-    	}
-    	else if(total>=64.5 && total<69.5) {
-    		literalMark = "C";
-    	}
-    	else if(total>=59.5 && total<64.5) {
-    		literalMark = "C-";
-    	}
-    	else if(total>=54.5 && total<59.5) {
-    		literalMark = "D";
-    	}
-    	else if(total>=50 && total<54.5) {
-    		literalMark = "D-";
-    	}
-    	else {
-    		literalMark = "F";
-    	}
+        if(total>=94.5 && total<=100) {
+            literalMark = "A";
+        }
+        else if(total>=89.5 && total<94.5) {
+            literalMark = "A-";
+        }
+        else if(total>=84.5 && total<89.5) {
+            literalMark = "B+";
+        }
+        else if(total>=79.5 && total<84.5) {
+            literalMark = "B";
+        }
+        else if(total>=74.5 && total<79.5) {
+            literalMark = "B-";
+        }
+        else if(total>=69.5 && total<74.5) {
+            literalMark = "C+";
+        }
+        else if(total>=64.5 && total<69.5) {
+            literalMark = "C";
+        }
+        else if(total>=59.5 && total<64.5) {
+            literalMark = "C-";
+        }
+        else if(total>=54.5 && total<59.5) {
+            literalMark = "D+";
+        }
+        else if(total>=50 && total<54.5) {
+            literalMark = "D";
+        }
+        else {
+            literalMark = "F";
+        }
     }
     public void putMark(TypeOfMark typeOfMark, double points) {
-    	if(typeOfMark==TypeOfMark.FIRST_ATTESTATION) {
-    		this.setFirstAttestation(points);
-    	}
-    	else if(typeOfMark == TypeOfMark.SECOND_ATTESTATION) {
-    		this.setSecondAttestation(points);
-    	}
-    	else if(typeOfMark == TypeOfMark.FINAL) {
-    		this.setFinal(points);
-    		this.transformMark(this.getTotal());
-    	}
+        if(typeOfMark==TypeOfMark.FIRST_ATTESTATION) {
+            this.setFirstAttestation(points);
+        }
+        else if(typeOfMark == TypeOfMark.SECOND_ATTESTATION) {
+            this.setSecondAttestation(points);
+        }
+        else if(typeOfMark == TypeOfMark.FINAL) {
+            this.setFinal(points);
+            this.transformMark(this.getTotal());
+        }
     }
-    
+    public void getGpa(String literalMark) {
+        if(literalMark.equals("A")) {
+            gpa = 4.0;
+        }else if(literalMark.equals("A-")) {
+            gpa = 3.67;
+        }else if(literalMark.equals("B+")) {
+            gpa = 3.33;
+        }else if(literalMark.equals("B")) {
+            gpa = 3.0;
+        }else if(literalMark.equals("B-")) {
+            gpa = 2.67;
+        }else if(literalMark.equals("C+")) {
+            gpa = 2.33;
+        }else if(literalMark.equals("C")) {
+            gpa = 2.0;
+        }else if(literalMark.equals("C-")) {
+            gpa = 1.67;
+        }else if(literalMark.equals("D+")) {
+            gpa = 1.33;
+        }else if(literalMark.equals("D")) {
+            gpa = 1.0;
+        }else {
+            gpa = 0.0;
+        }
+    }
+    public Double returnGpa() {
+        return gpa;
+    }
+
 }

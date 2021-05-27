@@ -38,7 +38,7 @@ public class StudentTester {
 					System.out.println(i + ") " + Database.courses.get(i-1).getTitle());	
 				}
 				int choice = Integer.parseInt(br.readLine());
-				student.registerCourses(Database.courses.get(choice-1));
+//				student.registerCourses(Database.courses.get(choice-1));
 				}
 			else if(input == 2) {
 				System.out.println("Choose course number:");
@@ -70,7 +70,7 @@ public class StudentTester {
 					System.out.println(i + ") " + student.getCourses().get(i-1).getTitle());	
 				}
 				int choice = Integer.parseInt(br.readLine());
-				student.viewCourseFiles(student.getCourses().get(choice-1));
+//				student.viewCourseFiles(student.getCourses().get(choice-1));
 			}
 			else if(input == 7) {
 				System.out.println("Rate teachers");
