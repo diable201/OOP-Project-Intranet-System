@@ -7,7 +7,7 @@ public class Tester {
         Student s3 = new Student("3", "Mike", "Vaz", 4, Faculty.BS, Degree.BACHELOR);
         Student s4 = new Student("4", "Brown", "Les", 1, Faculty.FIT, Degree.BACHELOR);
 
-//        Teacher t1 = new Teacher("5","Alimzhan","Amanov", EmployeeTypes.EDUCATIONAL, AcademicDegree.LECTURER);
+        Teacher t1 = new Teacher("5","Alimzhan","Amanov", EmployeeTypes.EDUCATIONAL, AcademicDegree.LECTURER);
 //        s1.rateTeachers(t1, 4.0);
 //        s2.rateTeachers(t1, 5.0);
 //        System.out.print(t1.getRate());
@@ -33,8 +33,8 @@ public class Tester {
 //        s4.registerForCourse(c2);
 //        s4.registerForCourse(c1);
         Teacher t2 = new Teacher("1", "Pakita", "Shamoi", EmployeeTypes.EDUCATIONAL, AcademicDegree.PROFESSOR);
-        Course c3 = new Course("CSCI13", "OOP", 4, Faculty.FIT, t2);
-        Database.courses.add(c3);
+//        Course c3 = new Course("CSCI13", "OOP", 4, Faculty.FIT, t2);
+//        Database.courses.add(c3);
         Librarian l1 = new Librarian("10","Ernazar","Dobby",EmployeeTypes.OTHER);
         Manager m = new Manager("11","Manager","Manager",EmployeeTypes.MANAGEMENT);
         Database.users.add(m);
@@ -84,20 +84,20 @@ public class Tester {
 //        System.out.println(Database.getCourses());
         Librarian l = new Librarian("1", "erna", "tolya", EmployeeTypes.OTHER);
         Database.users.add(l);
-//        Database.saveUsers();
+        Database.saveUsers();
 //        Database.saveCourses();
-        CourseFiles cf = new CourseFiles("Test", "test");
+//        CourseFiles cf = new CourseFiles("Test", "test");
 //        t1.addFiles(c1, cf);
 //        System.out.println(s4.viewCourseFiles(c1));
-        m.addCourse(new Course("INFT2", "DJ", 3, Faculty.FIT, t2));
-        System.out.println(t2.getTeachingCourses());
+//        m.addCourse(new Course("INFT2", "DJ", 3, Faculty.FIT, t2));
+//        System.out.println(t2.getTeachingCourses());
 //        System.out.println(t1.getTeachingCourses());
 
 //        Database.courses.add();
 //        System.out.println(t1.getTeachingCourses());
 //        Database.courses.add(c2);
 //        Database.courses.add(c1);
-//        Database.saveCourses();
+        Database.saveCourses();
         
 //        t2.setCourses(c1);
         
