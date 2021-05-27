@@ -234,7 +234,13 @@ public class Database implements Serializable {
                 return course;
         return null;
     }
-
+    
+    public static void deleteCourse(String code) {
+        for (Course course: courses)
+            if (course.getCode().equals(code))
+                courses.remove(course);
+    }
+    
     public static ArrayList<Message> getMessagesToUser(User user) {
         ArrayList<Message> allMessages = new ArrayList<>();
         for (Message message: messages)
@@ -261,6 +267,18 @@ public class Database implements Serializable {
     	for(User user: users) {
     		if (user instanceof Student) {
     			Student st = (Student) user;
+    			if(st.getId().equals(id)) {
+    				return st;
+    			}
+    		}
+    	}
+    	return null;
+    }
+    
+    public static Teacher getTeacher(String id) {
+    	for(User user: users) {
+    		if (user instanceof Teacher) {
+    			Teacher st = (Teacher) user;
     			if(st.getId().equals(id)) {
     				return st;
     			}

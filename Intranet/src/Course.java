@@ -14,35 +14,27 @@ public class Course implements Serializable {
 	public Course() {
 	}
 	
-	public Course(String code, String title, int credits, Faculty faculty) {
+	public Course(String code, String title, int credits, Faculty faculty, Teacher teacher) {
 		this.code = code;
 		this.title = title;
 		this.credits = credits;
 		this.faculty = faculty;
+		this.teacher = teacher;
 	}
 	
 	private String code;
-	/**
-	    * @generated
-	    */
 	private String title;
-	/**
-	    * @generated
-	    */
 	private int credits;
-	/**
-	    * @generated
-	    */
 	private int limitOfStudents;
-	/**
-	    * @generated
-	    */
+	private Teacher teacher;
+	
 	private HashSet<CourseFiles>courseFiles = new HashSet<CourseFiles>();
 	private Faculty faculty;
 	private HashSet<Course>prerequisites = new HashSet<Course>();
 	private ArrayList<Student>students = new ArrayList<Student>();
 	private HashMap<Student, Mark>marks = new HashMap<Student, Mark>();
 	private ArrayList<Lesson>lessons = new ArrayList<Lesson>();
+	private ArrayList<Teacher>teachers = new ArrayList<Teacher>();
 	/**
     * @generated
     */
@@ -60,6 +52,12 @@ public class Course implements Serializable {
 	}
 	public int getCredits() {
 		return credits;
+	}
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+	public Teacher getTeacher() {
+		return teacher;
 	}
 	public void setCredits(int credits) {
 		this.credits = credits;
@@ -110,6 +108,14 @@ public class Course implements Serializable {
 			System.out.println("Unsuccessful operation: This student is not registered in this course.");
 		}
 		
+	}
+	
+	public void setTeachers(ArrayList<Teacher> teachers) {
+		this.teachers = teachers;
+	}
+	
+	public ArrayList<Teacher> getTeachers() {
+		return teachers;
 	}
 
 	public Faculty getFaculty() {

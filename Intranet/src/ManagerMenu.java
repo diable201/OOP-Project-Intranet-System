@@ -1,4 +1,4 @@
-import java.io.BufferedReader;
+  import java.io.BufferedReader;
 import java.io.IOException;
 
 public class ManagerMenu {
@@ -30,8 +30,8 @@ public class ManagerMenu {
 											+ "\n---------------------------------"
 											+ "\n1. Create course"
 											+ "\n2. Delete course"
-											+ "\n4. View all courses"
-											+ "\n5. Regulation registration for students(open/close)"
+											+ "\n3. View all courses"
+											+ "\n4. Regulation registration for students(open/close)"
 											+ "\n0. Exit");
         			String inp = reader.readLine();
         			if(inp.equals("0")) {
@@ -42,12 +42,69 @@ public class ManagerMenu {
 //        				}
         				ManagerMenu.createCourse();
         			}
+        			else if(inp.equals("2")) {
+        				System.out.print(Database.getCourses());
+        				System.out.println("Choose course code:");
+        				String inputName = reader.readLine();
+//        				Course delC = Database.getCourse(inputName);
+        				Database.deleteCourse(inputName);
+        				System.out.print(Database.getCourses());
+        			}
+        			else if(inp.equals("3")) 
+        				System.out.print(Database.getCourses());
+        			else if(inp.equals("4")) {
+        				if(manager.getRegistration()) {
+        				System.out.print("Registration is open");
+        				String actionsWithRegistration = "\n---------------------------------"
+        						+ "\n1. Close registration"
+        						+ "\n0. Cancel" ;
+        				System.out.println(actionsWithRegistration);
+        				String action = reader.readLine();
+;        				if (action.equals("0")) break;
+        				else if(action.equals("1")) manager.closeRegistration();
+						System.out.println("Registration is open now");
+        				}
+        				else System.out.print("Registration is closed"); {
+        					String actionsWithClosedRegistration = "\n---------------------------------"
+            						+ "\n1. Open registration"
+            						+ "\n0. Cancel" ;
+        					System.out.println(actionsWithClosedRegistration);
+        					String action = reader.readLine();
+        					if(action.equals("0")) 
+        						break;
+        					else if (action.equals("1")) 
+        						manager.openRegistration();
+        					System.out.println("Registration is open now");
+        				}
+        			}
         		}
+        	}
+        	case "3" -> {
+        		String usersInfo = "\n---------------------------------"
+        					+ "\n1. Teachers" 
+        					+ "\n2. Students"
+        					+ "\n0. Cancel" ;
+        	   System.out.println(usersInfo);
+        	   String inp = reader.readLine();
+        	   if (inp.equals("0")) break;
+        	   else if (inp.equals("1")) {
+        		   System.out.println(Database.getTeachers());
+        	   }
+        	   else if (inp.equals("2")) {
+        		   String sort = "\n---------------------------------"
+        				   	+ "\n1. By GPA"
+        				   	+ "\n2. By name"
+        				   	+ "\n0. Cancel" ;
+        	   
+        		   System.out.println(sort);
+        		   String a = reader.readLine();
+        	   }
         	}
         	case "4" ->{
         		Menu.showMenuForChangePassword(user, reader);
                 break;
         	}
+        	
         	}
         }
     }
@@ -80,31 +137,24 @@ public class ManagerMenu {
 			}
 			
 			
-//			if (Database.getTeachers().size() > 0) {
-//				System.out.println("\nTeachers:");
-//				Views.showTeachers(Database.getTeachers());
-//	
-//				System.out.print("\nEnter ID of teacher: ");
-//				int teacherId = Integer.parseInt(reader.readLine());
-//				Teacher teacher = Database.getTeacher(teacherId);
-//				
-//				if (teacher != null) {
-//					if (manager.addNewCourse(new Course(title, credits, teacher, studyYear, studentsLimit, speciality)))
-//						System.out.println("\n[Course was successfully created]");
-//					else
-//						System.out.println("\n[Course creation disrupted. The similar course is already created]");
-//				}
-//				else 
-//					System.out.println("[Course creation disrupted. Incorrect teacher ID number]");
-//			}
-//			else 
-//				System.out.println("[Course creation disrupted. There are no teachers]");
-			Course c = new Course(code, title, credits, faculty);
-			manager.addCourse(c);
-			System.out.println("\n[Course was successfully created]");
-    	}catch (NullPointerException exception) {
-    		System.out.println("\n[Course creation disrupted]");
-    	}
+			System.out.println("\nTeachers:");
+			System.out.println(Database.getTeachers());
+
+			System.out.print("\nEnter ID of teacher: ");
+			String teacherId = reader.readLine();
+			Teacher teacher = Database.getTeacher(teacherId);
+			
+			if (teacher != null) {
+				if (manager.addCourse(new Course(code, title, credits, faculty, teacher)))
+					System.out.println("\n[Course was successfully created]");
+				else
+					System.out.println("\n[Course creation disrupted. The similar course is already created]");
+			}
+			else 
+				System.out.println("[Course creation disrupted. Incorrect teacher ID number]");
+		}catch (NullPointerException exception){
+    		System.out.println("[Course creation disrupted]\n");
     }
 
+}
 }
