@@ -74,12 +74,13 @@ public class Librarian extends Employee {
 
     }
 
+    @Override
     public String getMessage() {
         StringBuilder ans = new StringBuilder();
         int msgCount = 0;
         for (Message message : Database.messages) {
             if(message.getReceiver().equals(this.getUsername())) {
-                msgCount ++;
+                msgCount++;
                 ans.append(msgCount).append(") Message for Librarian from: ").append(message.getSender()).append("\n    " +
                         "Text: ").append(message.getBody()).append("\n\n");
             }

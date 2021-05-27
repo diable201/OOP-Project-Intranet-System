@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
 * @generated
 */
@@ -44,5 +46,23 @@ public class Order {
         return "Order{" +
                 "status=" + status +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Order order = (Order) o;
+
+        if (status != order.status) return false;
+        return Objects.equals(book, order.book);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = status != null ? status.hashCode() : 0;
+        result = 31 * result + (book != null ? book.hashCode() : 0);
+        return result;
     }
 }

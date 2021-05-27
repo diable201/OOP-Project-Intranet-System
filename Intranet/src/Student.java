@@ -5,7 +5,7 @@ import java.util.*;
  * @generated
  */
 /**
- * Represents Student’s information and account
+ * Represents Students information and account
  * @extends User
  */
 public class Student extends User {
@@ -259,7 +259,7 @@ public class Student extends User {
     		System.out.print(c.getTitle() + " | " + marks.get(c).getFirstAttestation() + " | "
                     + marks.get(c).getSecondAttestation() +" | " + marks.get(c).getFinal() + " | "
                     + marks.get(c).getTotal() + " | " + marks.get(c).getLiteralMark() +
-                    " | " + marks.get(c).getDigitMark() + " | " + "\n" + marks.size());
+                    " | " + marks.get(c).getDigitMark() + " | " + "\n");
     	}
         for (Course c : marks.keySet()) {
             totalGPA += (marks.get(c).getDigitMark() * c.getCredits()) / (c.getCredits() * marks.size());

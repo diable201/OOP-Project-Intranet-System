@@ -27,6 +27,23 @@ public class AdminMenu {
                     admin.logout();
                     System.out.println("\n[You logged out]");
                     break;
+                case "4":
+                    System.out.println("Enter text: ");
+                    String body = reader.readLine();
+                    System.out.println("Enter your name: ");
+                    String sender = reader.readLine();
+                    System.out.println(Database.getEmployees());
+                    System.out.println("Enter employee id you want to message to: ");
+                    String receiver = reader.readLine();
+                    admin.sentMessage(body, sender, receiver);
+                    System.out.println("Message was sent");
+                    break;
+                case "5":
+                    System.out.println(admin.getMessage());
+                    break;
+                case "6":
+                    System.out.println(Database.getNews());
+                    break;
                 case "1":
                     Menu.showMenuForChangePassword(user, reader);
                     break;
@@ -64,6 +81,7 @@ public class AdminMenu {
                                         || option.equals("3") || option.equals("4")
                                         || option.equals("5")) {
                                     AdminMenu.addUser(option);
+                                    break;
                                 }
                                 else {
                                     System.out.println("\nPlease choose other option\n");
@@ -123,20 +141,7 @@ public class AdminMenu {
                         }
                         break;
                     }
-                case "4":
-                    System.out.println("Enter text: ");
-                    String body = reader.readLine();
-                    System.out.println("Enter your name: ");
-                    String sender = reader.readLine();
-                    System.out.println(Database.getEmployees());
-                    System.out.println("Enter employee id you want to message to: ");
-                    String receiver = reader.readLine();
-                    admin.sentMessage(body, sender, receiver);
-                    System.out.println("Message was sent");
-                case "5":
-                    System.out.println(admin.getMessage());
-                case "6":
-                    System.out.println(Database.getNews());
+
                 default:
                     break;
                     // TODO log files

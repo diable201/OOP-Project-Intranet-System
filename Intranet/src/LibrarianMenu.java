@@ -11,7 +11,6 @@ public class LibrarianMenu {
                 + "\n---------------------------------------"
                 + "\n1. Change password"
                 + "\n2. Manage books"
-//                + "\n3. Manage requests"
 				+ "\n3. Send message"
 				+ "\n4. Read message"
 				+ "\n5. View news"
@@ -90,13 +89,6 @@ public class LibrarianMenu {
 					System.out.println(librarian.getMessage());
 				case "5":
 					System.out.println(Database.getNews());
-//				case "3":
-//                	while (true) {
-//                		String manageOrdersMenu = "\n1. Accept orders"
-//                								+"\n2. Reject Orders"
-//                								+"\n0. Cancel";
-//                		}
-//                	}
 			}
 		}
     }

@@ -110,8 +110,7 @@ public class ManagerMenu {
 							String sort = """
 	
 									---------------------------------
-									1. By GPA
-									2. By name
+									1. By name
 									0. Cancel""";
 
 							System.out.println(sort);
@@ -119,7 +118,7 @@ public class ManagerMenu {
 							if (a.equals("0")) {
 								break;
 							}
-							else if (a.equals("2")) {
+							else if (a.equals("1")) {
 								System.out.println(Database.getStudentsListByName());
 							}
 							break;

@@ -172,10 +172,19 @@ public class Manager extends Employee {
     }
     /**
      * Add news.
-     * @param n - object of News class which need to be added.
+     * @param news - object of News class which need to be added.
      */
-    public void addNews(News n) {
-        news.add(n);
+    public boolean addNews(News news) {
+        if (news != null) {
+            for (News newsIter: Database.news)
+                if (newsIter.getTitle().equals(news.getTitle()) &&
+                        newsIter.getDescription().equals(news.getDescription()))
+                    return false;
+            Database.news.add(news);
+
+//            Database.logFiles.add(new LogFile(LogType.COURSE_CREATED));
+        }
+        return true;
     }
     /**
      *Update description of particular news.
@@ -223,12 +232,7 @@ public class Manager extends Employee {
         Collections.sort(students, new SortStudentByName());
         return students;
     }
-    
-    public ArrayList<Student>viewStudentsByGPA(Course course) {
-        Collections.sort(students, new SortStudentByGpa(course));
-        return students;
-    }
-    
+
     @Override
     public String toString() {
         return "Manager{" +

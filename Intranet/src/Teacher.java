@@ -4,17 +4,10 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
-* @generated
-*/
-/**
- * Represents Teacher’s information and account
+ * Represents Teachers information and account
  * @extends Employee class
  */
 public class Teacher extends Employee {
-    
-    /**
-    * @generated
-    */
 	/**
 	 * variable for academicDegree
 	 */
@@ -80,14 +73,14 @@ public class Teacher extends Employee {
 	}
 	/**
 	 * get courses of Teacher
-	 * @param Courses
+	 * @param course course of teacher
 	 */
 	public void setCourses(Course course) {
 		courses.add(course);
 	}
 	/**
 	 * get every student's for course
-	 * @param current course
+	 * @param course current course
 	 * @return Array list of courses
 	 */
 	public ArrayList<Student>viewStudentsInfo(Course course){
@@ -105,7 +98,7 @@ public class Teacher extends Employee {
 	}
 	/**
 	 * checking process of deleting files
-	 * @param Course files and Course
+	 * @param course files and Course
 	 * @return boolean expression if file deleted
 	 */
 	public boolean deleteFiles(Course course, CourseFiles courseFiles) {
@@ -114,7 +107,7 @@ public class Teacher extends Employee {
 
 	/**
 	 * view Course files
-	 * @param current course
+	 * @param course course
 	 * @return Hash set of course files
 	 */
 	public HashSet<String>viewCourseFiles(Course course){
@@ -135,7 +128,7 @@ public class Teacher extends Employee {
 	/**
 	 * set number of votes
 	 * 
-	 * @param number of votes Teacher
+	 * @param numberOfVotes of votes Teacher
 	 */
 	public void setNumberOfVotes(int numberOfVotes) {
 		this.numberOfVotes = numberOfVotes;
@@ -168,7 +161,7 @@ public class Teacher extends Employee {
     }
 	/**
 	 * equals method
-	 * @param object Teacher
+	 * @param o Teacher
 	 * @return boolean expression if objects are equal
 	 */
     public boolean equals(Object o) {
@@ -201,7 +194,7 @@ public class Teacher extends Employee {
     }
     /**
 	 * get marks for one student
-	 * @param current student
+	 * @param student student
 	 * @return hash map of course and mark
 	 */
 	public HashMap<String, Mark> getMarksOfStudent(Student student){
@@ -213,7 +206,7 @@ public class Teacher extends Employee {
 	}
 	/**
 	 * get marks of student for course
-	 * @param current course
+	 * @param course current course
 	 * @return hash map of student and mark
 	 */
 	public HashMap<Student, Mark> getMarksOfStudents(Course course){

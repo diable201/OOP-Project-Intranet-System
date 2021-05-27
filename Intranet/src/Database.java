@@ -17,10 +17,6 @@ public class Database implements Serializable {
      * ArrayList which contains all courses.
      */
     protected static ArrayList<Course> courses = new ArrayList<>();
-//    /**
-//     * ArrayList which contains all logs.
-//     */
-    // protected static ArrayList<LogFile> logs = new ArrayList<LogFile>();
     /**
      * HashMap which contains all marks of particular course.
      */
@@ -53,41 +49,7 @@ public class Database implements Serializable {
         if (INSTANCE == null) INSTANCE = new Database();
         return INSTANCE;
     }
-   
-    public static void serUsers() throws IOException{
-        FileOutputStream fos = new FileOutputStream("users.out");
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(users);
-        oos.close();
-    }
-   
-    @SuppressWarnings("unchecked")
-    public  static void desUsers() throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream("users.out");
-        ObjectInputStream oin = new ObjectInputStream(fis);
-        users = (ArrayList<User>) oin.readObject();
-        oin.close();
-        fis.close();
-		for (User u : users) {
-			System.out.println(u);
-		}
-    }
-    
-    public static void serCourses() throws IOException {
-        FileOutputStream fos = new FileOutputStream("courses.out");
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(courses);
-        oos.close();
-    }
 
-    @SuppressWarnings("unchecked")
-    public  static void desCourses() throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream("courses.out");
-        ObjectInputStream oin = new ObjectInputStream(fis);
-        courses = (ArrayList<Course>) oin.readObject();
-        oin.close();
-        fis.close();
-    }
     /**
      * Get all teachers.
      * @return Returns toString representation of teachers.
@@ -221,6 +183,18 @@ public class Database implements Serializable {
     public static ArrayList<Message> getMessages() {
         return messages;
     }
+
+    public static String getNews() {
+        StringBuilder s = new StringBuilder();
+        for (News newsIter: news) {
+            if (newsIter != null) {
+                s.append(newsIter.toString()).append("\n");
+            }
+        }
+        return s.toString();
+    }
+
+
     /**
      * Get student by name.
      * @return Returns Student object with particular name.
@@ -305,9 +279,6 @@ public class Database implements Serializable {
             users = new ArrayList<>();
             System.err.println("users.dat: IOException");
         }
-//        for (User u : users) {
-//            System.out.println(u);
-//        }
     }
     /**
      * Serialize all courses.
@@ -362,22 +333,7 @@ public class Database implements Serializable {
             if (course.getCode().equals(code))
                 courses.remove(course);
     }
-    
-    public static ArrayList<Message> getMessagesToUser(User user) {
-        ArrayList<Message> allMessages = new ArrayList<>();
-        for (Message message: messages)
-            if (message.getReceiver().equals(user))
-                allMessages.add(message);
-        return allMessages;
-    }
 
-    public static ArrayList<Message> getMessagesFromUser(User user) {
-        ArrayList<Message> allMessages = new ArrayList<>();
-        for (Message message: messages)
-            if (message.getSender().equals(user))
-                allMessages.add(message);
-        return allMessages;
-    }
     /**
      * Get user with particular username.
      * @return Returns User object with partucular username.
@@ -395,28 +351,29 @@ public class Database implements Serializable {
      * @param id - id of student
      */
     public static Student getStudent(String id) {
-    	for(User user: users) {
+    	for (User user: users) {
     		if (user instanceof Student) {
     			Student st = (Student) user;
-    			if(st.getId().equals(id)) {
+    			if (st.getId().equals(id)) {
     				return st;
     			}
     		}
     	}
     	return null;
     }
-    
-//    public static Teacher getTeacher(String id) {
-//    	for(User user: users) {
-//    		if (user instanceof Teacher) {
-//    			Teacher st = (Teacher) user;
-//    			if(st.getId().equals(id)) {
-//    				return st;
-//    			}
-//    		}
-//    	}
-//    	return null;
-//    }
+
+    public static Student getStudent(int yearOfStudy) {
+        for (User user: users) {
+            if (user instanceof Student) {
+                Student st = (Student) user;
+                if (st.getYearOfStudy() == yearOfStudy) {
+                    return st;
+                }
+            }
+        }
+        return null;
+    }
+
     /**
      * Get teacher with particular id.
      * @return Returns Teacher object with partucular id.
@@ -441,9 +398,9 @@ public class Database implements Serializable {
         Database.news.add(news);
     }
     /**
-     * Serialize all nwes.
+     * Serialize all news.
      */
-    private static void saveNews() {
+    public static void saveNews() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("news.dat"))) {
             oot.writeObject(news);
             oot.flush();
@@ -453,12 +410,12 @@ public class Database implements Serializable {
         }
     }
     /**
-     * Deserialize all nwes.
+     * Deserialize all news.
      */
     @SuppressWarnings("unchecked")
-    private static void loadNews() {
+    public static void loadNews() {
         try {
-            FileInputStream fis = new FileInputStream("news.txt");
+            FileInputStream fis = new FileInputStream("news.dat");
             ObjectInputStream oin = new ObjectInputStream(fis);
             news = (ArrayList<News>) oin.readObject();
             oin.close();
@@ -466,7 +423,7 @@ public class Database implements Serializable {
         }
         catch (ClassNotFoundException|IOException e) {
             news = new ArrayList<>();
-            System.err.println("news.txt: ClassNotFoundException");
+            System.err.println("news.dat: ClassNotFoundException");
         }
     }
 

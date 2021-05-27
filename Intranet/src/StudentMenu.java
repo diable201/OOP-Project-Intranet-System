@@ -51,20 +51,14 @@ public class StudentMenu {
                     }
                     break;
 
-
-                // 2 main menu option: managing registration for courses
                 case "2":
                     if (Database.registrationIsOpen)
-//
                         while (true) {
-//
                             if (student.getCoursesForRegistration().size() > 0) {
                                 System.out.println(student.getCoursesForRegistration());
-//
                                 String manageRegistrationMenu = """
 
-                                        1. Add course for registration
-                                        2. Delete course from registration
+                                        1. Add course for registration                                   
                                         0. Exit to main menu""";
 
                                 System.out.println(manageRegistrationMenu);
@@ -117,16 +111,12 @@ public class StudentMenu {
             String courseId =  reader.readLine();
 
             if (option.equals("1"))
-                if (student.registerForCourse(Database.getCourse(courseId)))
+                if (student.registerForCourse(Database.getCourse(courseId))) {
                     System.out.println("[Successfully added to registration]\n");
-                else
+                }
+                else {
                     System.out.println("[Incorrect course ID, course is full or you are already registered for this course]\n");
-//            else if (option.equals("2"))
-//                if (student.unregisterFromCourse(Database.getCourse(courseId)))
-//                    System.out.println("[Successfully deleted from registration]\n");
-//                else
-//                    System.out.println("[Incorrect course ID or you weren't registered for the course]\n");
-
+                }
         } catch (NumberFormatException exception) {
             System.out.println("[Incorrect input format. Please enter ID number]\n");
         } catch (NullPointerException exception) {
@@ -135,7 +125,6 @@ public class StudentMenu {
     }
 
     public static void checkCourseFiles() throws IOException {
-
         try {
             System.out.print("\nPlease enter ID of course from the list: ");
             String courseId = reader.readLine();

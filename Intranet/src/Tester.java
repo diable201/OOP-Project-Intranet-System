@@ -123,6 +123,7 @@ public class Tester {
 //        System.out.println(t1.getTeachingCourses());
 //        Database.courses.add(c2);
 //        Database.courses.add(c1);
+
         Database.saveCourses();
         Database.loadUsers();
         System.out.println(Database.getAdmins());

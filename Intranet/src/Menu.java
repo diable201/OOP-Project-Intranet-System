@@ -5,17 +5,17 @@ public class Menu {
         Database.loadUsers();
         Database.loadCourses();
         Database.loadNews();
-        // Database.getAdmins();
-        System.out.println(Database.getAdmins());
-        System.out.println(Database.getStudents());
-        System.out.println(Database.getTeachers());
-        System.out.println(Database.getLibrarians());
-        System.out.println(Database.getManagers());
-        System.out.println(Database.getCourses());
-        System.out.println(Database.getNews());
+//        // Database.getAdmins();
+//        System.out.println(Database.getAdmins());
+//        System.out.println(Database.getStudents());
+//        System.out.println(Database.getTeachers());
+//        System.out.println(Database.getLibrarians());
+//        System.out.println(Database.getManagers());
+//        System.out.println(Database.getCourses());
+//        System.out.println(Database.getNews());
         startSystem();
     }
-    public static void startSystem() throws IOException, ClassNotFoundException {
+    public static void startSystem() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -30,7 +30,6 @@ public class Menu {
                 System.out.println(welcomePage);
                 String input = reader.readLine();
                 if (input.equals("1")) {
-                    // If the user object is found, then we let into the system
                     User user = menuLogin(reader);
                     if (user != null) {
                         while (user.getIsLogged()) {
@@ -41,26 +40,19 @@ public class Menu {
                             else if (user instanceof Librarian) LibrarianMenu.menu(user, reader);
                             else System.out.println("\nUsername or password incorrect. Please try again");
                         }
-//
-//
-//
-//                            else if (user instanceof ORManager)
-//                                ManagerController.menu(user, reader);
-//
-//                            else if (user instanceof TechSupportGuy)
-//                                SupportController.menu(user, reader);
                     } else {
-                        System.out.println("\n[Unknown type of user]");
+                        System.out.println("\nError");
                     }
                 } else if (input.equals("2")) {
-                    System.out.println("\n[System closed]");
+                    System.out.println("\nSystem closed");
                     break;
-                } else
-                    System.out.println("\n[Incorrect input format. Please choose available option]");
+                } else {
+                    System.out.println("\nIncorrect input format. Please choose available option");
+                }
             }
 
-        } finally {
-            System.exit(0);
+        } catch (IOException exception) {
+            System.out.println("Exception");
         }
     }
 
@@ -71,7 +63,9 @@ public class Menu {
         String password = reader.readLine();
         User user = Database.getUser(username);
         if (user != null) {
-            if (user.login(password)) return user;
+            if (user.login(password)) {
+                return user;
+            }
         }
         return null;
     }
@@ -88,13 +82,14 @@ public class Menu {
     }
 
     public static String checkAndChangePassword(User user, String password, String repeatedPassword) {
-        if (password.equals(repeatedPassword)) {
-            if (!password.equals(user.getPassword())) {
+        if (password.hashCode() == (repeatedPassword.hashCode())) {
+            if (!(password.hashCode() == (user.getPassword().hashCode()))) {
                 user.setPassword(password);
                 return "[Password successfully changed]";
             }
-            else
-                return "[This password is used now. Choose another]";
+            else {
+                return "This password is used now. Choose another";
+            }
         }
         return "Passwords does not matches each other";
     }
