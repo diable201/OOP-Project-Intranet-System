@@ -11,7 +11,6 @@ public class StudentMenu {
 
         student = (Student)user;
         reader = bufReader;
-
         String studentHomePage  = "\n[Student: " + student.getFullName() + "]"
                 + "\n---------------------------------------"
                 + "\n1. View my courses info/files"

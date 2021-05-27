@@ -15,6 +15,7 @@ public class Mark implements Serializable {
     private double final_exam = 0;
     private double total;
     private double gpa = 0;
+    private double digit_mark;
     /**
      * @generated
      */
@@ -55,6 +56,10 @@ public class Mark implements Serializable {
      */
     public String getLiteralMark() {
         return this.literalMark;
+    }
+
+    public double getDigitMark() {
+        return this.digit_mark;
     }
 
     /**
@@ -166,36 +171,47 @@ public class Mark implements Serializable {
     public void transformMark(double total) {
         if(total>=94.5 && total<=100) {
             literalMark = "A";
+            digit_mark = 4.0;
         }
         else if(total>=89.5 && total<94.5) {
             literalMark = "A-";
+            digit_mark = 3.67;
         }
         else if(total>=84.5 && total<89.5) {
             literalMark = "B+";
+            digit_mark = 3.33;
         }
         else if(total>=79.5 && total<84.5) {
             literalMark = "B";
+            digit_mark = 3.0;
         }
         else if(total>=74.5 && total<79.5) {
             literalMark = "B-";
+            digit_mark = 2.67;
         }
         else if(total>=69.5 && total<74.5) {
             literalMark = "C+";
+            digit_mark = 2.33;
         }
         else if(total>=64.5 && total<69.5) {
             literalMark = "C";
+            digit_mark = 2.0;
         }
         else if(total>=59.5 && total<64.5) {
             literalMark = "C-";
+            digit_mark = 1.67;
         }
         else if(total>=54.5 && total<59.5) {
             literalMark = "D+";
+            digit_mark = 1.33;
         }
         else if(total>=50 && total<54.5) {
             literalMark = "D";
+            digit_mark = 1.0;
         }
         else {
             literalMark = "F";
+            digit_mark = 0;
         }
     }
     public void putMark(TypeOfMark typeOfMark, double points) {

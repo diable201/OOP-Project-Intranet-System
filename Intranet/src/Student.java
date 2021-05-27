@@ -236,11 +236,20 @@ public class Student extends User {
     	return marks.get(course);
     }
     public void viewTranscript() {
+        double totalGPA = 0;
 //        System.out.println("bug");
     	for (Course c : marks.keySet()) {
-    		System.out.print(c.getTitle() + " | " + marks.get(c).getFirstAttestation() + " | " + marks.get(c).getSecondAttestation() +" | " +
-    	marks.get(c).getFinal() + " | " + marks.get(c).getTotal() + " | " + marks.get(c).getLiteralMark()+ "\n");
+    		System.out.print(c.getTitle() + " | " + marks.get(c).getFirstAttestation() + " | "
+                    + marks.get(c).getSecondAttestation() +" | " +
+    	            marks.get(c).getFinal() + " | " + marks.get(c).getTotal() +
+                    " | " + marks.get(c).getLiteralMark() + " | " + marks.get(c).getDigitMark() + " | " + "\n" +
+                    marks.size());
+
     	}
+        for (Course c : marks.keySet()) {
+            totalGPA += (marks.get(c).getDigitMark() * c.getCredits()) / (c.getCredits() * marks.size());
+        }
+    	System.out.println("Total GPA: " + totalGPA);
     }
 
     public boolean isHavingCourse(Course course) {
@@ -259,7 +268,7 @@ public class Student extends User {
     public void setCourses(Course course) {
         courses.add(course);
     }
-    
+
 //    public HashSet<CourseFiles>viewCourseFiles2(Course course) {
 //    	return course.getCourseFiles();
 //    }

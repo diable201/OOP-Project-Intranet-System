@@ -30,11 +30,22 @@ public class Tester {
         Course c1 = new Course("CSCI12", "WebDev", 4, Faculty.FIT);
         Database.courses.add(c1);
         t1.setCourses(c2);
-//        s4.registerForCourse(c2);
-//        s4.registerForCourse(c1);
+        s4.registerForCourse(c2);
+        s4.registerForCourse(c1);
+        Teacher t2 = new Teacher("1", "Pakita", "Shamoi", EmployeeTypes.EDUCATIONAL, AcademicDegree.PROFESSOR);
+        t1.setCourses(c1);
+        t2.setCourses(c1);
+        Database.users.add(t2);
+        t1.putMark(c2, TypeOfMark.FIRST_ATTESTATION, 30, s4);
+        t1.putMark(c2, TypeOfMark.SECOND_ATTESTATION, 30, s4);
+        t1.putMark(c2, TypeOfMark.FINAL, 30, s4);
+//        t2.putMark(c1, TypeOfMark.FIRST_ATTESTATION, 30, s4);
+//        t2.putMark(c1, TypeOfMark.SECOND_ATTESTATION, 40, s4);
+//        t2.putMark(c1, TypeOfMark.FINAL, 30, s4);
         Database.users.add(t1);
 //        System.out.print(c2.getStudents());
         System.out.println(s4.getCourses());
+        s4.viewTranscript();
 //        System.out.print(c2.getStudents());
 //        System.out.println("teacher");
 //        System.out.println(t1.getCourses());
@@ -63,10 +74,7 @@ public class Tester {
 //        System.out.println(Database.getStudents());
 //        System.out.println(Database.getAdmins());
 //        System.out.println(Database.getCourses());
-        Teacher t2 = new Teacher("1", "Pakita", "Shamoi", EmployeeTypes.EDUCATIONAL, AcademicDegree.PROFESSOR);
-        t1.setCourses(c1);
-        t2.setCourses(c1);
-        Database.users.add(t2);
+
         Database.saveUsers();
         Database.saveCourses();
         CourseFiles cf = new CourseFiles("Test", "test");
