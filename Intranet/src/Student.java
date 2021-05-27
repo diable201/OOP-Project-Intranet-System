@@ -143,7 +143,7 @@ public class Student extends User {
     public void setTotalCredits(Integer totalCredits) {
         this.totalCredits = totalCredits;
     }
-    
+
     @Override
     public boolean equals(Object o) {
         if (o == this) return true;
@@ -166,13 +166,7 @@ public class Student extends User {
     public void withdrawCourses(Course course) {
     	courses.remove(course);
     }
-    
-    public double viewMark(Course course) {
-    	double points;
-    	points = marks.get(course).getTotal();
-    	return points;
-    }
-    
+
     public void sendRequestToLibrary(Order order, Book book) {
     	order.setBook(book);
     	Librarian.addOrder(order);	
@@ -213,7 +207,7 @@ public class Student extends User {
     public void setCourseMark(Course course, Mark mark) {
     	marks.put(course, mark);
     }
-    public Mark viewMark2(Course course) {
+    public Mark viewMark(Course course) {
     	return marks.get(course);
     }
     public void viewTranscript() {
@@ -265,9 +259,7 @@ public class Student extends User {
 //    /**
 //     * @generated
 //     */
-//    public viewMarks() {
-//        //TODO
-//    }
+
 
 //    public sendRequestToLibrary() {
 //        //TODO

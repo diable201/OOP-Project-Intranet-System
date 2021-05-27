@@ -1,5 +1,3 @@
-import java.util.Date;
-
 public class TeacherTester {
 
 	public static void main(String[] args) {
@@ -94,7 +92,7 @@ public class TeacherTester {
 		System.out.println(t1.getMarksOfStudents(c1));
 		
 		System.out.println("_______________________________________________");
-		System.out.println(s3.viewMark2(c1));
+		System.out.println(s3.viewMark(c1));
 		
 		System.out.println("_______________________________________________");
 		s3.viewTranscript();
@@ -114,7 +112,7 @@ public class TeacherTester {
 //		System.out.println(t1.getMarksOfStudents(c1));
 		
 //		System.out.println("_______________________________________________");
-//		System.out.println(s3.viewMark2(c1));
+//		System.out.println(s3.viewMark(c1));
 		
 //		System.out.println("_______________________________________________");
 //		s3.viewTranscript2();

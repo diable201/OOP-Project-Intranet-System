@@ -58,7 +58,7 @@ public class StudentTester {
 					System.out.println(i + ") " + student.getCourses().get(i-1).getTitle());	
 				}
 				int choice = Integer.parseInt(br.readLine());
-				System.out.print(student.viewMark(student.getCourses().get(choice-1)));
+//				System.out.print(student.viewMark(student.getCourses().get(choice-1)));
 				}
 //			else if(input == 5) {
 //				System.out.println("Send book name to Library:");
