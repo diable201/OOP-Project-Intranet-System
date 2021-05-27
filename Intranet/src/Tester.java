@@ -33,6 +33,8 @@ public class Tester {
         s4.registerForCourse(c2);
         s4.registerForCourse(c1);
         Teacher t2 = new Teacher("1", "Pakita", "Shamoi", EmployeeTypes.EDUCATIONAL, AcademicDegree.PROFESSOR);
+        Librarian l1 = new Librarian("10","Ernazar","Dobby",EmployeeTypes.OTHER);
+        Database.users.add(l1);
         t1.setCourses(c1);
         t2.setCourses(c1);
         Database.users.add(t2);
