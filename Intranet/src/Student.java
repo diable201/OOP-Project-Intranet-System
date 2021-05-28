@@ -2,9 +2,6 @@ import java.util.*;
 
 
 /**
- * @generated
- */
-/**
  * Represents Students information and account
  * @extends User
  */

@@ -19,6 +19,23 @@ public class LibrarianMenu {
 			System.out.println(librarianConsole);
 			String option = reader.readLine();
 			switch (option) {
+				case "3":
+					System.out.println("Enter text: ");
+					String body = reader.readLine();
+					System.out.println("Enter your name: ");
+					String sender = reader.readLine();
+					System.out.println(Database.getEmployees());
+					System.out.println("Enter employee id you want to message to: ");
+					String receiver = reader.readLine();
+					librarian.sentMessage(body, sender, receiver);
+					System.out.println("Message was sent");
+					break;
+				case "4":
+					System.out.println(librarian.getMessage());
+					break;
+				case "5":
+					System.out.println(Database.getNews());
+					break;
 				case "0":
 					librarian.logout();
 					System.out.println("\n[You logged out]");
@@ -75,20 +92,6 @@ public class LibrarianMenu {
 					} catch (IOException e) {
 						System.out.println("error");
 					}
-				case "3":
-					System.out.println("Enter text: ");
-					String body = reader.readLine();
-					System.out.println("Enter your name: ");
-					String sender = reader.readLine();
-					System.out.println(Database.getEmployees());
-					System.out.println("Enter employee id you want to message to: ");
-					String receiver = reader.readLine();
-					librarian.sentMessage(body, sender, receiver);
-					System.out.println("Message was sent");
-				case "4":
-					System.out.println(librarian.getMessage());
-				case "5":
-					System.out.println(Database.getNews());
 			}
 		}
     }

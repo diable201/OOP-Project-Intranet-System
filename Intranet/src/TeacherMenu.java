@@ -18,8 +18,8 @@ public class TeacherMenu {
 					+ "\n5. Send message"
 					+ "\n6. Read message"
 					+ "\n7. View news"
-                    + "\n0. Logout";
-
+                    + "\n0. Logout"
+					+ "\n---------------------------------------";
             System.out.println(teacherHomePage);
             String choice = reader.readLine();
             switch(choice) {
@@ -50,9 +50,7 @@ public class TeacherMenu {
             	case "2" -> {
             		if (teacher.getTeachingCourses().size() != 0) {
             			while (true) {
-//            				for(Course c: teacher.getCourses()) {
             					System.out.println(teacher.getTeachingCourses());
-//            				}
             				System.out.println("""
 									1. Choose course
 									0. Exit""");
@@ -150,15 +148,16 @@ public class TeacherMenu {
 					break;
 				}
 				else if (choice.equals("1")) {
+					System.out.println(Database.getStudents());
 					System.out.print("Enter student ID: ");
 					String input = reader.readLine();
 					Student student = Database.getStudent(input);
 					assert course != null;
 					if(course.getStudents().contains(student)) {
 						assert student != null;
-						System.out.println("Student: " + student.getFullName() +"/n");
+						System.out.println("Student: " + student.getFullName() +"\n");
 						System.out.println("""
-								Choose type of mark/n
+								Choose type of mark
 								1. First attestation
 								2. Second attestation
 								3. Final""");
@@ -181,7 +180,7 @@ public class TeacherMenu {
 				}
 			}
     	} catch (NullPointerException exception){
-    		System.out.println("Error\n");
+    		System.out.println("Error");
     	}
     }
 }

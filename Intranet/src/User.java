@@ -56,14 +56,10 @@ public abstract class User implements Serializable, Comparable<User> {
      */
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
+        return "id=" + id +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", isLogged=" + isLogged +
-                '}';
+                ", surname='" + surname + '\'';
     }
 
 

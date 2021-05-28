@@ -17,8 +17,8 @@ public class AdminMenu {
                 + "\n4. Send message"
                 + "\n5. Read message"
                 + "\n6. View news"
-                + "\n0. Logout";
-
+                + "\n0. Logout"
+                + "\n---------------------------------------";
         while (admin.getIsLogged()) {
             System.out.println(adminConsole);
             String option = reader.readLine();
@@ -69,6 +69,7 @@ public class AdminMenu {
                                         2. Teacher
                                         3. Manager
                                         4. Admin
+                                        5. Librarian
                                         0. Cancel""";
 
                                 System.out.println(userTypeInfo);
@@ -141,13 +142,8 @@ public class AdminMenu {
                         }
                         break;
                     }
-
                 default:
                     break;
-                    // TODO log files
-//                case "2":
-//                    Views.showLogs(Database.logFiles);
-//                    break;
             }
         }
     }
@@ -225,6 +221,7 @@ public class AdminMenu {
                 }
                 case "3" -> user = new Manager(id, name, surname, EmployeeTypes.MANAGEMENT);
                 case "4" -> user = new Admin(id, name, surname, EmployeeTypes.ADMINISTRATION);
+                case "5" -> user = new Librarian(id, name, surname, EmployeeTypes.OTHER);
             }
             if (admin.addUser(user)) {
                 Database.saveUsers();
@@ -234,7 +231,7 @@ public class AdminMenu {
                 System.out.println("Error. There is a user with the same username.");
             }
         } catch (IOException|NumberFormatException|NullPointerException exception) {
-            System.out.println("Something bad happened. Please, try again.");
+            System.out.println("Something bad happened");
         }
     }
 }

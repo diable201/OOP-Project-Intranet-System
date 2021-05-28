@@ -179,10 +179,7 @@ public class Teacher extends Employee {
 	 */
     @Override
     public String toString() {
-		return "Teacher {" +
-				super.toString() +
-				"Degree" + academicDegree +
-				'}';
+		return "Teacher: " + super.toString() + "Degree = " + academicDegree;
     }
     /**
 	 * seeing news

@@ -11,7 +11,7 @@ public class ManagerMenu {
         reader = bufReader;
         
         while (user.getIsLogged()) {
-        	System.out.println("\nWelcome, Manager: " + user.getFullName() + ""
+        	String welcomePage = "\nWelcome, Manager: " + user.getFullName() + ""
                     + "\n---------------------------------------"
                     + "\n1. Manage registration and courses"
                     + "\n2. View teachers and student info"
@@ -20,7 +20,9 @@ public class ManagerMenu {
 					+ "\n5. Read message"
 					+ "\n6. View news"
 					+ "\n7. Create news"
-                    + "\n0. Logout");
+                    + "\n0. Logout"
+					+ "\n---------------------------------------";
+        	System.out.println(welcomePage);
         	String choice = reader.readLine();
 			switch(choice) {
 				case "0"-> {

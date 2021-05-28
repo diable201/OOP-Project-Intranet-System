@@ -111,10 +111,9 @@ public class Message {
 
     @Override
     public String toString() {
-        return "Message{" +
-                "body='" + body + '\'' +
-                ", sender=" + sender +
-                ", receiver=" + receiver +
-                '}';
+        return "Message: " +
+                "body = '" + body + '\'' +
+                ", sender = " + sender +
+                ", receiver = " + receiver;
     }
 }

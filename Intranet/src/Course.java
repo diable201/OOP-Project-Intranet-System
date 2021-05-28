@@ -170,11 +170,9 @@ public class Course implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Course{" +
-				"code='" + code + '\'' +
-				", title='" + title + '\'' +
-				", credits=" + credits +
-				", teacher=" + teacher +
-				'}';
+		return "Course: " + "code = '" + code + '\'' +
+				", title = '" + title + '\'' +
+				", credits = " + credits +
+				", teacher = " + teacher;
 	}
 }

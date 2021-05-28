@@ -88,7 +88,7 @@ public class CourseFiles implements Cloneable{
 
     @Override
     public String toString() {
-    	return course.getTitle() + " file { name: " + name + ", content: " + content +"}"; 
+    	return course.getTitle() + " file: name: " + name + ", content: " + content;
     }
 
     public Object clone() throws CloneNotSupportedException{

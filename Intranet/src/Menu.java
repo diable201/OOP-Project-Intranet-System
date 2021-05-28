@@ -5,14 +5,6 @@ public class Menu {
         Database.loadUsers();
         Database.loadCourses();
         Database.loadNews();
-//        // Database.getAdmins();
-//        System.out.println(Database.getAdmins());
-//        System.out.println(Database.getStudents());
-//        System.out.println(Database.getTeachers());
-//        System.out.println(Database.getLibrarians());
-//        System.out.println(Database.getManagers());
-//        System.out.println(Database.getCourses());
-//        System.out.println(Database.getNews());
         startSystem();
     }
     public static void startSystem() {
@@ -22,8 +14,12 @@ public class Menu {
             while (true) {
 
                 String welcomePage = """
-
-                        Welcome to Intranet!
+                         ___ _   _ _____ ____      _    _   _ _____ _____
+                        |_ _| \\ | |_   _|  _ \\    / \\  | \\ | | ____|_   _|
+                         | ||  \\| | | | | |_) |  / _ \\ |  \\| |  _|   | |
+                         | || |\\  | | | |  _ <  / ___ \\| |\\  | |___  | |
+                        |___|_| \\_| |_| |_| \\_\\/_/   \\_\\_| \\_|_____| |_|
+                        
                         1. Login
                         2. Exit""";
 
@@ -85,7 +81,7 @@ public class Menu {
         if (password.hashCode() == (repeatedPassword.hashCode())) {
             if (!(password.hashCode() == (user.getPassword().hashCode()))) {
                 user.setPassword(password);
-                return "[Password successfully changed]";
+                return "Password successfully changed";
             }
             else {
                 return "This password is used now. Choose another";

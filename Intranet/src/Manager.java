@@ -32,7 +32,7 @@ public class Manager extends Employee {
     }
 
     public Manager() {
-
+        super();
     }
 
 
@@ -235,9 +235,7 @@ public class Manager extends Employee {
 
     @Override
     public String toString() {
-        return "Manager{" +
-                super.toString() +
-                '}';
+        return "Manager: " + super.toString();
     }
 
     public void sentMessage() {

@@ -83,7 +83,7 @@ public class Database implements Serializable {
      * @return Returns ArrayList of all students.
      */
     public static ArrayList<Student> getStudentsList() {
-    	ArrayList<Student> s = new ArrayList<Student>();
+    	ArrayList<Student> s = new ArrayList<>();
         for (User user: users) {
             if (user instanceof Student) {
                 Student student = (Student) user;

@@ -8,7 +8,7 @@ public class StudentMenu {
 
         student = (Student)user;
         reader = bufReader;
-        String studentHomePage  = "\n[Student: " + student.getFullName() + "]"
+        String studentHomePage  = "\nWelcome, Student: " + student.getFullName() + "]"
                 + "\n---------------------------------------"
                 + "\n1. View my courses info/files"
                 + "\n2. Manage registration for courses"
@@ -16,7 +16,8 @@ public class StudentMenu {
                 + "\n4. Change password"
                 + "\n5. Rate teachers"
                 + "\n6. View news"
-                + "\n0. Logout";
+                + "\n0. Logout"
+                + "\n---------------------------------------";
 
         while (student.getIsLogged()) {
             System.out.println(studentHomePage);
