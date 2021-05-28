@@ -75,16 +75,6 @@ public class News implements Cloneable, Serializable {
         this.title = title;
     }
 
-    //                          Operations
-    public String showNews() {
-        StringBuilder s = new StringBuilder();
-        for (News n: Database.news) {
-            s.append(n).append("\n");
-        }
-        return s.toString();
-    }
-
-
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
     }

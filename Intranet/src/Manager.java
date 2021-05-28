@@ -6,7 +6,6 @@ import java.util.Collections;
  * Manager is employee who manages all users.
  */
 public class Manager extends Employee {
-
     /**
      * ArrayList of all courses.
      */
@@ -32,9 +31,8 @@ public class Manager extends Employee {
     }
 
     public Manager() {
-
+        super();
     }
-
 
     /**
      * Returns all courses.
@@ -101,11 +99,6 @@ public class Manager extends Employee {
 
 
     //                          Operations
-
-
-//    public createStatisticalReport() {
-//        //TODO
-//    }
     /**
      * Add course to courses.
      * @param course - Course object which need to be added
@@ -166,7 +159,7 @@ public class Manager extends Employee {
     }
     
     public void extendRegistration() {
-        if(!Database.registrationIsOpen) {
+        if (!Database.registrationIsOpen) {
             Database.registrationIsOpen = true;
         }
     }

@@ -150,13 +150,14 @@ public class TeacherMenu {
 					break;
 				}
 				else if (choice.equals("1")) {
+					System.out.println(Database.getStudents());
 					System.out.print("Enter student ID: ");
 					String input = reader.readLine();
 					Student student = Database.getStudent(input);
 					assert course != null;
 					if(course.getStudents().contains(student)) {
 						assert student != null;
-						System.out.println("Student: " + student.getFullName() +"/n");
+						System.out.println("Student: " + student.getFullName() + "\n");
 						System.out.println("""
 								Choose type of mark/n
 								1. First attestation

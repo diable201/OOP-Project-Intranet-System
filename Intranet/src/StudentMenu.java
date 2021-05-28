@@ -5,10 +5,9 @@ public class StudentMenu {
     static Student student = null;
     static BufferedReader reader = null;
     public static void menu(User user, BufferedReader bufReader) throws IOException {
-
         student = (Student)user;
         reader = bufReader;
-        String studentHomePage  = "\n[Student: " + student.getFullName() + "]"
+        String studentHomePage  = "\nWelcome, Student: " + student.getFullName() + ""
                 + "\n---------------------------------------"
                 + "\n1. View my courses info/files"
                 + "\n2. Manage registration for courses"
@@ -27,7 +26,7 @@ public class StudentMenu {
                     System.out.println("\n[You logged out]");
                     break;
                 case "1":
-                    if (student.getCourses().size() >= 1)
+                    if (student.getCourses().size() >= 1) {
                         while (true) {
                             String menuCoursesInfo = """
 
@@ -37,22 +36,22 @@ public class StudentMenu {
                             System.out.println(menuCoursesInfo);
                             System.out.println(student.getCourses());
                             choice = reader.readLine();
-                            if (choice.equals("0"))
+                            if (choice.equals("0")) {
                                 break;
-                            else if (choice.equals("1")) {
+                            } else if (choice.equals("1")) {
                                 StudentMenu.checkCourseFiles();
-
-                            } else
-                                System.out.println("\n[Incorrect input format. Please choose available option]\n");
+                            } else {
+                                System.out.println("\nIncorrect input format. Please choose other option");
+                            }
                         }
+                    }
                     else {
-                        System.out.println("[There are no any registered courses yet]");
-
+                        System.out.println("There are no any registered courses");
                     }
                     break;
 
                 case "2":
-                    if (Database.registrationIsOpen)
+                    if (Database.registrationIsOpen) {
                         while (true) {
                             if (student.getCoursesForRegistration().size() > 0) {
                                 System.out.println(student.getCoursesForRegistration());
@@ -65,24 +64,23 @@ public class StudentMenu {
                                 choice = reader.readLine();
                                 if (choice.equals("0"))
                                     break;
-
                                 else if (choice.equals("1") || choice.equals("2")) {
                                     StudentMenu.processCourseRegistrationOptions(choice);
-                                } else
-                                    System.out.println("\n[Incorrect input format. Please choose available option]\n");
+                                } else {
+                                    System.out.println("\nIncorrect input format. Please choose other option");
+                                }
                             } else {
                                 System.out.println("[There are no any courses available for registration yet. Please wait, they will be added by manager very soon ]");
                                 break;
                             }
                         }
-
+                    }
                     else {
                         System.out.println("[Registration for courses is closed]");
                     }
                     break;
                 case "3":
                     student.viewTranscript();
-
                     break;
                 case "4":
                     Menu.showMenuForChangePassword(user, reader);
@@ -101,6 +99,7 @@ public class StudentMenu {
                     break;
                 case "6":
                     System.out.println(Database.getNews());
+                    break;
             }
         }
     }
@@ -112,24 +111,22 @@ public class StudentMenu {
 
             if (option.equals("1"))
                 if (student.registerForCourse(Database.getCourse(courseId))) {
-                    System.out.println("[Successfully added to registration]\n");
+                    System.out.println("Successfully registered");
                 }
                 else {
-                    System.out.println("[Incorrect course ID, course is full or you are already registered for this course]\n");
+                    System.out.println("Incorrect course ID or you are already registered\n");
                 }
-        } catch (NumberFormatException exception) {
-            System.out.println("[Incorrect input format. Please enter ID number]\n");
-        } catch (NullPointerException exception) {
-            System.out.println("[Incorrect ID number]\n");
+        } catch (NumberFormatException|NullPointerException exception) {
+            System.out.println("Error\n");
         }
     }
 
     public static void checkCourseFiles() throws IOException {
         try {
-            System.out.print("\nPlease enter ID of course from the list: ");
+            System.out.print("\nPlease enter code of course from the list: ");
             String courseId = reader.readLine();
             Course course = Database.getCourse(courseId);
-            if (student.isHavingCourse(course)) {
+            if (student.isAlreadyRegistered(course)) {
                 assert course != null;
                 System.out.println(student.viewCourseFiles(course));
             } else {

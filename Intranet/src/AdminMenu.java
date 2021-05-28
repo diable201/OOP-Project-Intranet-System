@@ -84,7 +84,7 @@ public class AdminMenu {
                                     break;
                                 }
                                 else {
-                                    System.out.println("\nPlease choose other option\n");
+                                    System.out.println("\nPlease choose other option");
                                 }
                                 break;
                             }

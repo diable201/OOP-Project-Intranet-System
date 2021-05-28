@@ -391,13 +391,6 @@ public class Database implements Serializable {
         return null;
     }
     /**
-     *Add news.
-     * @param news - News object to be added.
-     */
-    public void addNews(News news) {
-        Database.news.add(news);
-    }
-    /**
      * Serialize all news.
      */
     public static void saveNews() {
