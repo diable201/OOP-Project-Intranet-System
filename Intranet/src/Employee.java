@@ -40,19 +40,7 @@ public abstract class Employee extends User implements Messageable {
         Database.messages.add(m);
     }
 
-    public String getMessage() {
-        StringBuilder ans = new StringBuilder();
-        int messageCount = 0;
-        for (Message message : Database.messages) {
-            if(message.getReceiver().equals(this.getId())) {
-                messageCount++;
-                ans.append(messageCount).append("Message from: ").append(message.getSender()).append("\n    " +
-                        "Title: ").append(message.getIsRead()).append("\n    " +
-                        "Text: ").append(message.getBody()).append("\n\n");
-            }
-        }
-        return ans.toString();
-    }
+    abstract public String getMessage();
 
     @Override
     public int compareTo(User user) {

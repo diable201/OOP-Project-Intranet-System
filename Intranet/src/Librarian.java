@@ -80,9 +80,9 @@ public class Librarian extends Employee {
         StringBuilder ans = new StringBuilder();
         int messageCount = 0;
         for (Message message : Database.messages) {
-            if(message.getReceiver().equals(this.getUsername())) {
+            if (message.getReceiver().equals(this.getId())) {
                 messageCount++;
-                ans.append(messageCount).append(" Message for Librarian from: ").append(message.getSender()).append("\n    " +
+                ans.append(messageCount).append(") Message for Librarian from: ").append(message.getSender()).append("\n    " +
                         "Text: ").append(message.getBody()).append("\n");
             }
         }
