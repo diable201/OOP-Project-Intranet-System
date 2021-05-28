@@ -2,6 +2,7 @@ import java.io.*;
 
 public class Menu {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Database.getInstance();
         Database.loadUsers();
         Database.loadCourses();
         Database.loadNews();
