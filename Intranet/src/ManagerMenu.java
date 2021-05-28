@@ -154,6 +154,7 @@ public class ManagerMenu {
 			description = reader.readLine();
 			if (manager.addNews(new News(title, description))) {
 				System.out.println("\n[News was successfully created]");
+				Database.saveNews();
 			}
 			else {
 				System.out.println("\n[News creation disrupted. The similar course is already created]");
@@ -198,6 +199,7 @@ public class ManagerMenu {
 			System.out.println(teacher);
 			if (manager.addCourse(new Course(code, title, credits, faculty, teacher))) {
 				System.out.println("\n[Course was successfully created]");
+				Database.saveCourses();
 			}
 			else {
 				System.out.println("\n[Course creation disrupted. The similar course is already created]");
