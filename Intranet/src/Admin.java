@@ -25,8 +25,7 @@ public class Admin extends Employee {
     }
     
 
-    //                          Operations                                  
-    
+    //                          Operations
     /**
     * @generated
     */
@@ -42,27 +41,15 @@ public class Admin extends Employee {
                 return false;
             }
         Database.users.add(u);
-        // Database.logFiles.add(new LogFile(LogType.USER_ADDED));
         return true;
     }
     /**
     * @generated
-//     * @return
     */
     public boolean deleteUser(User user) {
         Database.users.remove(user);
         return true;
     }
-    /**
-    * @generated
-    */
-//    public void updateUser(User user, String newName, String newSurname) {
-//    	if (users.contains(user)) {
-//        user.setName(newName);
-//        user.setSurname(newSurname);
-//    	}
-//    }
- 
 
     public void updateStudentsYearOfStudy() {
         for (Student student: getStudents()) {
@@ -74,9 +61,7 @@ public class Admin extends Employee {
 
     @Override
     public String toString() {
-        return "Admin{" +
-                super.toString() +
-                '}';
+        return "Admin: " + super.toString();
     }
 
     public void sentMessage() {
@@ -85,12 +70,12 @@ public class Admin extends Employee {
 
     public String getMessage() {
         StringBuilder ans = new StringBuilder();
-        int msgCount = 0;
+        int messageCount = 0;
         for (Message message : Database.messages) {
             if (message.getReceiver().equals(this.getUsername())) {
-                msgCount ++;
-                ans.append(msgCount).append(") Message for Admin from: ").append(message.getSender()).append("\n    " +
-                        "Text: ").append(message.getBody()).append("\n\n");
+                messageCount++;
+                ans.append(messageCount).append(" Message for Admin from: ").append(message.getSender()).append("\n    " +
+                        "Text: ").append(message.getBody()).append("\n");
             }
         }
         return ans.toString();

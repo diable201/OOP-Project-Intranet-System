@@ -2,7 +2,8 @@ import java.util.*;
 
 
 /**
- * @generated
+ * Represents Students information and account
+ * @extends User
  */
 public class Student extends User {
 
@@ -203,7 +204,7 @@ public class Student extends User {
      * @return Returns true if course was successfully registered and false if wasn't.
      */
     public boolean registerForCourse(Course course) {
-        if (!isHavingCourse(course) && getCoursesForRegistration().contains(course)) {
+        if (!isAlreadyRegistered(course) && getCoursesForRegistration().contains(course)) {
             course.setStudents(this);
             this.setCourses(course);
             return true;
@@ -255,7 +256,7 @@ public class Student extends User {
     		System.out.print(c.getTitle() + " | " + marks.get(c).getFirstAttestation() + " | "
                     + marks.get(c).getSecondAttestation() +" | " + marks.get(c).getFinal() + " | "
                     + marks.get(c).getTotal() + " | " + marks.get(c).getLiteralMark() +
-                    " | " + marks.get(c).getDigitMark() + " | " + "\n" + marks.size());
+                    " | " + marks.get(c).getDigitMark() + " | " + "\n");
     	}
         for (Course c : marks.keySet()) {
             totalGPA += (marks.get(c).getDigitMark() * c.getCredits()) / (c.getCredits() * marks.size());
@@ -267,7 +268,7 @@ public class Student extends User {
      * @param course - Course object which need to be checked.
      * @return Returns true if student has this course and false if hasn't.
      */
-    public boolean isHavingCourse(Course course) {
+    public boolean isAlreadyRegistered(Course course) {
         return courses.contains(course);
     }
     /**

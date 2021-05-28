@@ -1,14 +1,15 @@
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * @generated
  */
-public class News implements Cloneable{
+public class News implements Cloneable, Serializable {
 
     public News() {}
 
-    public News(Date date, String description, String title) {
-        this.date = date;
+    public News(String description, String title) {
         this.description = description;
         this.title = title;
     }
@@ -48,7 +49,7 @@ public class News implements Cloneable{
      * @generated
      */
 
-    private String getDescription() {
+    public String getDescription() {
         return this.description;
     }
 
@@ -74,21 +75,32 @@ public class News implements Cloneable{
         this.title = title;
     }
 
-    //                          Operations
-    public String showNews() {
-        StringBuilder s = new StringBuilder();
-        for (News n: Database.news) {
-            s.append(n).append("\n");
-        }
-        return s.toString();
-    }
-
-
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
     }
+
+    @Override
     public String toString() {
-        return "News: " + title + ", description: " + description;
+        return "Title: " + title + "\nDescription: " + description;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        News news = (News) o;
+
+        if (!Objects.equals(date, news.date)) return false;
+        if (!Objects.equals(description, news.description)) return false;
+        return Objects.equals(title, news.title);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = date != null ? date.hashCode() : 0;
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        return result;
+    }
 }

@@ -11,14 +11,18 @@ public class ManagerMenu {
         reader = bufReader;
         
         while (user.getIsLogged()) {
-        	System.out.println("\nWelcome, Manager: " + user.getFullName() + ""
+        	String welcomePage = "\nWelcome, Manager: " + user.getFullName() + ""
                     + "\n---------------------------------------"
                     + "\n1. Manage registration and courses"
                     + "\n2. View teachers and student info"
                     + "\n3. Change password"
 					+ "\n4. Send message"
 					+ "\n5. Read message"
-                    + "\n0. Logout");
+					+ "\n6. View news"
+					+ "\n7. Create news"
+                    + "\n0. Logout"
+					+ "\n---------------------------------------";
+        	System.out.println(welcomePage);
         	String choice = reader.readLine();
 			switch(choice) {
 				case "0"-> {
@@ -108,8 +112,7 @@ public class ManagerMenu {
 							String sort = """
 	
 									---------------------------------
-									1. By GPA
-									2. By name
+									1. By name
 									0. Cancel""";
 
 							System.out.println(sort);
@@ -117,7 +120,7 @@ public class ManagerMenu {
 							if (a.equals("0")) {
 								break;
 							}
-							else if (a.equals("2")) {
+							else if (a.equals("1")) {
 								System.out.println(Database.getStudentsListByName());
 							}
 							break;
@@ -136,9 +139,31 @@ public class ManagerMenu {
 					System.out.println("Message was sent");
 				}
 				case "5" -> System.out.println(manager.getMessage());
+				case "6" -> System.out.println(Database.getNews());
+				case "7" -> ManagerMenu.createNews();
 			}
         }
     }
+
+    public static void createNews() throws IOException {
+		try {
+			String title, description;
+			System.out.println("Enter Title: ");
+			title = reader.readLine();
+			System.out.println("Enter Description: ");
+			description = reader.readLine();
+			if (manager.addNews(new News(title, description))) {
+				System.out.println("\n[News was successfully created]");
+				Database.saveNews();
+			}
+			else {
+				System.out.println("\n[News creation disrupted. The similar course is already created]");
+			}
+		} catch (ExceptionInInitializerError exception) {
+			System.out.println("News creation disrupted\n");
+		}
+    }
+
     public static void createCourse() throws IOException{
     	try {
     		String code;
@@ -174,6 +199,7 @@ public class ManagerMenu {
 			System.out.println(teacher);
 			if (manager.addCourse(new Course(code, title, credits, faculty, teacher))) {
 				System.out.println("\n[Course was successfully created]");
+				Database.saveCourses();
 			}
 			else {
 				System.out.println("\n[Course creation disrupted. The similar course is already created]");

@@ -56,14 +56,10 @@ public abstract class User implements Serializable, Comparable<User> {
      */
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
+        return "id=" + id +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", isLogged=" + isLogged +
-                '}';
+                ", surname='" + surname + '\'';
     }
 
 
@@ -189,16 +185,6 @@ public abstract class User implements Serializable, Comparable<User> {
         this.isLogged = isLogged;
     }
 
-
-    //                          Operations
-    public boolean changePassword(String currentPassword, String newPassword) {
-        // TODO add hash
-        if (currentPassword.equals(this.password)) {
-            this.password = newPassword;
-            return true;
-        }
-        return false;
-    }
 
     /**
      * @generated

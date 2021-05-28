@@ -28,8 +28,8 @@ public class Course implements Serializable {
 	private int limitOfStudents;
 	private Teacher teacher;
 	/**
-	    * @generated
-	    */
+	 * @generated
+	 */
 	private HashSet<CourseFiles>courseFiles = new HashSet<>();
 	private Faculty faculty;
 	private HashSet<Course>prerequisites = new HashSet<>();
@@ -147,14 +147,6 @@ public class Course implements Serializable {
 		this.faculty = faculty;
 	}
 
-	public boolean addStudent(Student student) {
-		if (!students.contains(student)) {
-			students.add(student);
-			return true;
-		}
-		return false;
-	}
-
 	public Mark getMarkOfStudent(Student student){
 		return marks.get(student);
 	}
@@ -178,11 +170,9 @@ public class Course implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Course{" +
-				"code='" + code + '\'' +
-				", title='" + title + '\'' +
-				", credits=" + credits +
-				", teacher=" + teacher +
-				'}';
+		return "Course: " + "code = '" + code + '\'' +
+				", title = '" + title + '\'' +
+				", credits = " + credits +
+				", teacher = " + teacher;
 	}
 }

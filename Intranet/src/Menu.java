@@ -2,33 +2,31 @@ import java.io.*;
 
 public class Menu {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Database.getInstance();
         Database.loadUsers();
         Database.loadCourses();
-        // Database.getAdmins();
-        System.out.println(Database.getAdmins());
-        System.out.println(Database.getStudents());
-        System.out.println(Database.getTeachers());
-        System.out.println(Database.getLibrarians());
-        System.out.println(Database.getManagers());
-        System.out.println(Database.getCourses());
+        Database.loadNews();
         startSystem();
     }
-    public static void startSystem() throws IOException, ClassNotFoundException {
+    public static void startSystem() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             while (true) {
 
                 String welcomePage = """
-
-                        Welcome to Intranet!
+                         ___ _   _ _____ ____      _    _   _ _____ _____
+                        |_ _| \\ | |_   _|  _ \\    / \\  | \\ | | ____|_   _|
+                         | ||  \\| | | | | |_) |  / _ \\ |  \\| |  _|   | |
+                         | || |\\  | | | |  _ <  / ___ \\| |\\  | |___  | |
+                        |___|_| \\_| |_| |_| \\_\\/_/   \\_\\_| \\_|_____| |_|
+                        
                         1. Login
                         2. Exit""";
 
                 System.out.println(welcomePage);
                 String input = reader.readLine();
                 if (input.equals("1")) {
-                    // If the user object is found, then we let into the system
                     User user = menuLogin(reader);
                     if (user != null) {
                         while (user.getIsLogged()) {
@@ -39,26 +37,19 @@ public class Menu {
                             else if (user instanceof Librarian) LibrarianMenu.menu(user, reader);
                             else System.out.println("\nUsername or password incorrect. Please try again");
                         }
-//
-//
-//
-//                            else if (user instanceof ORManager)
-//                                ManagerController.menu(user, reader);
-//
-//                            else if (user instanceof TechSupportGuy)
-//                                SupportController.menu(user, reader);
                     } else {
-                        System.out.println("\n[Unknown type of user]");
+                        System.out.println("\nError");
                     }
                 } else if (input.equals("2")) {
-                    System.out.println("\n[System closed]");
+                    System.out.println("\nSystem closed");
                     break;
-                } else
-                    System.out.println("\n[Incorrect input format. Please choose available option]");
+                } else {
+                    System.out.println("\nIncorrect input format. Please choose available option");
+                }
             }
 
-        } finally {
-            System.exit(0);
+        } catch (IOException exception) {
+            System.out.println("Exception");
         }
     }
 
@@ -69,7 +60,9 @@ public class Menu {
         String password = reader.readLine();
         User user = Database.getUser(username);
         if (user != null) {
-            if (user.login(password)) return user;
+            if (user.login(password)) {
+                return user;
+            }
         }
         return null;
     }
@@ -80,19 +73,20 @@ public class Menu {
                 Please enter new password:\s
                 """);
         String password = reader.readLine();
-        System.out.print("Please repeat your new password: ");
+        System.out.println("Please repeat your new password: ");
         String repeatedPassword = reader.readLine();
         System.out.println(checkAndChangePassword(user, password, repeatedPassword));
     }
 
     public static String checkAndChangePassword(User user, String password, String repeatedPassword) {
-        if (password.equals(repeatedPassword)) {
-            if (!password.equals(user.getPassword())) {
+        if (password.hashCode() == (repeatedPassword.hashCode())) {
+            if (!(password.hashCode() == (user.getPassword().hashCode()))) {
                 user.setPassword(password);
-                return "[Password successfully changed]";
+                return "Password successfully changed";
             }
-            else
-                return "[This password is used now. Choose another]";
+            else {
+                return "This password is used now. Choose another";
+            }
         }
         return "Passwords does not matches each other";
     }

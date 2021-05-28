@@ -1,14 +1,15 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 public class Tester {
     public static void main(String[] args) throws Exception {
-        Student s1 = new Student("1", "Jack", "Back", 2, Faculty.FIT, Degree.BACHELOR);
-        Student s2 = new Student("2", "Bob", "KKK", 3, Faculty.MCM, Degree.BACHELOR);
-        Student s3 = new Student("3", "Mike", "Vaz", 4, Faculty.BS, Degree.BACHELOR);
-        Student s4 = new Student("4", "Brown", "Les", 1, Faculty.FIT, Degree.BACHELOR);
-
+//        Student s1 = new Student("1", "Jack", "Back", 2, Faculty.FIT, Degree.BACHELOR);
+//        Student s2 = new Student("2", "Bob", "KKK", 3, Faculty.MCM, Degree.BACHELOR);
+//        Student s3 = new Student("3", "Mike", "Vaz", 4, Faculty.BS, Degree.BACHELOR);
+//        Student s4 = new Student("4", "Brown", "Les", 1, Faculty.FIT, Degree.BACHELOR);
+//
         Teacher t1 = new Teacher("5","Alimzhan","Amanov", EmployeeTypes.EDUCATIONAL, AcademicDegree.LECTURER);
         Database.users.add(t1);
 //        s1.rateTeachers(t1, 4.0);
@@ -33,7 +34,7 @@ public class Tester {
         Admin a1 = new Admin("1", "Admin", "Admin", EmployeeTypes.ADMINISTRATION);
         Database.users.add(a1);
 //        Student s5 = new Student("5", "Jony", "TTT", 2, Faculty.FIT, Degree.BACHELOR);
-        Database.users.add(s1); Database.users.add(s2); Database.users.add(s3); Database.users.add(s4);
+//        Database.users.add(s1); Database.users.add(s2); Database.users.add(s3); Database.users.add(s4);
 //        Database.saveUsers();
 //        Database.loadUsers();
 //        Course c2 = new Course("CSCI11", "PP2", 4, Faculty.FIT, t1);
@@ -44,17 +45,26 @@ public class Tester {
 //        t1.setCourses(c2);
 //        s4.registerForCourse(c2);
 //        s4.registerForCourse(c1);
-        Teacher t2 = new Teacher("1", "Pakita", "Shamoi", EmployeeTypes.EDUCATIONAL, AcademicDegree.PROFESSOR);
+//        Teacher t2 = new Teacher("1", "Pakita", "Shamoi", EmployeeTypes.EDUCATIONAL, AcademicDegree.PROFESSOR);
 //        Course c3 = new Course("CSCI13", "OOP", 4, Faculty.FIT, t2);
 //        Database.courses.add(c3);
-        Librarian l1 = new Librarian("10","Ernazar","Dobby",EmployeeTypes.OTHER);
-        Manager m = new Manager("11","Manager","Manager",EmployeeTypes.MANAGEMENT);
-        Database.users.add(m);
-        Database.users.add(l1);
-        Database.users.add(t2);
-        t1.sentMessage("Hello", "Alimzhan", "1");
-        System.out.println(Database.getMessages());
-        System.out.println(t2.getMessage());
+//        Librarian l1 = new Librarian("10","Ernazar","Dobby",EmployeeTypes.OTHER);
+//        Manager m = new Manager("11","Manager","Manager",EmployeeTypes.MANAGEMENT);
+//        Database.users.add(m);
+//        Database.users.add(l1);
+//        Database.users.add(t2);
+//        t1.sentMessage("Hello", "Alimzhan", "1");
+//        System.out.println(Database.getMessages());
+//        System.out.println(t2.getMessage());
+//        Date today = new Date();
+        News n1 = new News("test", "test");
+        Database.news.add(n1);
+//        System.out.println(Database.getNews());
+        Database.saveNews();
+//        Database.loadNews();
+//        System.out.println(Database.getNews());
+//        System.out.println(Database.getNews());
+//        System.out.println(s1.viewNews());
 //        t1.setCourses(c1);
 //        t2.setCourses(c1);
 //        Database.users.add(t2);
@@ -98,8 +108,8 @@ public class Tester {
 //        System.out.println(Database.getStudents());
 //        System.out.println(Database.getAdmins());
 //        System.out.println(Database.getCourses());
-        Librarian l = new Librarian("1", "erna", "tolya", EmployeeTypes.OTHER);
-        Database.users.add(l);
+//        Librarian l = new Librarian("1", "erna", "tolya", EmployeeTypes.OTHER);
+//        Database.users.add(l);
         Database.saveUsers();
 //        Database.saveCourses();
 //        CourseFiles cf = new CourseFiles("Test", "test");
@@ -113,8 +123,10 @@ public class Tester {
 //        System.out.println(t1.getTeachingCourses());
 //        Database.courses.add(c2);
 //        Database.courses.add(c1);
+
         Database.saveCourses();
-        
+//        Database.loadUsers();
+//        System.out.println(Database.getAdmins());
 //        t2.setCourses(c1);
         
     }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
 * @generated
@@ -74,16 +75,40 @@ public class Librarian extends Employee {
 
     }
 
+    @Override
     public String getMessage() {
         StringBuilder ans = new StringBuilder();
-        int msgCount = 0;
+        int messageCount = 0;
         for (Message message : Database.messages) {
             if(message.getReceiver().equals(this.getUsername())) {
-                msgCount ++;
-                ans.append(msgCount).append(") Message for Librarian from: ").append(message.getSender()).append("\n    " +
-                        "Text: ").append(message.getBody()).append("\n\n");
+                messageCount++;
+                ans.append(messageCount).append(" Message for Librarian from: ").append(message.getSender()).append("\n    " +
+                        "Text: ").append(message.getBody()).append("\n");
             }
         }
         return ans.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        Librarian librarian = (Librarian) o;
+
+        return Objects.equals(books, librarian.books);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (books != null ? books.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Librarian: " + super.toString();
     }
 }

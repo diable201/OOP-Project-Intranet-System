@@ -16,8 +16,9 @@ public class AdminMenu {
                 + "\n3. View log files"
                 + "\n4. Send message"
                 + "\n5. Read message"
-                + "\n0. Logout";
-
+                + "\n6. View news"
+                + "\n0. Logout"
+                + "\n---------------------------------------";
         while (admin.getIsLogged()) {
             System.out.println(adminConsole);
             String option = reader.readLine();
@@ -25,6 +26,23 @@ public class AdminMenu {
                 case "0":
                     admin.logout();
                     System.out.println("\n[You logged out]");
+                    break;
+                case "4":
+                    System.out.println("Enter text: ");
+                    String body = reader.readLine();
+                    System.out.println("Enter your name: ");
+                    String sender = reader.readLine();
+                    System.out.println(Database.getEmployees());
+                    System.out.println("Enter employee id you want to message to: ");
+                    String receiver = reader.readLine();
+                    admin.sentMessage(body, sender, receiver);
+                    System.out.println("Message was sent");
+                    break;
+                case "5":
+                    System.out.println(admin.getMessage());
+                    break;
+                case "6":
+                    System.out.println(Database.getNews());
                     break;
                 case "1":
                     Menu.showMenuForChangePassword(user, reader);
@@ -51,6 +69,7 @@ public class AdminMenu {
                                         2. Teacher
                                         3. Manager
                                         4. Admin
+                                        5. Librarian
                                         0. Cancel""";
 
                                 System.out.println(userTypeInfo);
@@ -63,9 +82,10 @@ public class AdminMenu {
                                         || option.equals("3") || option.equals("4")
                                         || option.equals("5")) {
                                     AdminMenu.addUser(option);
+                                    break;
                                 }
                                 else {
-                                    System.out.println("\nPlease choose other option\n");
+                                    System.out.println("\nPlease choose other option");
                                 }
                                 break;
                             }
@@ -122,24 +142,8 @@ public class AdminMenu {
                         }
                         break;
                     }
-                case "4":
-                    System.out.println("Enter text: ");
-                    String body = reader.readLine();
-                    System.out.println("Enter your name: ");
-                    String sender = reader.readLine();
-                    System.out.println(Database.getEmployees());
-                    System.out.println("Enter employee id you want to message to: ");
-                    String receiver = reader.readLine();
-                    admin.sentMessage(body, sender, receiver);
-                    System.out.println("Message was sent");
-                case "5":
-                    System.out.println(admin.getMessage());
                 default:
                     break;
-                    // TODO log files
-//                case "2":
-//                    Views.showLogs(Database.logFiles);
-//                    break;
             }
         }
     }
@@ -217,6 +221,7 @@ public class AdminMenu {
                 }
                 case "3" -> user = new Manager(id, name, surname, EmployeeTypes.MANAGEMENT);
                 case "4" -> user = new Admin(id, name, surname, EmployeeTypes.ADMINISTRATION);
+                case "5" -> user = new Librarian(id, name, surname, EmployeeTypes.OTHER);
             }
             if (admin.addUser(user)) {
                 Database.saveUsers();
@@ -226,7 +231,7 @@ public class AdminMenu {
                 System.out.println("Error. There is a user with the same username.");
             }
         } catch (IOException|NumberFormatException|NullPointerException exception) {
-            System.out.println("Something bad happened. Please, try again.");
+            System.out.println("Something bad happened");
         }
     }
 }

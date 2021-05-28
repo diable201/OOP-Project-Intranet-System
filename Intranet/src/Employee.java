@@ -42,11 +42,11 @@ public abstract class Employee extends User implements Messageable {
 
     public String getMessage() {
         StringBuilder ans = new StringBuilder();
-        int msgCount = 0;
+        int messageCount = 0;
         for (Message message : Database.messages) {
             if(message.getReceiver().equals(this.getId())) {
-                msgCount ++;
-                ans.append(msgCount).append(") Message from: ").append(message.getSender()).append("\n    " +
+                messageCount++;
+                ans.append(messageCount).append("Message from: ").append(message.getSender()).append("\n    " +
                         "Title: ").append(message.getIsRead()).append("\n    " +
                         "Text: ").append(message.getBody()).append("\n\n");
             }
@@ -64,9 +64,6 @@ public abstract class Employee extends User implements Messageable {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                super.toString() +
-                "department=" + department +
-                '}';
+        return super.toString() + "department = " + department;
     }
 }

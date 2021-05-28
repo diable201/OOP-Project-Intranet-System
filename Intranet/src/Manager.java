@@ -6,7 +6,6 @@ import java.util.Collections;
  * Manager is employee who manages all users.
  */
 public class Manager extends Employee {
-
     /**
      * ArrayList of all courses.
      */
@@ -32,9 +31,8 @@ public class Manager extends Employee {
     }
 
     public Manager() {
-
+        super();
     }
-
 
     /**
      * Returns all courses.
@@ -101,11 +99,6 @@ public class Manager extends Employee {
 
 
     //                          Operations
-
-
-//    public createStatisticalReport() {
-//        //TODO
-//    }
     /**
      * Add course to courses.
      * @param course - Course object which need to be added
@@ -166,16 +159,25 @@ public class Manager extends Employee {
     }
     
     public void extendRegistration() {
-        if(!Database.registrationIsOpen) {
+        if (!Database.registrationIsOpen) {
             Database.registrationIsOpen = true;
         }
     }
     /**
      * Add news.
-     * @param n - object of News class which need to be added.
+     * @param news - object of News class which need to be added.
      */
-    public void addNews(News n) {
-        news.add(n);
+    public boolean addNews(News news) {
+        if (news != null) {
+            for (News newsIter: Database.news)
+                if (newsIter.getTitle().equals(news.getTitle()) &&
+                        newsIter.getDescription().equals(news.getDescription()))
+                    return false;
+            Database.news.add(news);
+
+//            Database.logFiles.add(new LogFile(LogType.COURSE_CREATED));
+        }
+        return true;
     }
     /**
      *Update description of particular news.
@@ -223,17 +225,10 @@ public class Manager extends Employee {
         Collections.sort(students, new SortStudentByName());
         return students;
     }
-    
-    public ArrayList<Student>viewStudentsByGPA(Course course) {
-        Collections.sort(students, new SortStudentByGpa(course));
-        return students;
-    }
-    
+
     @Override
     public String toString() {
-        return "Manager{" +
-                super.toString() +
-                '}';
+        return "Manager: " + super.toString();
     }
 
     public void sentMessage() {
