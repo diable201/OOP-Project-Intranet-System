@@ -8,7 +8,7 @@ public class StudentMenu {
 
         student = (Student)user;
         reader = bufReader;
-        String studentHomePage  = "\nWelcome, Student: " + student.getFullName() + "]"
+        String studentHomePage  = "\nWelcome, Student: " + student.getFullName() + ""
                 + "\n---------------------------------------"
                 + "\n1. View my courses info/files"
                 + "\n2. Manage registration for courses"
@@ -38,17 +38,18 @@ public class StudentMenu {
                             System.out.println(menuCoursesInfo);
                             System.out.println(student.getCourses());
                             choice = reader.readLine();
-                            if (choice.equals("0"))
+                            if (choice.equals("0")) {
                                 break;
+                            }
                             else if (choice.equals("1")) {
                                 StudentMenu.checkCourseFiles();
+                            } else {
+                                System.out.println("\nPlease choose other option\n");
+                            }
 
-                            } else
-                                System.out.println("\n[Incorrect input format. Please choose available option]\n");
                         }
                     else {
-                        System.out.println("[There are no any registered courses yet]");
-
+                        System.out.println("There are no any registered courses");
                     }
                     break;
 
@@ -67,12 +68,13 @@ public class StudentMenu {
                                 if (choice.equals("0"))
                                     break;
 
-                                else if (choice.equals("1") || choice.equals("2")) {
+                                else if (choice.equals("1")) {
                                     StudentMenu.processCourseRegistrationOptions(choice);
-                                } else
-                                    System.out.println("\n[Incorrect input format. Please choose available option]\n");
+                                } else {
+                                    System.out.println("\nPlease choose other option\n");
+                                }
                             } else {
-                                System.out.println("[There are no any courses available for registration yet. Please wait, they will be added by manager very soon ]");
+                                System.out.println("There are no any courses available for registration");
                                 break;
                             }
                         }
@@ -113,15 +115,13 @@ public class StudentMenu {
 
             if (option.equals("1"))
                 if (student.registerForCourse(Database.getCourse(courseId))) {
-                    System.out.println("[Successfully added to registration]\n");
+                    System.out.println("Successfully added to registration\n");
                 }
                 else {
-                    System.out.println("[Incorrect course ID, course is full or you are already registered for this course]\n");
+                    System.out.println("Incorrect course code or you are already registered\n");
                 }
-        } catch (NumberFormatException exception) {
-            System.out.println("[Incorrect input format. Please enter ID number]\n");
-        } catch (NullPointerException exception) {
-            System.out.println("[Incorrect ID number]\n");
+        } catch (NumberFormatException|NullPointerException  exception) {
+            System.out.println("Error\n");
         }
     }
 
@@ -130,7 +130,7 @@ public class StudentMenu {
             System.out.print("\nPlease enter ID of course from the list: ");
             String courseId = reader.readLine();
             Course course = Database.getCourse(courseId);
-            if (student.isHavingCourse(course)) {
+            if (student.isAlreadyRegistered(course)) {
                 assert course != null;
                 System.out.println(student.viewCourseFiles(course));
             } else {
