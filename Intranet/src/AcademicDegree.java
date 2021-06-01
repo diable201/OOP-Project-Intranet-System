@@ -1,6 +1,6 @@
 public enum AcademicDegree {
-	PROFESSOR,
-	LECTURER,
-	ASSISTANT,
-	SENIOR_LECTURER
+    PROFESSOR,
+    LECTURER,
+    ASSISTANT,
+    SENIOR_LECTURER
 }

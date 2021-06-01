@@ -1,6 +1,6 @@
 public enum OrderStatus {
-	NEW,
-	ACCEPTED,
-	REJECTED,
-	DONE
+    NEW,
+    ACCEPTED,
+    REJECTED,
+    DONE
 }

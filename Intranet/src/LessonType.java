@@ -1,5 +1,5 @@
 public enum LessonType {
-	LECTURE,
-	LABORATORY,
-	PRACTICE
+    LECTURE,
+    LABORATORY,
+    PRACTICE
 }

@@ -292,7 +292,7 @@ public class Student extends User {
     }
 
 
-//    //                          Operations
+//                              Operations
 //
 //    public viewTeachersInfo() {
 //        //TODO
@@ -304,15 +304,7 @@ public class Student extends User {
 //        //TODO
 //    }
 //    /**
-//     * @generated
-//     */
-//    /**
-//     * @generated
-//     */
-
-
 //    public sendRequestToLibrary() {
 //        //TODO
 //    }
-
 }

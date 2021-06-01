@@ -8,17 +8,17 @@ public class Message {
     * @generated
     */
     private String body;
-    
+
     /**
     * @generated
     */
     private String sender;
-    
+
     /**
     * @generated
     */
     private String receiver;
-    
+
     /**
     * @generated
     */
@@ -31,63 +31,63 @@ public class Message {
         this.sender = sender;
         this.receiver = receiver;
     }
-    
+
     /**
     * @generated
     */
     public String getBody() {
         return this.body;
     }
-    
+
     /**
     * @generated
     */
     public void setBody(String body) {
         this.body = body;
     }
-    
+
     /**
     * @generated
     */
     public String getSender() {
         return this.sender;
     }
-    
+
     /**
     * @generated
     */
     public void setSender(String sender) {
         this.sender = sender;
     }
-    
+
     /**
     * @generated
     */
     public String getReceiver() {
         return this.receiver;
     }
-    
+
     /**
     * @generated
     */
     public void setReceiver(String receiver) {
         this.receiver = receiver;
     }
-    
+
     /**
     * @generated
     */
     public Boolean getIsRead() {
         return this.isRead;
     }
-    
+
     /**
     * @generated
     */
     public void setIsRead(Boolean isRead) {
         this.isRead = isRead;
     }
-    
+
 
     @Override
     public boolean equals(Object o) {

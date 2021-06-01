@@ -85,7 +85,6 @@ public class StudentMenu {
                     break;
                 case "3":
                     student.viewTranscript();
-
                     break;
                 case "4":
                     Menu.showMenuForChangePassword(user, reader);

@@ -1,5 +1,5 @@
 public enum Degree {
-	BACHELOR,
-	MASTER,
-	PHD
+    BACHELOR,
+    MASTER,
+    PHD
 }

@@ -27,7 +27,7 @@ public class Librarian extends Employee {
     public void setBooks(ArrayList <Book> books) {
         this.books = books;
     }
-    
+
     public static ArrayList <Order> getOrders() {
         return Librarian.orders;
     }
@@ -35,11 +35,11 @@ public class Librarian extends Employee {
     public static void setOrders(ArrayList <Order> orders) {
         Librarian.orders = orders;
     }
-    
+
     public static void addOrder(Order order) {
         Librarian.orders.add(order);
     }
-    
+
     public Book getBookById(Integer id) {
     	for (Book b : books) {
     		if (b.getId().equals(id))
@@ -48,7 +48,7 @@ public class Librarian extends Employee {
     	return null;
     }
 
-    //                          Operations                                  
+    //                          Operations
 
     public void addBooks(Book book) {
     	books.add(book);
@@ -60,7 +60,7 @@ public class Librarian extends Employee {
     	}
     	return false;
     }
-  
+
     public void checkRequest(Order order) {
     	if (books.contains(order.getBook())) {
             order.setStatus(OrderStatus.ACCEPTED);

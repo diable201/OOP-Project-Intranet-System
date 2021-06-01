@@ -8,7 +8,7 @@ import java.util.Collections;
  * Only exists in one copy.
  */
 public class Database implements Serializable {
-    
+
     /**
     * ArrayList which contains all users.
     */
@@ -33,7 +33,7 @@ public class Database implements Serializable {
      * boolean value of status of registration.
      */
     protected static boolean registrationIsOpen = true;
-    
+
     protected static String getKeyword() {
         return "Test";
     }

@@ -1,5 +1,5 @@
 public enum Faculty {
-	FIT,
-	BS,
-	MCM
+    FIT,
+    BS,
+    MCM
 }

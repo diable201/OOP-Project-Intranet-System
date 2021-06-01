@@ -20,12 +20,12 @@ public class Manager extends Employee {
      * ArrayList of all students.
      */
     private ArrayList <Student> students;
-    
+
     /**
      * ArrayList of all news.
      */
     private ArrayList <News> news;
-    
+
     public Manager(String id, String name, String surname, EmployeeTypes department) {
         super(id, name, surname, department);
     }
@@ -120,7 +120,6 @@ public class Manager extends Employee {
      * @param course - Course object which need to be deleted
      */
     public void deleteCourse(Course course) {
-//        courses.remove(course);
         Database.courses.remove(course);
     }
     /**
@@ -157,7 +156,7 @@ public class Manager extends Employee {
     public boolean getRegistration() {
     	return Database.registrationIsOpen;
     }
-    
+
     public void extendRegistration() {
         if (!Database.registrationIsOpen) {
             Database.registrationIsOpen = true;
@@ -239,7 +238,7 @@ public class Manager extends Employee {
         StringBuilder ans = new StringBuilder();
         int messageCounter = 0;
         for (Message message : Database.messages) {
-            if(message.getReceiver().equals(this.getId())) {
+            if (message.getReceiver().equals(this.getId())) {
                 messageCounter++;
                 ans.append(messageCounter).append(") Message for Admin from: ").append(message.getSender()).append("\n" +
                         "Text: ").append(message.getBody()).append("\n");
