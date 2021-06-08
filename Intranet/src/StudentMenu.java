@@ -28,7 +28,7 @@ public class StudentMenu {
                     System.out.println("\n[You logged out]");
                     break;
                 case "1":
-                    if (student.getCourses().size() >= 1)
+                    if (student.getCourses().size() >= 1) {
                         while (true) {
                             String menuCoursesInfo = """
 
@@ -40,19 +40,17 @@ public class StudentMenu {
                             choice = reader.readLine();
                             if (choice.equals("0")) {
                                 break;
-                            }
-                            else if (choice.equals("1")) {
+                            } else if (choice.equals("1")) {
                                 StudentMenu.checkCourseFiles();
                             } else {
-                                System.out.println("\nPlease choose other option\n");
+                                System.out.println("\nPlease choose other option");
                             }
-
                         }
+                    }
                     else {
                         System.out.println("There are no any registered courses");
                     }
                     break;
-
                 case "2":
                     if (Database.registrationIsOpen)
                         while (true) {
@@ -65,20 +63,19 @@ public class StudentMenu {
 
                                 System.out.println(manageRegistrationMenu);
                                 choice = reader.readLine();
-                                if (choice.equals("0"))
+                                if (choice.equals("0")) {
                                     break;
-
+                                }
                                 else if (choice.equals("1")) {
                                     StudentMenu.processCourseRegistrationOptions(choice);
                                 } else {
-                                    System.out.println("\nPlease choose other option\n");
+                                    System.out.println("\nPlease choose other option");
                                 }
                             } else {
                                 System.out.println("There are no any courses available for registration");
                                 break;
                             }
                         }
-
                     else {
                         System.out.println("[Registration for courses is closed]");
                     }
@@ -103,6 +100,7 @@ public class StudentMenu {
                     break;
                 case "6":
                     System.out.println(Database.getNews());
+                    break;
             }
         }
     }
@@ -111,7 +109,6 @@ public class StudentMenu {
         try {
             System.out.print("\nPlease enter ID of course from the list: ");
             String courseId =  reader.readLine();
-
             if (option.equals("1"))
                 if (student.registerForCourse(Database.getCourse(courseId))) {
                     System.out.println("Successfully added to registration\n");

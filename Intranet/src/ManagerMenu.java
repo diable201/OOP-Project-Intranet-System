@@ -74,7 +74,6 @@ public class ManagerMenu {
                                 }
                                 else {
                                     String actionsWithClosedRegistration = """
-        
                                             ---------------------------------
                                             1. Open registration
                                             0. Cancel""";
@@ -157,10 +156,10 @@ public class ManagerMenu {
                 Database.saveNews();
             }
             else {
-                System.out.println("\n[News creation disrupted. The similar course is already created]");
+                System.out.println("News creation disrupted. The similar news is already created");
             }
         } catch (ExceptionInInitializerError exception) {
-            System.out.println("News creation disrupted\n");
+            System.out.println("News creation disrupted");
         }
     }
 
@@ -205,7 +204,7 @@ public class ManagerMenu {
                 System.out.println("\n[Course creation disrupted. The similar course is already created]");
             }
         } catch (ExceptionInInitializerError exception) {
-            System.out.println("[Course creation disrupted]\n");
+            System.out.println("Course creation disrupted");
         }
     }
 }

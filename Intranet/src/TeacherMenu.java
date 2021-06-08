@@ -91,7 +91,7 @@ public class TeacherMenu {
             String choice = reader.readLine();
             Course course = Database.getCourse(choice);
             label:
-            while(true) {
+            while (true) {
                 
                 System.out.println("""
                         1. Add file
@@ -117,10 +117,12 @@ public class TeacherMenu {
                         String inputName = reader.readLine();
 
                         assert course != null;
-                        if (teacher.deleteFiles(course, course.getFile(inputName)))
+                        if (teacher.deleteFiles(course, course.getFile(inputName))) {
                             System.out.println("File was deleted");
-                        else
+                        }
+                        else {
                             System.out.println("File with that name doesn't exist");
+                        }
                         break;
                     case "0":
                         break label;
@@ -153,7 +155,7 @@ public class TeacherMenu {
                     String input = reader.readLine();
                     Student student = Database.getStudent(input);
                     assert course != null;
-                    if(course.getStudents().contains(student)) {
+                    if (course.getStudents().contains(student)) {
                         assert student != null;
                         System.out.println("Student: " + student.getFullName() +"\n");
                         System.out.println("""

@@ -36,10 +36,11 @@ public class Admin extends Employee {
     * @generated
     */
     public boolean addUser(User u) {
-        for (User user: Database.users)
+        for (User user: Database.users) {
             if (user.getUsername().equals(u.getUsername())) {
                 return false;
             }
+        }
         Database.users.add(u);
         return true;
     }

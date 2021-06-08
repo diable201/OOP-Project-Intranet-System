@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 /**
  * Manager is employee who manages all users.
  */
@@ -198,7 +197,7 @@ public class Manager extends Employee {
      * @return Return ArrayList of teachers sorted in alphabetic order.
      */
     public ArrayList <Teacher> viewTeachersInAlphabeticOrder() {
-        Collections.sort(teachers, new SortTeacherByName());
+        teachers.sort(new SortTeacherByName());
         return teachers;
     }
     /**

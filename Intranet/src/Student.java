@@ -1,3 +1,4 @@
+import java.io.Serial;
 import java.util.*;
 
 
@@ -6,11 +7,6 @@ import java.util.*;
  * @extends User
  */
 public class Student extends User {
-
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 2500835407927764942L;
 
     /**
      * @generated
@@ -147,7 +143,7 @@ public class Student extends User {
         this.totalCredits = totalCredits;
     }
     /**
-     * Equals metod to compare.
+     * Equals method to compare.
      * @param o - Object object which we compare.
      * @return Returns true if objects are equal and false if not.
      */
@@ -272,7 +268,7 @@ public class Student extends User {
         return courses.contains(course);
     }
     /**
-     * Get courses for registartion.
+     * Get courses for registration.
      * @return Returns ArrayList of courses, available for registration.
      */
     public ArrayList<Course> getCoursesForRegistration() {
@@ -290,21 +286,4 @@ public class Student extends User {
     public void setCourses(Course course) {
         courses.add(course);
     }
-
-
-//                              Operations
-//
-//    public viewTeachersInfo() {
-//        //TODO
-//    }
-//    /**
-//     * @generated
-//     */
-//    public getTranscript() {
-//        //TODO
-//    }
-//    /**
-//    public sendRequestToLibrary() {
-//        //TODO
-//    }
 }

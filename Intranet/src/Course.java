@@ -30,13 +30,13 @@ public class Course implements Serializable {
     /**
      * @generated
      */
-    private HashSet<CourseFiles>courseFiles = new HashSet<>();
+    private HashSet<CourseFiles> courseFiles = new HashSet<>();
     private Faculty faculty;
-    private HashSet<Course>prerequisites = new HashSet<>();
-    private ArrayList<Student>students = new ArrayList<>();
-    private ArrayList<Teacher>teachers = new ArrayList<>();
-    private HashMap<Student, Mark>marks = new HashMap<>();
-    private ArrayList<Lesson>lessons = new ArrayList<>();
+    private HashSet<Course> prerequisites = new HashSet<>();
+    private ArrayList<Student> students = new ArrayList<>();
+    private ArrayList<Teacher> teachers = new ArrayList<>();
+    private HashMap<Student, Mark> marks = new HashMap<>();
+    private ArrayList<Lesson> lessons = new ArrayList<>();
 
     /**
     * @generated

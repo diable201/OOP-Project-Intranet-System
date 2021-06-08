@@ -38,7 +38,7 @@ public class LibrarianMenu {
                     break;
                 case "0":
                     librarian.logout();
-                    System.out.println("\n[You logged out]");
+                    System.out.println("\nYou logged out");
                     break;
                 case "1":
                     Menu.showMenuForChangePassword(user, reader);

@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Base64;
-import java.util.Collections;
+
 /**
  * Database is a storage of all objects: users, courses, etc.
  * Only exists in one copy.
@@ -97,14 +97,14 @@ public class Database implements Serializable {
      * @return Returns ArrayList of all students ordered by name.
      */
     public static ArrayList<Student> getStudentsListByName() {
-    	ArrayList<Student> s = new ArrayList<Student>();
+    	ArrayList<Student> s = new ArrayList<>();
         for (User user: users) {
             if (user instanceof Student) {
                 Student student = (Student) user;
                 s.add(student);
             }
         }
-        Collections.sort(s, new SortStudentByName());
+        s.sort(new SortStudentByName());
         return s;
     }
     /**
@@ -329,14 +329,12 @@ public class Database implements Serializable {
      * @param code - code of course
      */
     public static void deleteCourse(String code) {
-        for (Course course: courses)
-            if (course.getCode().equals(code))
-                courses.remove(course);
+        courses.removeIf(course -> course.getCode().equals(code));
     }
 
     /**
      * Get user with particular username.
-     * @return Returns User object with partucular username.
+     * @return Returns User object with particular username.
      * @param username - username of user
      */
     public static User getUser(String username) {
@@ -347,7 +345,7 @@ public class Database implements Serializable {
     }
     /**
      * Get student with particular id.
-     * @return Returns Student object with partucular id.
+     * @return Returns Student object with particular id.
      * @param id - id of student
      */
     public static Student getStudent(String id) {
@@ -376,7 +374,7 @@ public class Database implements Serializable {
 
     /**
      * Get teacher with particular id.
-     * @return Returns Teacher object with partucular id.
+     * @return Returns Teacher object with particular id.
      * @param id - id of teacher
      */
     public static Teacher getTeacher(String id) {
