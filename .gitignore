@@ -23,6 +23,7 @@
 hs_err_pid*
 
 # Other
+*.dat
 .DS_Store
 .vscode/*
 !.vscode/settings.json
