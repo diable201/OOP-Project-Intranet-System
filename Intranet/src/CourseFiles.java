@@ -3,7 +3,7 @@ import java.util.Objects;
 /**
 * @generated
 */
-public class CourseFiles implements Cloneable{
+public class CourseFiles implements Cloneable {
     
     /**
     * @generated
