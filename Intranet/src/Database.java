@@ -378,10 +378,10 @@ public class Database implements Serializable {
      * @param id - id of teacher
      */
     public static Teacher getTeacher(String id) {
-        for(User user: users) {
+        for (User user: users) {
             if (user instanceof Teacher) {
                 Teacher st = (Teacher) user;
-                if(st.getId().equals(id)) {
+                if (st.getId().equals(id)) {
                     return st;
                 }
             }
