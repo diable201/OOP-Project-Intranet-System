@@ -11,8 +11,7 @@ public class Course implements Serializable {
     /**
     * @generated
     */
-    public Course() {
-    }
+    public Course() {}
 
     public Course(String code, String title, int credits, Faculty faculty, Teacher teacher) {
         this.code = code;
@@ -64,6 +63,7 @@ public class Course implements Serializable {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
+
     public Teacher getTeacher() {
         return teacher;
     }
