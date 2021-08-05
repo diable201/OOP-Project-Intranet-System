@@ -5,8 +5,7 @@ import java.util.Objects;
 * @generated
 */
 public class Librarian extends Employee {
-	private static final long serialVersionUID = 1L;
-	/**
+    /**
     * @generated
     */
     private ArrayList<Book> books = new  ArrayList<Book>();
@@ -41,32 +40,32 @@ public class Librarian extends Employee {
     }
 
     public Book getBookById(Integer id) {
-    	for (Book b : books) {
-    		if (b.getId().equals(id))
-    			return b;
-    	}
-    	return null;
+        for (Book b : books) {
+            if (b.getId().equals(id))
+                return b;
+        }
+        return null;
     }
 
     //                          Operations
 
     public void addBooks(Book book) {
-    	books.add(book);
+        books.add(book);
     }
 
     public boolean deleteBooks(Book book) {
-    	if (books.contains(book)) {
-        return books.remove(book);
-    	}
-    	return false;
+        if (books.contains(book)) {
+            return books.remove(book);
+        }
+        return false;
     }
 
     public void checkRequest(Order order) {
-    	if (books.contains(order.getBook())) {
+        if (books.contains(order.getBook())) {
             order.setStatus(OrderStatus.ACCEPTED);
         }
-    	else {
-    	    order.setStatus(OrderStatus.REJECTED);
+        else {
+            order.setStatus(OrderStatus.REJECTED);
         }
         orders.add(order);
     }
